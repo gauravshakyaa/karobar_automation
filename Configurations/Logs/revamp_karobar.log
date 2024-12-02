@@ -1,0 +1,6 @@
+2024-12-01 16:13:52,730 - INFO - this is
+2024-12-01 16:13:54,270 - INFO - Sending keys by name with locator 'phoneNumber
+2024-12-01 16:13:55,404 - INFO - Clicking an element by xpath with locator '//button[@type='submit']'
+2024-12-01 16:21:12,674 - INFO - this is
+2024-12-01 16:21:13,777 - INFO - Sending keys by name with locator 'phoneNumber
+2024-12-01 16:21:14,922 - INFO - Clicking an element by xpath with locator '//button[@type='submit']'
