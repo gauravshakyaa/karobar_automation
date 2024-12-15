@@ -22,5 +22,5 @@ class ReadConfig:
 
     @staticmethod
     def getBrowser():
-        browser = config.get("Basic Info", "browser")
+        browser = config.get("Basic Info", "chrome")
         return browser

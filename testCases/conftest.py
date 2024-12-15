@@ -16,31 +16,34 @@ import allure
 # from utilities.URLs import URLs
 from utilities.customLogger import setup_logging
 from utilities.readProperties import ReadConfig
+from pageObjects.LoginPage import LoginPage
 
 setup_logging()
 
 @pytest.fixture()
 def setup():
-    global driver
     clean_allure_results()
-    # browser = ReadConfig.getBrowser()
-    browser = "chrome"
+    browser = ReadConfig.getBrowser()
 
     if browser.__eq__("chrome"):
         driver = webdriver.Chrome()
-    if browser.__eq__("edge"):
+    elif browser.__eq__("edge"):
         driver = webdriver.Edge()
-    if browser.__eq__("firefox"):
+    elif browser.__eq__("firefox"):
         driver = webdriver.Firefox()
-    if browser.__eq__("safari"):
+    elif browser.__eq__("safari"):
         driver = webdriver.Safari()
-    time.sleep(1)
+    else:
+        raise ValueError(f"Unsupported browser: {browser}")
     driver.get(f"{ReadConfig.getURL()}")
     driver.maximize_window()
-    time.sleep(1)
-
     yield driver
     driver.quit()
+
+@pytest.fixture()
+def nav_to_dashboard(driver):
+    LoginPage.setPhoneNumber(driver, "9860725577")
+    LoginPage.clickContinueButton()
 
 def headless_chrome():
     from selenium.webdriver.chrome.service import Service
