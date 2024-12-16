@@ -22,6 +22,7 @@ setup_logging()
 
 @pytest.fixture()
 def setup():
+    global driver
     clean_allure_results()
     browser = ReadConfig.getBrowser()
 
@@ -37,13 +38,15 @@ def setup():
         raise ValueError(f"Unsupported browser: {browser}")
     driver.get(f"{ReadConfig.getURL()}")
     driver.maximize_window()
+    time.sleep(5)
     yield driver
     driver.quit()
 
 @pytest.fixture()
-def nav_to_dashboard(driver):
-    LoginPage.setPhoneNumber(driver, "9860725577")
-    LoginPage.clickContinueButton()
+def nav_to_dashboard(setup):
+    login_page =  LoginPage(driver)
+    login_page.setPhoneNumber("9860725577")
+    login_page.clickContinueButton()
 
 def headless_chrome():
     from selenium.webdriver.chrome.service import Service

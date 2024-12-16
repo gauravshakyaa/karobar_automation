@@ -1,5 +1,5 @@
 
-class test_end_to_end:
+class Test_End_to_End:
 
-    def test_end_to_end(nav_to_dashboard):
-        print()
+    def test_end_to_end(setup, nav_to_dashboard):
+        driver = setup

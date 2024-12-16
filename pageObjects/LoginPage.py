@@ -16,8 +16,8 @@ class LoginPage:
         self.driver = driver
 
     def setPhoneNumber(self, number):
-        conftest.clearInputField(self.driver, locator=self.textfield_phoneNumber_name, by=By.NAME)
-        conftest.sendKeys(self.driver, locator=self.textfield_phoneNumber_name, value=number, by=By.NAME)
+        conftest.clearInputField(driver=self.driver, locator=self.textfield_phoneNumber_name, by=By.NAME)
+        conftest.sendKeys(driver=self.driver, locator=self.textfield_phoneNumber_name, value=number, by=By.NAME)
     
     def clickContinueButton(self):
         conftest.clickElement(self.driver, self.button_continue_xpath)
