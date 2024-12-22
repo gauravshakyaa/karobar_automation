@@ -28,6 +28,10 @@
 # element.clear()
 # time.sleep(2)
 # driver.quit()
+import requests
+import os
+
+
 def Sudoku_add_and_copy():
   def print_sudoku(numbers: list):
     for number in range(len(numbers)):
@@ -307,4 +311,4 @@ def oldest_person_2():
   older = older_people(people, 1979)
   print(older)
 
-oldest_person_2()
+# oldest_person_2()

@@ -1,5 +1,7 @@
+from testCases import conftest
 
-class Test_End_to_End:
-
-    def test_end_to_end(setup, nav_to_dashboard):
+class Test_end_to_end:
+    def test_end_to_end(self, setup, nav_to_dashboard):
         driver = setup
+        
+        
