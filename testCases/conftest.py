@@ -35,6 +35,7 @@ def setup():
         raise ValueError(f"Unsupported browser: {browser}")
     driver.get(f"{ReadConfig.getURL()}")
     driver.maximize_window()
+    
     time.sleep(5)
     yield driver
     logging.info("All driver quited.")
@@ -123,3 +124,9 @@ def waitForElement(driver, locator, by=By.XPATH, condition="clickable", timeout=
     except Exception as e:
         print(f"Error while waiting for element: {e}")
         raise
+
+
+def isElementPresent(driver: WebDriver, locator, by=By.XPATH): 
+    try:
+        driver.fi
+        

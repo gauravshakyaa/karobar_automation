@@ -24,6 +24,7 @@ class Test_001_Sales:
         if text == 'Invalid phone number format':
             assert True
             self.driver.close()
+            
         else:
             allure.attach(self.driver.get_screenshot_as_png, name="testLoginScreen", attachment_type=AttachmentType.PNG)
             self.driver.close()
