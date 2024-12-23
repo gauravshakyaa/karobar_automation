@@ -125,8 +125,6 @@ def waitForElement(driver, locator, by=By.XPATH, condition="clickable", timeout=
         print(f"Error while waiting for element: {e}")
         raise
 
-
-def isElementPresent(driver: WebDriver, locator, by=By.XPATH): 
-    try:
-        driver.fi
+def isElementPresent(driver: webdriver, locator, by=By.XPATH): 
+    pass
         

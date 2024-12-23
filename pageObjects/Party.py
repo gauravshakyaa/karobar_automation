@@ -25,6 +25,9 @@ class Party:
     button_saveParty_xpath = "//div[@role='dialog']//span[normalize-space()='Save Party']"
     button_saveAndNewPartyw_xpath = "//div[@role='dialog']//span[normalize-space()='Save & New']"
     
+    button_addParty_xpath = "//button[normalize-space()='Add Party']"
+    button_addNewFirstParty_xpath = "//button[normalize-space()='Add New Party']"
+
     def __init__(self, driver):
         self.driver = driver
         
@@ -46,45 +49,60 @@ class Party:
             conftest.click(self, self.button_toReceiveBalanceStatus_xpath, By.XPATH)
         elif balanceType.lower() == "To Give":
             conftest.click(self, self.button_toGiveBalanceStatus_xpath, By.XPATH)
-        
+        else:
+            raise Exception("Invalid balance type")
+
     def setDate(self, day, month, year):
         month_mapping = {
         "baisakh": 1,
         "jestha": 2,
-        "ashad": 3,
+        "asar": 3,
         "shrawan": 4,
         "bhadra": 5,
-        "ashwin": 6,
+        "aswin": 6,
         "kartik": 7,
         "mangsir": 8,
         "poush": 9,
         "magh": 10,
         "falgun": 11,
         "chaitra": 12,
-}
+        }
         conftest.click(self, self.datePicker_date_xpath, By.XPATH)
         # Locator of current month and year
         current_monthAndYear_element = "//div[@class='text-14 text-default font-medium']"
         
-        # Element to select the day as passed in the argument
-        day_element = f"//span[@class='cursor-pointer rounded-3 flex items-center justify-center w-full aspect-square relative overflow-hidden p-0 font-normal text-center text-14'][normalize-space()='{day}']"
-        
         # Element to get the text of the current month and year
         monthAndYear = conftest.findElement(self, current_monthAndYear_element, By.XPATH).text
-        
+
         # Assigns current month and year to variables
+        # Store month and year in string format
         current_month, current_year = monthAndYear.split()
         
         # Locator of arrow button to change the month
         previuosMonth_xpath = "//button[@class='group rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft disabled:cursor-not-allowed bg-transparent hover:bg-surface active:bg-surface-hover font-medium text-16 absolute left-1 text-icon-active rounded-3 flex items-center justify-center h-9 w-9 p-0']"
         nextMonth_xpath = "//button[@class='group rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft disabled:cursor-not-allowed bg-transparent hover:bg-surface active:bg-surface-hover font-medium text-16 absolute right-1 text-icon-active rounded-3 flex items-center justify-center h-9 w-9 p-0']"
         while True:
-            if year == current_year:
+            if str(year) == current_year:
                 break
-            elif year < current_year:
+            elif str(year) < current_year:
                 conftest.clickElement(self, previuosMonth_xpath)
             else:
                 conftest.clickElement(self, nextMonth_xpath)
+        
+        current_month_value = month_mapping[current_month.lower()]
+        while True:
+            if month >=1 and month <= 12:
+                if current_month_value == month:
+                    break
+                elif current_month_value < month:
+                    conftest.clickElement(self, previuosMonth_xpath)
+                else:
+                    conftest.clickElement(self, nextMonth_xpath)
+            else:
+                raise Exception("Invalid month when setting Party date")
+        # Element to select the day as passed in the argument
+        day_element = f"//span[@class='cursor-pointer rounded-3 flex items-center justify-center w-full aspect-square relative overflow-hidden p-0 font-normal text-center text-14'][normalize-space()='{day}']"
+        conftest.clickElement(self, day_element)
 
     def setPartyAddress(self, address):
         if conftest.isElementPresent(self, self.inputField_partyAddress_name, By.NAME):
@@ -102,3 +120,11 @@ class Party:
     def clickCancelButton(self):
         conftest.click(self, "//div[@role='dialog']//button[normalize-space()='Cancel']", By.XPATH)
     
+    def openAddPartyDialog(self):
+        pass
+    
+    def clickAddNewPartyButton(self):
+        try:
+            conftest.clickElement(self, self.button_addParty_xpath)
+        except NoSuchElementException:
+            conftest.clickElement(self, self.button_addNewFirstParty_xpath)
