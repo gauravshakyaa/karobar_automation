@@ -15,6 +15,7 @@ from selenium.common.exceptions import TimeoutException
 from utilities.customLogger import setup_logging
 from utilities.readProperties import ReadConfig
 from pageObjects.LoginPage import LoginPage
+from openpyxl import load_workbook
 
 setup_logging()
 @pytest.fixture()
@@ -35,13 +36,12 @@ def setup():
         raise ValueError(f"Unsupported browser: {browser}")
     driver.get(f"{ReadConfig.getURL()}")
     driver.maximize_window()
-    time.sleep(5)
     yield driver
     logging.info("All driver quited.")
     driver.quit()
 
 @pytest.fixture()
-def nav_to_dashboard(setup):
+def nav_to_dashboard():
     login_page =  LoginPage(driver)
     login_page.setPhoneNumber(ReadConfig.getPhoneNumber())
     login_page.clickContinueButton()
@@ -107,7 +107,7 @@ def clear_log_file():
     with open(f"{os.getcwd}/revamp_karobar.log", "w"):
         pass 
 
-def waitForElement(driver, locator, by=By.XPATH, condition="clickable", timeout=10):
+def waitForElement(driver, locator, by=By.XPATH, condition="visible", timeout=10):
     wait = WebDriverWait(driver, timeout)
     try:
         if condition == "clickable":
@@ -123,3 +123,54 @@ def waitForElement(driver, locator, by=By.XPATH, condition="clickable", timeout=
     except Exception as e:
         print(f"Error while waiting for element: {e}")
         raise
+
+def isElementPresent(driver: webdriver, locator, by=By.XPATH): 
+    pass
+        
+def setDate(self, day, month, year):
+    month_mapping = {
+        1: "Baisakh",
+        2: "Jestha",
+        3: "Asar",
+        4: "Shrawan",
+        5: "Bhadra",
+        6: "Aswin",
+        7: "Kartik",
+        8: "Mangsir",
+        9: "Poush",
+        10: "Magh",
+        11: "Falgun",
+        12: "Chaitra",
+    }
+    # Clicks date picker to open date picker dialog
+    clickElement(self.driver, self.datePicker_date_xpath)
+
+    # Locator of current month and year
+    current_monthAndYear_element = "//div[@class='text-14 text-default font-medium']"
+    
+    # Locator of arrow button to change the month
+    previuosMonth_xpath = "//button[@class='group rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft disabled:cursor-not-allowed bg-transparent hover:bg-surface active:bg-surface-hover font-medium text-16 absolute left-1 text-icon-active rounded-3 flex items-center justify-center h-9 w-9 p-0']"
+    nextMonth_xpath = "//button[@class='group rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft disabled:cursor-not-allowed bg-transparent hover:bg-surface active:bg-surface-hover font-medium text-16 absolute right-1 text-icon-active rounded-3 flex items-center justify-center h-9 w-9 p-0']"
+    while True:
+        # Element to get the text of the current month and year
+        monthAndYear = str(findElement(self.driver, current_monthAndYear_element, By.XPATH).text)
+        # Assigns current month and year to variables
+        # Store month and year in string format
+        current_month, current_year = monthAndYear.split()
+        # If the current month and year match the desired month and year, exit the loop
+        if str(current_month) == str(month_mapping[int(month)]) and int(current_year) == int(year):
+            break
+        # Navigate to the correct year and month
+        if int(current_year) > int(year) or (int(current_year) == int(year) and month_mapping[int(month)] != current_month):
+            # Move to the previous month
+            clickElement(self.driver, previuosMonth_xpath)
+        elif int(current_year) < int(year) or (int(current_year) == int(year) and month_mapping[int(month)] != current_month):
+            # Move to the next month
+            clickElement(self.driver, nextMonth_xpath)
+    
+    # Element to select the day as passed in the argument
+    day_element = f"//span[@class='cursor-pointer rounded-3 flex items-center justify-center w-full aspect-square relative overflow-hidden p-0 font-normal text-center text-14'][normalize-space()='{day}']"
+    clickElement(self.driver, day_element)
+
+    # Get excel data
+    
