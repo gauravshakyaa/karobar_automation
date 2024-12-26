@@ -28,6 +28,8 @@
 # element.clear()
 # time.sleep(2)
 # driver.quit()
+import logging
+import time
 import requests
 import os
 
@@ -310,5 +312,33 @@ def oldest_person_2():
 
   older = older_people(people, 1979)
   print(older)
-
+month_mapping = {
+            1: "Baisakh",
+            2: "Jestha",
+            3: "Asar",
+            4: "Shrawan",
+            5: "Bhadra",
+            6: "Aswin",
+            7: "Kartik",
+            8: "Mangsir",
+            9: "Poush",
+            10: "Magh",
+            11: "Falgun",
+            12: "Chaitra",
+        }
 # oldest_person_2()
+# print(f"{month_mapping[int(1)]} 2080")
+
+def excel():
+  with open("testCases//text.txt") as f:
+    largest = 0
+    data = f.read()
+    data = data.split("\n")
+    print(data)
+    def largest_number():
+      for i in data:
+        if int(i) > largest:
+          largest = int(i)
+        return largest
+  print(largest_number())
+
