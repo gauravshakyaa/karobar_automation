@@ -1,21 +1,19 @@
 import logging
 import time
-from pageObjects.Party import Party
+from pageObjects. import Party
 from selenium.webdriver.chrome.webdriver import WebDriver
-
 from testCases import conftest
-from utilities.readProperties import ReadConfig
 
 
 class Test_end_to_end:
-    logging.info("Running End to End Test")
     def test_end_to_end(self, setup, nav_to_dashboard):
+        logging.info("Running End to End Test")
         self.driver : WebDriver = setup
         party = Party(self.driver)
-        conftest.waitForElement(self.driver, locator="//h2[contains(.,'Welcome')]")
-        self.driver.get(f"{ReadConfig.getURL()}" + "/parties")
-        party.clickAddNewPartyButton()
-        time.sleep(3)
-        party.setDate(day=1, month=1, year="2080")
-        time.sleep(4)
-        
+        conftest.waitForElement(self.driver, "//*[contains(text(), 'Welcome')]")
+        # party.addParty(name="Test Party", phone="9860725577", balance="1000", 
+        #                balanceType="To Receive", address="Kathmandu", 
+        #                email="test@test.com", pan="123456789")
+        party.addParty(name="Test Party")
+        party.clickSaveButton()
+        time.sleep(5)
