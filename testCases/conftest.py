@@ -22,6 +22,7 @@ setup_logging()
 def setup():
     global driver
     clean_allure_results()
+    clear_log_file()
     browser = ReadConfig.getBrowser()
 
     if browser.__eq__("chrome"):
@@ -104,8 +105,8 @@ def clean_allure_results():
     os.makedirs(results_dir)
 
 def clear_log_file():
-    with open(f"{os.getcwd}/revamp_karobar.log", "w"):
-        pass 
+    with open('Configurations//Logs//revamp_karobar.log', 'w') as log_file:
+        log_file.write('')
 
 def waitForElement(driver, locator, by=By.XPATH, condition="visible", timeout=10):
     wait = WebDriverWait(driver, timeout)
@@ -127,7 +128,7 @@ def waitForElement(driver, locator, by=By.XPATH, condition="visible", timeout=10
 def isElementPresent(driver: webdriver, locator, by=By.XPATH): 
     pass
         
-def setDate(self, day, month, year):
+def setDate(day, month, year):
     month_mapping = {
         1: "Baisakh",
         2: "Jestha",
@@ -143,7 +144,7 @@ def setDate(self, day, month, year):
         12: "Chaitra",
     }
     # Clicks date picker to open date picker dialog
-    clickElement(self.driver, self.datePicker_date_xpath)
+    clickElement(driver, locator="//div[@role='dialog']//label[normalize-space()='As of Date']/following-sibling::button")
 
     # Locator of current month and year
     current_monthAndYear_element = "//div[@class='text-14 text-default font-medium']"
@@ -153,7 +154,7 @@ def setDate(self, day, month, year):
     nextMonth_xpath = "//button[@class='group rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft disabled:cursor-not-allowed bg-transparent hover:bg-surface active:bg-surface-hover font-medium text-16 absolute right-1 text-icon-active rounded-3 flex items-center justify-center h-9 w-9 p-0']"
     while True:
         # Element to get the text of the current month and year
-        monthAndYear = str(findElement(self.driver, current_monthAndYear_element, By.XPATH).text)
+        monthAndYear = str(findElement(driver, current_monthAndYear_element, By.XPATH).text)
         # Assigns current month and year to variables
         # Store month and year in string format
         current_month, current_year = monthAndYear.split()
@@ -163,14 +164,14 @@ def setDate(self, day, month, year):
         # Navigate to the correct year and month
         if int(current_year) > int(year) or (int(current_year) == int(year) and month_mapping[int(month)] != current_month):
             # Move to the previous month
-            clickElement(self.driver, previuosMonth_xpath)
+            clickElement(driver, previuosMonth_xpath)
         elif int(current_year) < int(year) or (int(current_year) == int(year) and month_mapping[int(month)] != current_month):
             # Move to the next month
-            clickElement(self.driver, nextMonth_xpath)
+            clickElement(driver, nextMonth_xpath)
     
     # Element to select the day as passed in the argument
     day_element = f"//span[@class='cursor-pointer rounded-3 flex items-center justify-center w-full aspect-square relative overflow-hidden p-0 font-normal text-center text-14'][normalize-space()='{day}']"
-    clickElement(self.driver, day_element)
+    clickElement(driver, day_element)
 
-    # Get excel data
-    
+def read_excel_file(file_path, sheet_name):
+    pass

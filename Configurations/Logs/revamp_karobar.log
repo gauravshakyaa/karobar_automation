@@ -1,14 +1,8 @@
-2024-12-26 12:18:01,880 - INFO - Running End to End Test
-2024-12-26 12:24:02,762 - INFO - Running End to End Test
-2024-12-26 12:26:26,401 - INFO - Running End to End Test
-2024-12-26 12:26:29,451 - INFO - Running End to End Test
-2024-12-26 12:26:30,641 - INFO - Running End to End Test
-2024-12-26 12:26:47,841 - INFO - Running End to End Test
-2024-12-26 12:26:53,137 - INFO - Running End to End Test
-2024-12-26 12:27:07,593 - INFO - Running End to End Test
-2024-12-26 12:27:09,568 - INFO - Running End to End Test
-2024-12-26 12:29:10,366 - INFO - Running End to End Test
-2024-12-26 12:31:42,522 - INFO - Running End to End Test
-2024-12-26 12:55:56,315 - INFO - Running End to End Test
-2024-12-26 12:56:07,918 - INFO - Running End to End Test
-2024-12-26 16:10:23,075 - INFO - Running End to End Test
+2024-12-29 21:57:11,818 - INFO - Sending keys by name with locator 'phoneNumber'
+2024-12-29 21:57:12,748 - INFO - Clicking an element by xpath with locator '//button[@type='submit']'
+2024-12-29 21:57:14,427 - INFO - Sending keys by id with locator 'otp-verification'
+2024-12-29 21:57:14,585 - INFO - Running End to End Test
+2024-12-29 21:57:17,911 - INFO - Clicking an element by xpath with locator '//button[normalize-space()='Add New Party']'
+2024-12-29 21:57:19,165 - INFO - Sending keys by name with locator 'fullName'
+2024-12-29 21:57:19,349 - INFO - Clicking an element by xpath with locator '//div[@role='dialog']//button[normalize-space()='Save Party']'
+2024-12-29 21:57:24,474 - INFO - All driver quited.

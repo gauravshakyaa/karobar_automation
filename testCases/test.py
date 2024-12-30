@@ -29,9 +29,12 @@
 # time.sleep(2)
 # driver.quit()
 import logging
+import random
 import time
 import requests
 import os
+
+from utilities.readProperties import ReadConfig
 
 
 def Sudoku_add_and_copy():
@@ -329,16 +332,4 @@ month_mapping = {
 # oldest_person_2()
 # print(f"{month_mapping[int(1)]} 2080")
 
-def excel():
-  with open("testCases//text.txt") as f:
-    largest = 0
-    data = f.read()
-    data = data.split("\n")
-    print(data)
-    def largest_number():
-      for i in data:
-        if int(i) > largest:
-          largest = int(i)
-        return largest
-  print(largest_number())
 
