@@ -4,6 +4,7 @@ import time
 import logging
 import pytest
 from selenium import webdriver
+from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.common import NoSuchElementException
 from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
@@ -58,7 +59,7 @@ def sendKeys(driver, locator, value, by=By.XPATH):
         driver.find_element(by, locator).send_keys(Keys.CONTROL + 'a' + Keys.DELETE)
         driver.find_element(by, locator).send_keys(value)
     except Exception as e:
-        logging.error(f"An error occured in sendKeys when finding '{value}' with {by}: {locator}, {e}")
+        logging.error(f"An error occured in sendKeys when sending '{value}' with {by}: {locator}, {e}")
 
     
 def findElement(driver, locator, by=By.XPATH, timeout=10):
@@ -125,9 +126,14 @@ def waitForElement(driver, locator, by=By.XPATH, condition="visible", timeout=10
         print(f"Error while waiting for element: {e}")
         raise
 
-def isElementPresent(driver: webdriver, locator, by=By.XPATH): 
-    pass
-        
+def isElementPresent(driver, locator, by=By.XPATH, timeout=5): 
+    try:
+        wait = WebDriverWait(driver, timeout)
+        wait.until(EC.presence_of_element_located((by, locator)))
+        return True
+    except Exception:
+        return False
+
 def setDate(day, month, year):
     month_mapping = {
         1: "Baisakh",

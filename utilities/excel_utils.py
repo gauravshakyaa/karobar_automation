@@ -1,18 +1,16 @@
 import logging
 import os
 import openpyxl
+import pandas as pd
 
 def read_party_excel(filepath, sheetname="Party"):
     try:
-        workbook = openpyxl.load_workbook(filename=filepath)
-        sheet = workbook[sheetname]
-        max_row_count = sheet.max_row # Gets the maximum column number in the sheet
-        cols = sheet.iter_rows(min_row=1, max_row=max_row_count, max_col=1)
-        for col in cols:
-            for cell in col:
-                print(cell.value)
+        df = pd.read_excel(filepath, sheet_name=None)  # Load all sheets
+        data = []
+        print(pd.read_excel(filepath, sheet_name="Party"))
     except Exception as e:
         logging.error("Error while reading excel file: " + str(e))
 
+    
 
-read_party_excel("utilities//FreshData.xlsx", "FreshData")
+read_party_excel("utilities//GuidedKarobarData.xlsx")

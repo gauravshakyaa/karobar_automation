@@ -17,7 +17,6 @@ class LoginPage:
         self.driver = driver
 
     def setPhoneNumber(self, number):
-        conftest.clearInputField(driver=self.driver, locator=self.textfield_phoneNumber_name, by=By.NAME)
         conftest.sendKeys(driver=self.driver, locator=self.textfield_phoneNumber_name, value=number, by=By.NAME)
     
     def clickContinueButton(self):
@@ -27,7 +26,6 @@ class LoginPage:
         return conftest.getTextFromTextField(self.driver, self.textfieldValidation_phoneNumber_xpath)
 
     def setOTP(self, otp):
-        conftest.clearInputField(driver=self.driver, locator=self.textfield_opt_id, by=By.ID)
         conftest.sendKeys(driver=self.driver, locator=self.textfield_opt_id, value=otp, by=By.ID)
         # No need to click Verify OTP button because it automatically submits the button
 
