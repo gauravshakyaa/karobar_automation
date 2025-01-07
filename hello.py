@@ -1,5 +1,5 @@
 def main():
-    print("Hello from example!")
+    print("Hello from karobar-revamp-selenium!")
 
 
 if __name__ == "__main__":

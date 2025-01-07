@@ -1,22 +1,17 @@
 import os
 import shutil
-import time
 import logging
 import pytest
 from selenium import webdriver
-from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.common import NoSuchElementException
 from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
-# from pageObjects.LoginPage import LoginPage
-# from utilities.URLs import URLs
 from utilities.customLogger import setup_logging
 from utilities.readProperties import ReadConfig
 from pageObjects.LoginPage import LoginPage
-from openpyxl import load_workbook
 
 setup_logging()
 @pytest.fixture()

@@ -1,15 +1,20 @@
-2025-01-03 21:08:26,018 - INFO - Sending keys by name with locator 'phoneNumber'
-2025-01-03 21:08:26,443 - INFO - Clicking an element by xpath with locator '//button[@type='submit']'
-2025-01-03 21:08:26,585 - INFO - Sending keys by id with locator 'otp-verification'
-2025-01-03 21:08:27,289 - INFO - Running End to End Test
-2025-01-03 21:08:31,216 - INFO - Clicking an element by xpath with locator '//button[normalize-space()='Add Party']'
-2025-01-03 21:08:31,515 - INFO - Sending keys by name with locator 'fullName'
-2025-01-03 21:08:31,749 - INFO - Sending keys by name with locator 'phoneNumber'
-2025-01-03 21:08:31,912 - INFO - Sending keys by name with locator 'openingBalance'
-2025-01-03 21:08:32,063 - INFO - Clicking an element by xpath with locator '//div[@role='dialog']//button[@value='To Receive']'
-2025-01-03 21:08:37,434 - INFO - Clicking an element by xpath with locator '//span[normalize-space()='Additional Info']'
-2025-01-03 21:08:37,577 - INFO - Sending keys by name with locator 'partyAddress'
-2025-01-03 21:08:37,795 - INFO - Sending keys by name with locator 'partyEmail'
-2025-01-03 21:08:37,987 - INFO - Sending keys by name with locator 'panNo'
-2025-01-03 21:08:38,150 - INFO - Clicking an element by xpath with locator '//div[@role='dialog']//button[normalize-space()='Save Party']'
-2025-01-03 21:08:40,290 - INFO - All driver quited.
+2025-01-07 14:26:55,805 - INFO - Sending keys by name with locator 'phoneNumber'
+2025-01-07 14:26:56,126 - INFO - Clicking an element by xpath with locator '//button[@type='submit']'
+2025-01-07 14:26:56,380 - INFO - Sending keys by id with locator 'otp-verification'
+2025-01-07 14:26:56,969 - INFO - Running End to End Test
+2025-01-07 14:26:56,970 - INFO - Using default request storage
+2025-01-07 14:26:57,071 - INFO - Created proxy listening on 127.0.0.1:25377
+2025-01-07 14:27:01,847 - INFO - [{'name': '__applock__status__', 'value': 'eyJhbGciOiJIUzI1NiJ9.eyJ1bmxvY2tlZCI6dHJ1ZSwiZXhwIjoxNzM4ODMxMzE4fQ.QZoLdELJCNigduo7nLPsyHjN7SFs1Oa7fPOv-FvCt8g', 'path': '/', 'domain': 'pilot.karobarapp.com', 'secure': False, 'httpOnly': False, 'sameSite': 'None'}, {'name': '__token__', 'value': '691ea24ba126aad509c68beadadfaafd06ff15ec', 'path': '/', 'domain': 'pilot.karobarapp.com', 'secure': False, 'httpOnly': False, 'expiry': 1738831317, 'sameSite': 'None'}, {'name': '__business_idx__', 'value': '2svS8v4KQmiCmbbZwRoBzm', 'path': '/', 'domain': 'pilot.karobarapp.com', 'secure': False, 'httpOnly': False, 'expiry': 1738831319, 'sameSite': 'None'}]
+2025-01-07 14:27:03,649 - INFO - Clicking an element by xpath with locator '//button[normalize-space()='Add Party']'
+2025-01-07 14:27:03,749 - INFO - Capturing request: https://accounts.google.com/ListAccounts?gpsia=1&source=ChromiumBrowser&json=standard
+2025-01-07 14:27:03,959 - INFO - Capturing response: https://accounts.google.com/ListAccounts?gpsia=1&source=ChromiumBrowser&json=standard 200 
+2025-01-07 14:27:04,152 - INFO - Sending keys by name with locator 'fullName'
+2025-01-07 14:27:04,229 - INFO - Sending keys by name with locator 'phoneNumber'
+2025-01-07 14:27:04,356 - INFO - Sending keys by name with locator 'openingBalance'
+2025-01-07 14:27:04,444 - INFO - Clicking an element by xpath with locator '//div[@role='dialog']//button[@value='To Receive']'
+2025-01-07 14:27:05,729 - INFO - Clicking an element by xpath with locator '//span[normalize-space()='Additional Info']'
+2025-01-07 14:27:06,037 - INFO - Sending keys by name with locator 'partyAddress'
+2025-01-07 14:27:06,299 - INFO - Sending keys by name with locator 'partyEmail'
+2025-01-07 14:27:06,493 - INFO - Sending keys by name with locator 'panNo'
+2025-01-07 14:27:06,667 - INFO - Clicking an element by xpath with locator '//div[@role='dialog']//button[normalize-space()='Save Party']'
+2025-01-07 14:27:11,297 - INFO - All driver quited.

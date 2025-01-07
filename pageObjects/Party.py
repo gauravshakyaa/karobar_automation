@@ -61,21 +61,21 @@ class Party:
             raise Exception("Invalid balance type")
 
     def setPartyAddress(self, address):
-        if conftest.isElementPresent(self.driver, self.inputField_partyAddress_name, by=By.NAME, timeout=5):
+        if conftest.isElementPresent(self.driver, self.inputField_partyAddress_name, by=By.NAME, timeout=1):
             conftest.sendKeys(self.driver, self.inputField_partyAddress_name, address, By.NAME)
         else:
             conftest.clickElement(self.driver, self.button_additionalInfo_xpath, By.XPATH)
             conftest.sendKeys(self.driver, self.inputField_partyAddress_name, address, By.NAME)
 
     def setPartyEmail(self, email):
-        if conftest.isElementPresent(self.driver, self.inputField_partyEmail_name, By.NAME, timeout=5):
+        if conftest.isElementPresent(self.driver, self.inputField_partyEmail_name, By.NAME, timeout=1):
             conftest.sendKeys(self.driver, self.inputField_partyEmail_name, email, By.NAME)
         else:
             conftest.clickElement(self.driver, self.button_additionalInfo_xpath, By.XPATH)
             conftest.sendKeys(self.driver, self.inputField_partyEmail_name, email, By.NAME)
     
     def setPartyPan(self, pan):
-        if conftest.isElementPresent(self.driver, self.inputField_partyPan_name, By.NAME, timeout=5):
+        if conftest.isElementPresent(self.driver, self.inputField_partyPan_name, By.NAME, timeout=1):
             conftest.sendKeys(self.driver, self.inputField_partyPan_name, pan, By.NAME)
         else:
             conftest.clickElement(self.driver, self.button_additionalInfo_xpath, By.XPATH)
@@ -90,10 +90,8 @@ class Party:
     
     def clickAddNewPartyButton(self):
         try:
-            time.sleep(1)
             conftest.clickElement(self.driver, self.button_addParty_xpath)
         except Exception:
-            time.sleep(1)
             conftest.clickElement(self.driver, self.button_addNewFirstParty_xpath)
     
     def openAddPartyDialog(self):
@@ -101,8 +99,8 @@ class Party:
             time.sleep(1)
             self.clickAddNewPartyButton()
         else:
-            time.sleep(1)
             self.driver.get(ReadConfig.getURL() + "/parties")
+            time.sleep(1)
             self.clickAddNewPartyButton()
     
     def addParty(self, name=None, phone=None, partyType=None, balance=None, balanceType=None, address=None, email=None, pan=None):
