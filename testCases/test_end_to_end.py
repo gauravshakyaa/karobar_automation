@@ -4,7 +4,6 @@ import pytest
 from pageObjects.Party import Party
 from selenium.webdriver.chrome.webdriver import WebDriver
 from testCases import conftest
-from seleniumwire import webdriver as wire_webdriver
 
 class Test_end_to_end:
     @pytest.mark.parametrize(
@@ -17,13 +16,10 @@ class Test_end_to_end:
         logging.info("Running End to End Test")
         driver : WebDriver = setup
         party = Party(driver)
-        driver_seleniumwire = wire_webdriver.Chrome()
-        for request in driver_seleniumwire.requests:
-            if request.response:
-                logging.info(f"Request URL: {request.url}")
-                logging.info(f"Request Method: {request.method}")
-                logging.info(f"Request Response Code: {request.response.status_code}")
-                logging.info(f"Request Response Body: {request.response.body}")
+        # driver_seleniumwire = wire_webdriver.Chrome()
+        # for request in driver_seleniumwire.requests:
+        #     if request.response:
+        #         logging.info(f"Request Response Body: {request.response.body}")
         logging.info(driver.get_cookies())
         conftest.waitForElement(driver, "//*[contains(text(), 'Welcome')]")
         party_details = {
