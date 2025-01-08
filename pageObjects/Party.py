@@ -1,15 +1,18 @@
 import logging
+import time
 from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
 from utilities.readProperties import ReadConfig
 from selenium.common.exceptions import NoSuchElementException
 from testCases import conftest
+from selenium.webdriver.chrome.webdriver import WebDriver
 
 class Party:
+    ######### ADD PARTY DIALOG ##########
     inputField_partyName_name = "fullName"
     inputField_partyPhoneNumber_name = "phoneNumber"
-    radioButton_customerPartyType_xpath = f"//div[@role='dialog']//button[normalize-space()='Customer']"
-    radioButton_supplierPartyType_xpath = f"//div[@role='dialog']//button[normalize-space()='Supplier']"
+    radioButton_customerPartyType_xpath = "//div[@role='dialog']//button[normalize-space()='Customer']"
+    radioButton_supplierPartyType_xpath = "//div[@role='dialog']//button[normalize-space()='Supplier']"
     # 'Credit Info' locators
     tabList_creditInfo_xpath = "//div[@role='dialog']//div[@role='tablist']//button[1]"
     tabList_additionalInfo_xpath = "//div[@role='dialog']//div[@role='tablist']//button[2]"
@@ -23,102 +26,103 @@ class Party:
     inputField_partyEmail_name = "partyEmail"
     inputField_partyPan_name = "panNo"
 
-    button_saveParty_xpath = "//div[@role='dialog']//span[normalize-space()='Save Party']"
-    button_saveAndNewPartyw_xpath = "//div[@role='dialog']//span[normalize-space()='Save & New']"
+    button_saveParty_xpath = "//div[@role='dialog']//button[normalize-space()='Save Party']"
+    button_saveAndNewParty_xpath = "//div[@role='dialog']//span[normalize-space()='Save & New']"
     
     button_addParty_xpath = "//button[normalize-space()='Add Party']"
     button_addNewFirstParty_xpath = "//button[normalize-space()='Add New Party']"
 
+    ######### PARTY LIST/DETAIL PAGE ##########
+    listView_partiesList_xpath = "//div[@class='min-h-0 overflow-y-auto scrollbar-thin flex-grow']"
+
     def __init__(self, driver):
-        self.driver = driver
+        self.driver : WebDriver = driver
         
     def setPartyName(self, name):
-        conftest.sendKeys(self, self.inputField_partyName_name, name, By.NAME)
+        conftest.sendKeys(self.driver, self.inputField_partyName_name, value=name, by=By.NAME)
     
     def setPartyPhoneNo(self, name):
-        conftest.sendKeys(self, self.inputField_partyPhoneNumber_name, name, By.NAME)
+        conftest.sendKeys(self.driver, self.inputField_partyPhoneNumber_name, value=name, by=By.NAME)
     
     def setCustomerPartyType(self):
-        conftest.clickElement(self, self.radioButton_customerPartyType_xpath, By.XPATH)
+        conftest.clickElement(self.driver, self.radioButton_customerPartyType_xpath)
     
     def setSupplierPartyType(self):
-        conftest.clickElement(self, self.radioButton_supplierPartyType_xpath, By.XPATH)
+        conftest.clickElement(self.driver, self.radioButton_supplierPartyType_xpath)
     
-    def setOpeningBalance(self, balance, balanceType):
-        conftest.sendKeys(self, self.inputField_openingBalance_name, balance, By.NAME)
-        if balanceType.lower() == "To Receive":
-            conftest.clickElement(self, self.button_toReceiveBalanceStatus_xpath, By.XPATH)
-        elif balanceType.lower() == "To Give":
-            conftest.clickElement(self, self.button_toGiveBalanceStatus_xpath, By.XPATH)
+    def setOpeningBalance(self, balance, balanceType  : str):
+        conftest.sendKeys(self.driver, self.inputField_openingBalance_name, balance, By.NAME)
+        if balanceType.lower() == "to receive":
+            conftest.clickElement(self.driver, self.button_toReceiveBalanceStatus_xpath)
+        elif balanceType.lower() == "to give":
+            conftest.clickElement(self.driver, self.button_toGiveBalanceStatus_xpath)
         else:
+            logging.error("Invalid balance type")
             raise Exception("Invalid balance type")
 
-    def setDate(self, day, month, year):
-        month_mapping = {
-            1: "Baisakh",
-            2: "Jestha",
-            3: "Asar",
-            4: "Shrawan",
-            5: "Bhadra",
-            6: "Aswin",
-            7: "Kartik",
-            8: "Mangsir",
-            9: "Poush",
-            10: "Magh",
-            11: "Falgun",
-            12: "Chaitra",
-        }
-        # Clicks date picker to open date picker dialog
-        conftest.clickElement(self.driver, self.datePicker_date_xpath)
-
-        # Locator of current month and year
-        current_monthAndYear_element = "//div[@class='text-14 text-default font-medium']"
-       
-        # Locator of arrow button to change the month
-        previuosMonth_xpath = "//button[@class='group rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft disabled:cursor-not-allowed bg-transparent hover:bg-surface active:bg-surface-hover font-medium text-16 absolute left-1 text-icon-active rounded-3 flex items-center justify-center h-9 w-9 p-0']"
-        nextMonth_xpath = "//button[@class='group rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft disabled:cursor-not-allowed bg-transparent hover:bg-surface active:bg-surface-hover font-medium text-16 absolute right-1 text-icon-active rounded-3 flex items-center justify-center h-9 w-9 p-0']"
-        while True:
-            # Element to get the text of the current month and year
-            monthAndYear = str(conftest.findElement(self.driver, current_monthAndYear_element, By.XPATH).text)
-            # Assigns current month and year to variables
-            # Store month and year in string format
-            current_month, current_year = monthAndYear.split()
-            # If the current month and year match the desired month and year, exit the loop
-            if str(current_month) == str(month_mapping[int(month)]) and int(current_year) == int(year):
-                break
-            # Navigate to the correct year and month
-            if int(current_year) > int(year) or (int(current_year) == int(year) and month_mapping[int(month)] != current_month):
-                # Move to the previous month
-                conftest.clickElement(self.driver, previuosMonth_xpath)
-            elif int(current_year) < int(year) or (int(current_year) == int(year) and month_mapping[int(month)] != current_month):
-                # Move to the next month
-                conftest.clickElement(self.driver, nextMonth_xpath)
-        
-        # Element to select the day as passed in the argument
-        day_element = f"//span[@class='cursor-pointer rounded-3 flex items-center justify-center w-full aspect-square relative overflow-hidden p-0 font-normal text-center text-14'][normalize-space()='{day}']"
-        conftest.clickElement(self.driver, day_element)
-
     def setPartyAddress(self, address):
-        if conftest.isElementPresent(self, self.inputField_partyAddress_name, By.NAME):
-            conftest.sendKeys(self, self.inputField_partyAddress_name, address, By.NAME)
-    
+        if conftest.isElementPresent(self.driver, self.inputField_partyAddress_name, by=By.NAME, timeout=1):
+            conftest.sendKeys(self.driver, self.inputField_partyAddress_name, address, By.NAME)
+        else:
+            conftest.clickElement(self.driver, self.button_additionalInfo_xpath, By.XPATH)
+            conftest.sendKeys(self.driver, self.inputField_partyAddress_name, address, By.NAME)
+
     def setPartyEmail(self, email):
-        conftest.sendKeys(self, self.inputField_partyEmail_name, email, By.NAME)
+        if conftest.isElementPresent(self.driver, self.inputField_partyEmail_name, By.NAME, timeout=1):
+            conftest.sendKeys(self.driver, self.inputField_partyEmail_name, email, By.NAME)
+        else:
+            conftest.clickElement(self.driver, self.button_additionalInfo_xpath, By.XPATH)
+            conftest.sendKeys(self.driver, self.inputField_partyEmail_name, email, By.NAME)
     
     def setPartyPan(self, pan):
-        conftest.sendKeys(self, self.inputField_partyPan_name, pan, By.NAME)
+        if conftest.isElementPresent(self.driver, self.inputField_partyPan_name, By.NAME, timeout=1):
+            conftest.sendKeys(self.driver, self.inputField_partyPan_name, pan, By.NAME)
+        else:
+            conftest.clickElement(self.driver, self.button_additionalInfo_xpath, By.XPATH)
+            conftest.sendKeys(self.driver, self.inputField_partyPan_name, pan, By.NAME)
+        
     
     def clickSaveButton(self):
-        conftest.clickElement(self.driver, "//div[@role='dialog']//button[normalize-space()='Save']", By.XPATH)
+        conftest.clickElement(self.driver, self.button_saveParty_xpath, By.XPATH)
     
-    def clickCancelButton(self):
-        conftest.clickElement(self.driver, "//div[@role='dialog']//button[normalize-space()='Cancel']", By.XPATH)
-    
-    def openAddPartyDialog(self):
-        pass
+    def clickSaveAddNewButton(self):
+        conftest.clickElement(self.driver, self.button_saveAndNewParty_xpath, By.XPATH)
     
     def clickAddNewPartyButton(self):
         try:
             conftest.clickElement(self.driver, self.button_addParty_xpath)
         except Exception:
             conftest.clickElement(self.driver, self.button_addNewFirstParty_xpath)
+    
+    def openAddPartyDialog(self):
+        if self.driver.current_url ==  f"{ReadConfig.getURL()}/parties":
+            time.sleep(1)
+            self.clickAddNewPartyButton()
+        else:
+            self.driver.get(ReadConfig.getURL() + "/parties")
+            time.sleep(1)
+            self.clickAddNewPartyButton()
+    
+    def addParty(self, name=None, phone=None, partyType=None, balance=None, balanceType=None, address=None, email=None, pan=None):
+        self.openAddPartyDialog()
+        if name:
+            self.setPartyName(name)
+        if phone:
+            self.setPartyPhoneNo(phone)
+        if partyType:
+            if partyType.lower() == "customer":
+                self.setCustomerPartyType()
+            elif partyType.lower() == "supplier":
+                self.setSupplierPartyType()
+            else:
+                raise Exception("Invalid party type while adding party")
+                exit(1)
+        if balance:
+            self.setOpeningBalance(balance, balanceType)
+        if address:
+            self.setPartyAddress(address)
+        if email:
+            self.setPartyEmail(email)
+        if pan:
+            self.setPartyPan(pan)
+        
