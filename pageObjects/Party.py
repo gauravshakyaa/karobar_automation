@@ -40,7 +40,7 @@ class Party:
         
     def setPartyName(self, name):
         conftest.sendKeys(self.driver, self.inputField_partyName_name, value=name, by=By.NAME)
-    
+
     def setPartyPhoneNo(self, name):
         conftest.sendKeys(self.driver, self.inputField_partyPhoneNumber_name, value=name, by=By.NAME)
     
@@ -52,9 +52,9 @@ class Party:
     
     def setOpeningBalance(self, balance, balanceType  : str):
         conftest.sendKeys(self.driver, self.inputField_openingBalance_name, balance, By.NAME)
-        if balanceType.lower() == "to receive":
+        if balanceType.lower() == "receivable":
             conftest.clickElement(self.driver, self.button_toReceiveBalanceStatus_xpath)
-        elif balanceType.lower() == "to give":
+        elif balanceType.lower() == "payable":
             conftest.clickElement(self.driver, self.button_toGiveBalanceStatus_xpath)
         else:
             logging.error("Invalid balance type")
@@ -95,13 +95,16 @@ class Party:
             conftest.clickElement(self.driver, self.button_addNewFirstParty_xpath)
     
     def openAddPartyDialog(self):
-        if self.driver.current_url ==  f"{ReadConfig.getURL()}/parties":
-            time.sleep(1)
-            self.clickAddNewPartyButton()
+        if conftest.isElementPresent(self.driver, locator="//div[@role='dialog']//h2[contains(.,'Party')]"): # If already on party dialog, skip the process
+            pass
         else:
-            self.driver.get(ReadConfig.getURL() + "/parties")
-            time.sleep(1)
-            self.clickAddNewPartyButton()
+            if self.driver.current_url ==  f"{ReadConfig.getURL()}/parties":
+                time.sleep(1)
+                self.clickAddNewPartyButton()
+            else:
+                self.driver.get(ReadConfig.getURL() + "/parties")
+                time.sleep(1)
+                self.clickAddNewPartyButton()
     
     def addParty(self, name=None, phone=None, partyType=None, balance=None, balanceType=None, address=None, email=None, pan=None):
         self.openAddPartyDialog()
