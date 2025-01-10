@@ -9,7 +9,6 @@ def read_party_excel(filepath, sheetname=None):
         logging.error("Error while reading excel file: " + str(e))
 
 def map_excel_keys(party_data):
-    # Mapping Excel keys to method parameter names
     key_mapping = {
         "Party Name": "name",
         "Phone Number": "phone",
@@ -21,7 +20,3 @@ def map_excel_keys(party_data):
         "Type": "partyType"
     }
     return {key_mapping.get(k, k): v for k, v in party_data.items()}
-
-party_details = read_party_excel("utilities//GuidedKarobarData.xlsx")
-for index, party in enumerate(party_details):
-    print(party_details)

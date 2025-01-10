@@ -1,10 +1,8 @@
 import requests
 
-from utilities.readProperties import ReadConfig
-
 class APIClient:
     def __init__(self, base_url):
-        self.base_url = ReadConfig.get_API_URL()
+        self.base_url = base_url
 
     def get(self, endpoint, headers=None, params=None):
         response = requests.get(f"{self.base_url}{endpoint}", headers=headers, params=params)

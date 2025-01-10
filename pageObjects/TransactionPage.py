@@ -1,7 +1,5 @@
-from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
-from utilities.readProperties import ReadConfig
-from selenium.common.exceptions import NoSuchElementException
+from utils.readProperties import ReadConfig
 from testCases import conftest
 import logging
 from selenium.webdriver.chrome.webdriver import WebDriver

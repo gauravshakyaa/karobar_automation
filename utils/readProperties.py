@@ -3,7 +3,6 @@ import configparser
 config = configparser.ConfigParser()
 config.read("Configurations\config.ini")
 
-
 class ReadConfig:
     @staticmethod
     def getURL():
@@ -26,7 +25,7 @@ class ReadConfig:
         return browser
     
     @staticmethod
-    def get_API_URL():
+    def get_API_BASE_URL():
         return config.get("API", "BASE_URL")
 
     @staticmethod

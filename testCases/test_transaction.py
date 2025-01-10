@@ -6,7 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 import pytest
 from pageObjects.LoginPage import LoginPage
 # from utilities.customLogger import LogGenerator
-from utilities.readProperties import ReadConfig
+from utils.readProperties import ReadConfig
 from testCases import conftest
 from selenium.webdriver.chrome.webdriver import WebDriver
 import allure

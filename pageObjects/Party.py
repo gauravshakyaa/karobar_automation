@@ -1,9 +1,7 @@
 import logging
 import time
-from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
-from utilities.readProperties import ReadConfig
-from selenium.common.exceptions import NoSuchElementException
+from utils.readProperties import ReadConfig
 from testCases import conftest
 from selenium.webdriver.chrome.webdriver import WebDriver
 
@@ -83,22 +81,28 @@ class Party:
         
     
     def clickSaveButton(self):
-        conftest.clickElement(self.driver, self.button_saveParty_xpath, By.XPATH)
-    
+        if conftest.isElementPresent(self.driver, self.button_saveParty_xpath):
+            conftest.clickElement(self.driver, self.button_saveParty_xpath)
+        else:
+            conftest.clickElement(self.driver, self.button_saveAndNewParty_xpath)
+
     def clickSaveAddNewButton(self):
-        conftest.clickElement(self.driver, self.button_saveAndNewParty_xpath, By.XPATH)
-    
+        if conftest.isElementPresent(self.driver, self.button_saveAndNewParty_xpath):
+            conftest.clickElement(self.driver, self.button_saveAndNewParty_xpath)
+        else:
+            conftest.clickElement(self.driver, self.button_saveParty_xpath)
+
     def clickAddNewPartyButton(self):
-        try:
-            conftest.clickElement(self.driver, self.button_addParty_xpath)
-        except Exception:
+        if conftest.isElementPresent(self.driver, self.button_addNewFirstParty_xpath):
             conftest.clickElement(self.driver, self.button_addNewFirstParty_xpath)
+        else:
+            conftest.clickElement(self.driver, self.button_addParty_xpath)
     
     def openAddPartyDialog(self):
         if conftest.isElementPresent(self.driver, locator="//div[@role='dialog']//h2[contains(.,'Party')]"): # If already on party dialog, skip the process
             pass
         else:
-            if self.driver.current_url ==  f"{ReadConfig.getURL()}/parties":
+            if "/parties" in self.driver.current_url:
                 time.sleep(1)
                 self.clickAddNewPartyButton()
             else:

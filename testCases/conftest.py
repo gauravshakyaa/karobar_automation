@@ -9,8 +9,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
-from utilities.customLogger import setup_logging
-from utilities.readProperties import ReadConfig
+from utils.customLogger import setup_logging
+from utils.readProperties import ReadConfig
 from pageObjects.LoginPage import LoginPage
 
 setup_logging()
@@ -64,10 +64,8 @@ def findElement(driver, locator, by=By.XPATH, timeout=10):
         return WebDriverWait(driver, timeout).until(EC.presence_of_element_located((by, locator)))
     except TimeoutException:
         logging.error(f"Element with locator '{locator}' not found within {timeout} seconds")
-        raise
     except NoSuchElementException:
         logging.error(f"Element with locator '{locator}' does not exist on the page")
-        raise
 
 def clickElement(driver, locator, by=By.XPATH):
     try:
@@ -76,7 +74,6 @@ def clickElement(driver, locator, by=By.XPATH):
         driver.find_element(by, locator).click()
     except Exception as e:
         logging.error(f"An error occured in clickElement with {by}: {locator}, {e}")
-        exit(1)
 
 def clearInputField(driver, locator, by=By.XPATH):
     try:
@@ -84,7 +81,6 @@ def clearInputField(driver, locator, by=By.XPATH):
         driver.find_element(by, locator).send_keys(Keys.CONTROL + "a" + Keys.DELETE)
     except Exception as e:
         logging.error(f"An error occured in clearInputField with {by}: {locator}, {e}")
-        exit(1)
 
 def getTextFromTextField(driver, locator, by=By.XPATH):
     try:
@@ -92,7 +88,6 @@ def getTextFromTextField(driver, locator, by=By.XPATH):
         return driver.find_element(by, locator).text
     except Exception as e:
         logging.error(f"An error occured in getTextFromTextField with {by}: {locator}, {e}")
-        exit(1)
 
 def clean_allure_results():
     results_dir = "AllureReport"
@@ -104,7 +99,7 @@ def clear_log_file():
     with open('Configurations//Logs//revamp_karobar.log', 'w') as log_file:
         log_file.write('')
 
-def waitForElement(driver, locator, by=By.XPATH, condition="visible", timeout=10):
+def waitForElement(driver, locator, by=By.XPATH, condition="visible", timeout=4):
     wait = WebDriverWait(driver, timeout)
     try:
         if condition == "clickable":
@@ -113,6 +108,12 @@ def waitForElement(driver, locator, by=By.XPATH, condition="visible", timeout=10
             return wait.until(EC.visibility_of_element_located((by, locator)))
         elif condition == "present":
             return wait.until(EC.presence_of_element_located((by, locator)))
+        elif condition == "all":
+            return EC.all_of(
+                EC.presence_of_element_located((by, locator)),
+                EC.element_to_be_clickable((by, locator)), 
+                EC.visibility_of_element_located((by, locator)),
+            )
         else:
             raise ValueError(
                 f"Invalid condition '{condition}'. Use 'clickable', 'visible', or 'present'."
@@ -121,7 +122,7 @@ def waitForElement(driver, locator, by=By.XPATH, condition="visible", timeout=10
         print(f"Error while waiting for element: {e}")
         raise
 
-def isElementPresent(driver, locator, by=By.XPATH, timeout=5): 
+def isElementPresent(driver, locator, by=By.XPATH, timeout=1): 
     try:
         wait = WebDriverWait(driver, timeout)
         wait.until(EC.presence_of_element_located((by, locator)))
