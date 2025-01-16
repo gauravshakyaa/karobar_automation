@@ -1,0 +1,311 @@
+2025-01-16 21:29:17,194 - INFO - Sending keys by locator ('name', 'phoneNumber')
+2025-01-16 21:29:17,730 - INFO - Clicking an element with locator '('xpath', "//button[@type='submit']")'
+2025-01-16 21:29:18,049 - INFO - Sending keys by locator ('id', 'otp-verification')
+2025-01-16 21:29:18,945 - INFO - Running End to End Test
+2025-01-16 21:29:23,961 - INFO - Sending keys by locator ('name', 'name')
+2025-01-16 21:29:24,339 - INFO - Sending keys by locator ('css selector', "input[placeholder='Category']")
+2025-01-16 21:29:24,855 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div[@role='option'][.='Category 1']")'
+2025-01-16 21:29:25,207 - INFO - Sending keys by locator ('css selector', "input[name='openingStock']")
+2025-01-16 21:29:25,560 - INFO - Sending keys by locator ('xpath', "//input[@name='salesPrice']")
+2025-01-16 21:29:25,862 - INFO - Sending keys by locator ('xpath', "//input[@name='purchasePrice']")
+2025-01-16 21:29:27,279 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Others']")'
+2025-01-16 21:29:27,588 - INFO - Sending keys by locator ('name', 'code')
+2025-01-16 21:29:27,917 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border text-14 h-9 font-medium px-3 py-2'] span")'
+2025-01-16 21:29:28,298 - INFO - Sending keys by locator ('name', 'name')
+2025-01-16 21:29:28,739 - INFO - Sending keys by locator ('css selector', "input[placeholder='Category']")
+2025-01-16 21:29:30,291 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div[@role='option']//span")'
+2025-01-16 21:29:31,662 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Stock Details']")'
+2025-01-16 21:29:31,976 - INFO - Sending keys by locator ('css selector', "input[name='openingStock']")
+2025-01-16 21:29:32,353 - INFO - Sending keys by locator ('xpath', "//input[@name='salesPrice']")
+2025-01-16 21:29:32,698 - INFO - Sending keys by locator ('xpath', "//input[@name='purchasePrice']")
+2025-01-16 21:29:34,058 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Others']")'
+2025-01-16 21:29:34,370 - INFO - Sending keys by locator ('name', 'code')
+2025-01-16 21:29:34,505 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border text-14 h-9 font-medium px-3 py-2'] span")'
+2025-01-16 21:29:34,625 - INFO - Sending keys by locator ('name', 'name')
+2025-01-16 21:29:35,020 - INFO - Sending keys by locator ('css selector', "input[placeholder='Category']")
+2025-01-16 21:29:36,299 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div[@role='option']//span")'
+2025-01-16 21:29:37,596 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Stock Details']")'
+2025-01-16 21:29:37,770 - INFO - Sending keys by locator ('css selector', "input[name='openingStock']")
+2025-01-16 21:29:37,937 - INFO - Clicking an element with locator '('xpath', "//button[normalize-space()='Select Units']")'
+2025-01-16 21:29:38,101 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//label[text()='Primary Unit']")'
+2025-01-16 21:29:38,383 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
+2025-01-16 21:29:38,583 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
+2025-01-16 21:29:38,711 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//label[text()='Secondary Unit']")'
+2025-01-16 21:29:39,199 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
+2025-01-16 21:29:39,539 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
+2025-01-16 21:29:39,689 - INFO - Sending keys by locator ('name', 'conversionRate')
+2025-01-16 21:29:40,042 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//button[.='Save']")'
+2025-01-16 21:29:40,383 - INFO - Sending keys by locator ('xpath', "//input[@name='salesPrice']")
+2025-01-16 21:29:40,778 - INFO - Sending keys by locator ('xpath', "//input[@name='purchasePrice']")
+2025-01-16 21:29:42,167 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Others']")'
+2025-01-16 21:29:42,421 - INFO - Sending keys by locator ('name', 'code')
+2025-01-16 21:29:42,749 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border text-14 h-9 font-medium px-3 py-2'] span")'
+2025-01-16 21:29:43,080 - INFO - Sending keys by locator ('name', 'name')
+2025-01-16 21:29:43,572 - INFO - Sending keys by locator ('css selector', "input[placeholder='Category']")
+2025-01-16 21:29:44,964 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div[@role='option']//span")'
+2025-01-16 21:29:46,293 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Stock Details']")'
+2025-01-16 21:29:46,566 - INFO - Clicking an element with locator '('xpath', "//button[normalize-space()='Select Units']")'
+2025-01-16 21:29:46,985 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//label[text()='Primary Unit']")'
+2025-01-16 21:29:47,429 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
+2025-01-16 21:29:47,772 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
+2025-01-16 21:29:47,945 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//button[.='Save']")'
+2025-01-16 21:29:48,303 - INFO - Sending keys by locator ('xpath', "//input[@name='salesPrice']")
+2025-01-16 21:29:48,742 - INFO - Sending keys by locator ('xpath', "//input[@name='purchasePrice']")
+2025-01-16 21:29:50,139 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Others']")'
+2025-01-16 21:29:50,392 - INFO - Sending keys by locator ('name', 'code')
+2025-01-16 21:29:50,717 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border text-14 h-9 font-medium px-3 py-2'] span")'
+2025-01-16 21:29:51,053 - INFO - Sending keys by locator ('name', 'name')
+2025-01-16 21:29:51,475 - INFO - Sending keys by locator ('css selector', "input[placeholder='Category']")
+2025-01-16 21:29:52,991 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div[@role='option']//span")'
+2025-01-16 21:29:53,299 - INFO - Clicking an element with locator '('css selector', "button[value='service']")'
+2025-01-16 21:29:54,684 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Stock Details']")'
+2025-01-16 21:29:54,940 - INFO - Sending keys by locator ('xpath', "//input[@name='salesPrice']")
+2025-01-16 21:29:56,355 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Others']")'
+2025-01-16 21:29:56,611 - INFO - Sending keys by locator ('name', 'code')
+2025-01-16 21:29:56,936 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border text-14 h-9 font-medium px-3 py-2'] span")'
+2025-01-16 21:29:57,265 - INFO - Sending keys by locator ('name', 'name')
+2025-01-16 21:29:57,678 - INFO - Sending keys by locator ('css selector', "input[placeholder='Category']")
+2025-01-16 21:29:59,160 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div[@role='option']//span")'
+2025-01-16 21:30:00,489 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Stock Details']")'
+2025-01-16 21:30:00,763 - INFO - Sending keys by locator ('css selector', "input[name='openingStock']")
+2025-01-16 21:30:01,135 - INFO - Clicking an element with locator '('xpath', "//button[normalize-space()='Select Units']")'
+2025-01-16 21:30:01,491 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//label[text()='Primary Unit']")'
+2025-01-16 21:30:01,897 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
+2025-01-16 21:30:02,241 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
+2025-01-16 21:30:02,407 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//label[text()='Secondary Unit']")'
+2025-01-16 21:30:02,833 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
+2025-01-16 21:30:03,161 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
+2025-01-16 21:30:03,310 - INFO - Sending keys by locator ('name', 'conversionRate')
+2025-01-16 21:30:03,655 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//button[.='Save']")'
+2025-01-16 21:30:03,951 - INFO - Sending keys by locator ('xpath', "//input[@name='salesPrice']")
+2025-01-16 21:30:04,370 - INFO - Sending keys by locator ('xpath', "//input[@name='purchasePrice']")
+2025-01-16 21:30:05,749 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Others']")'
+2025-01-16 21:30:06,001 - INFO - Sending keys by locator ('name', 'code')
+2025-01-16 21:30:06,343 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border text-14 h-9 font-medium px-3 py-2'] span")'
+2025-01-16 21:30:06,671 - INFO - Sending keys by locator ('name', 'name')
+2025-01-16 21:30:07,068 - INFO - Sending keys by locator ('css selector', "input[placeholder='Category']")
+2025-01-16 21:30:08,672 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div[@role='option']//span")'
+2025-01-16 21:30:10,002 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Stock Details']")'
+2025-01-16 21:30:10,273 - INFO - Sending keys by locator ('css selector', "input[name='openingStock']")
+2025-01-16 21:30:10,648 - INFO - Clicking an element with locator '('xpath', "//button[normalize-space()='Select Units']")'
+2025-01-16 21:30:11,005 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//label[text()='Primary Unit']")'
+2025-01-16 21:30:11,481 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
+2025-01-16 21:30:11,828 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
+2025-01-16 21:30:11,983 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//button[.='Save']")'
+2025-01-16 21:30:12,277 - INFO - Sending keys by locator ('xpath', "//input[@name='salesPrice']")
+2025-01-16 21:30:12,762 - INFO - Sending keys by locator ('xpath', "//input[@name='purchasePrice']")
+2025-01-16 21:30:14,158 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Others']")'
+2025-01-16 21:30:14,426 - INFO - Sending keys by locator ('name', 'code')
+2025-01-16 21:30:14,746 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border text-14 h-9 font-medium px-3 py-2'] span")'
+2025-01-16 21:30:15,065 - INFO - Sending keys by locator ('name', 'name')
+2025-01-16 21:30:15,470 - INFO - Sending keys by locator ('css selector', "input[placeholder='Category']")
+2025-01-16 21:30:16,983 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div[@role='option']//span")'
+2025-01-16 21:30:18,320 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Stock Details']")'
+2025-01-16 21:30:18,586 - INFO - Sending keys by locator ('css selector', "input[name='openingStock']")
+2025-01-16 21:30:19,055 - INFO - Clicking an element with locator '('xpath', "//button[normalize-space()='Select Units']")'
+2025-01-16 21:30:19,353 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//label[text()='Primary Unit']")'
+2025-01-16 21:30:19,763 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
+2025-01-16 21:30:20,082 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
+2025-01-16 21:30:20,254 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//label[text()='Secondary Unit']")'
+2025-01-16 21:30:20,701 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
+2025-01-16 21:30:21,004 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
+2025-01-16 21:30:21,132 - INFO - Sending keys by locator ('name', 'conversionRate')
+2025-01-16 21:30:21,286 - ERROR - An error occured in sendKeys when sending '1000.0' in locator ('name', 'conversionRate'), Message: element not interactable
+  (Session info: chrome=132.0.6834.83)
+Stacktrace:
+	GetHandleVerifier [0x00007FF69B5BFBE5+28741]
+	(No symbol) [0x00007FF69B527890]
+	(No symbol) [0x00007FF69B3C4E09]
+	(No symbol) [0x00007FF69B412C84]
+	(No symbol) [0x00007FF69B410D89]
+	(No symbol) [0x00007FF69B43FF0A]
+	(No symbol) [0x00007FF69B40BE46]
+	(No symbol) [0x00007FF69B440120]
+	(No symbol) [0x00007FF69B4600B4]
+	(No symbol) [0x00007FF69B43FCB3]
+	(No symbol) [0x00007FF69B409FB3]
+	(No symbol) [0x00007FF69B40B331]
+	GetHandleVerifier [0x00007FF69B8FA73D+3414941]
+	GetHandleVerifier [0x00007FF69B90E64A+3496618]
+	GetHandleVerifier [0x00007FF69B90413D+3454365]
+	GetHandleVerifier [0x00007FF69B68848B+850155]
+	(No symbol) [0x00007FF69B5337FF]
+	(No symbol) [0x00007FF69B52F0C4]
+	(No symbol) [0x00007FF69B52F25D]
+	(No symbol) [0x00007FF69B51E079]
+	BaseThreadInitThunk [0x00007FFED6257374+20]
+	RtlUserThreadStart [0x00007FFED639CC91+33]
+
+2025-01-16 21:30:21,286 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//button[.='Save']")'
+2025-01-16 21:30:21,586 - INFO - Sending keys by locator ('xpath', "//input[@name='salesPrice']")
+2025-01-16 21:30:22,009 - INFO - Sending keys by locator ('xpath', "//input[@name='purchasePrice']")
+2025-01-16 21:30:23,400 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Others']")'
+2025-01-16 21:30:23,653 - INFO - Sending keys by locator ('name', 'code')
+2025-01-16 21:30:23,981 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border text-14 h-9 font-medium px-3 py-2'] span")'
+2025-01-16 21:30:24,314 - INFO - Sending keys by locator ('name', 'name')
+2025-01-16 21:30:24,729 - INFO - Sending keys by locator ('css selector', "input[placeholder='Category']")
+2025-01-16 21:30:26,218 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div[@role='option']//span")'
+2025-01-16 21:30:27,548 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Stock Details']")'
+2025-01-16 21:30:27,824 - INFO - Sending keys by locator ('css selector', "input[name='openingStock']")
+2025-01-16 21:30:28,207 - INFO - Sending keys by locator ('xpath', "//input[@name='salesPrice']")
+2025-01-16 21:30:29,602 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Others']")'
+2025-01-16 21:30:29,847 - INFO - Sending keys by locator ('name', 'code')
+2025-01-16 21:30:30,172 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border text-14 h-9 font-medium px-3 py-2'] span")'
+2025-01-16 21:30:30,503 - INFO - Sending keys by locator ('name', 'name')
+2025-01-16 21:30:30,998 - INFO - Sending keys by locator ('css selector', "input[placeholder='Category']")
+2025-01-16 21:30:32,537 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div[@role='option']//span")'
+2025-01-16 21:30:33,858 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Stock Details']")'
+2025-01-16 21:30:34,138 - INFO - Sending keys by locator ('css selector', "input[name='openingStock']")
+2025-01-16 21:30:34,517 - INFO - Clicking an element with locator '('xpath', "//button[normalize-space()='Select Units']")'
+2025-01-16 21:30:34,847 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//label[text()='Primary Unit']")'
+2025-01-16 21:30:35,290 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
+2025-01-16 21:30:35,630 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
+2025-01-16 21:30:35,797 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//button[.='Save']")'
+2025-01-16 21:30:36,145 - INFO - Sending keys by locator ('xpath', "//input[@name='salesPrice']")
+2025-01-16 21:30:36,609 - INFO - Sending keys by locator ('xpath', "//input[@name='purchasePrice']")
+2025-01-16 21:30:38,017 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Others']")'
+2025-01-16 21:30:38,319 - INFO - Sending keys by locator ('name', 'code')
+2025-01-16 21:30:38,646 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border text-14 h-9 font-medium px-3 py-2'] span")'
+2025-01-16 21:30:38,987 - INFO - Sending keys by locator ('name', 'name')
+2025-01-16 21:30:39,399 - INFO - Sending keys by locator ('css selector', "input[placeholder='Category']")
+2025-01-16 21:30:40,902 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div[@role='option']//span")'
+2025-01-16 21:30:41,199 - INFO - Clicking an element with locator '('css selector', "button[value='service']")'
+2025-01-16 21:30:42,626 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Stock Details']")'
+2025-01-16 21:30:42,885 - INFO - Sending keys by locator ('xpath', "//input[@name='salesPrice']")
+2025-01-16 21:30:44,299 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Others']")'
+2025-01-16 21:30:44,561 - INFO - Sending keys by locator ('name', 'code')
+2025-01-16 21:30:44,888 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border text-14 h-9 font-medium px-3 py-2'] span")'
+2025-01-16 21:30:45,214 - INFO - Sending keys by locator ('name', 'name')
+2025-01-16 21:30:45,640 - INFO - Sending keys by locator ('css selector', "input[placeholder='Category']")
+2025-01-16 21:30:47,264 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div[@role='option']//span")'
+2025-01-16 21:30:48,595 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Stock Details']")'
+2025-01-16 21:30:48,863 - INFO - Sending keys by locator ('css selector', "input[name='openingStock']")
+2025-01-16 21:30:49,266 - INFO - Clicking an element with locator '('xpath', "//button[normalize-space()='Select Units']")'
+2025-01-16 21:30:49,655 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//label[text()='Primary Unit']")'
+2025-01-16 21:30:50,075 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
+2025-01-16 21:30:50,402 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
+2025-01-16 21:30:50,565 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//label[text()='Secondary Unit']")'
+2025-01-16 21:30:51,005 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
+2025-01-16 21:30:51,280 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
+2025-01-16 21:30:51,357 - INFO - Sending keys by locator ('name', 'conversionRate')
+2025-01-16 21:30:51,630 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//button[.='Save']")'
+2025-01-16 21:30:51,929 - INFO - Sending keys by locator ('xpath', "//input[@name='salesPrice']")
+2025-01-16 21:30:52,330 - INFO - Sending keys by locator ('xpath', "//input[@name='purchasePrice']")
+2025-01-16 21:30:53,709 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Others']")'
+2025-01-16 21:30:53,961 - INFO - Sending keys by locator ('name', 'code')
+2025-01-16 21:30:54,289 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border text-14 h-9 font-medium px-3 py-2'] span")'
+2025-01-16 21:30:54,643 - INFO - Sending keys by locator ('name', 'name')
+2025-01-16 21:30:54,959 - INFO - Sending keys by locator ('css selector', "input[placeholder='Category']")
+2025-01-16 21:30:56,589 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div[@role='option']//span")'
+2025-01-16 21:30:57,917 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Stock Details']")'
+2025-01-16 21:30:58,170 - INFO - Sending keys by locator ('css selector', "input[name='openingStock']")
+2025-01-16 21:30:58,522 - INFO - Clicking an element with locator '('xpath', "//button[normalize-space()='Select Units']")'
+2025-01-16 21:30:58,852 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//label[text()='Primary Unit']")'
+2025-01-16 21:30:59,243 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
+2025-01-16 21:30:59,590 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
+2025-01-16 21:30:59,774 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//button[.='Save']")'
+2025-01-16 21:31:00,174 - INFO - Sending keys by locator ('xpath', "//input[@name='salesPrice']")
+2025-01-16 21:31:00,620 - INFO - Sending keys by locator ('xpath', "//input[@name='purchasePrice']")
+2025-01-16 21:31:02,006 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Others']")'
+2025-01-16 21:31:02,260 - INFO - Sending keys by locator ('name', 'code')
+2025-01-16 21:31:02,590 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border text-14 h-9 font-medium px-3 py-2'] span")'
+2025-01-16 21:31:02,917 - INFO - Sending keys by locator ('name', 'name')
+2025-01-16 21:31:03,332 - INFO - Sending keys by locator ('css selector', "input[placeholder='Category']")
+2025-01-16 21:31:04,769 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div[@role='option']//span")'
+2025-01-16 21:31:06,109 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Stock Details']")'
+2025-01-16 21:31:06,387 - INFO - Sending keys by locator ('css selector', "input[name='openingStock']")
+2025-01-16 21:31:06,768 - INFO - Clicking an element with locator '('xpath', "//button[normalize-space()='Select Units']")'
+2025-01-16 21:31:07,086 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//label[text()='Primary Unit']")'
+2025-01-16 21:31:07,523 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
+2025-01-16 21:31:07,752 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
+2025-01-16 21:31:07,816 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//label[text()='Secondary Unit']")'
+2025-01-16 21:31:08,278 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
+2025-01-16 21:31:08,655 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
+2025-01-16 21:31:08,803 - INFO - Sending keys by locator ('name', 'conversionRate')
+2025-01-16 21:31:09,188 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//button[.='Save']")'
+2025-01-16 21:31:09,502 - INFO - Sending keys by locator ('xpath', "//input[@name='salesPrice']")
+2025-01-16 21:31:09,915 - INFO - Sending keys by locator ('xpath', "//input[@name='purchasePrice']")
+2025-01-16 21:31:11,300 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Others']")'
+2025-01-16 21:31:11,554 - INFO - Sending keys by locator ('name', 'code')
+2025-01-16 21:31:11,873 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border text-14 h-9 font-medium px-3 py-2'] span")'
+2025-01-16 21:31:12,198 - INFO - Sending keys by locator ('name', 'name')
+2025-01-16 21:31:12,610 - INFO - Sending keys by locator ('css selector', "input[placeholder='Category']")
+2025-01-16 21:31:14,097 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div[@role='option']//span")'
+2025-01-16 21:31:15,430 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Stock Details']")'
+2025-01-16 21:31:15,699 - INFO - Sending keys by locator ('css selector', "input[name='openingStock']")
+2025-01-16 21:31:16,077 - INFO - Clicking an element with locator '('xpath', "//button[normalize-space()='Select Units']")'
+2025-01-16 21:31:16,396 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//label[text()='Primary Unit']")'
+2025-01-16 21:31:16,826 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
+2025-01-16 21:31:17,162 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
+2025-01-16 21:31:17,334 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//button[.='Save']")'
+2025-01-16 21:31:17,721 - INFO - Sending keys by locator ('xpath', "//input[@name='salesPrice']")
+2025-01-16 21:31:18,067 - INFO - Sending keys by locator ('xpath', "//input[@name='purchasePrice']")
+2025-01-16 21:31:19,476 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Others']")'
+2025-01-16 21:31:19,731 - INFO - Sending keys by locator ('name', 'code')
+2025-01-16 21:31:20,060 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border text-14 h-9 font-medium px-3 py-2'] span")'
+2025-01-16 21:31:20,394 - INFO - Sending keys by locator ('name', 'name')
+2025-01-16 21:31:20,811 - INFO - Sending keys by locator ('css selector', "input[placeholder='Category']")
+2025-01-16 21:31:22,290 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div[@role='option']//span")'
+2025-01-16 21:31:22,599 - INFO - Clicking an element with locator '('css selector', "button[value='service']")'
+2025-01-16 21:31:23,950 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Stock Details']")'
+2025-01-16 21:31:24,196 - INFO - Sending keys by locator ('xpath', "//input[@name='salesPrice']")
+2025-01-16 21:31:25,623 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Others']")'
+2025-01-16 21:31:25,871 - INFO - Sending keys by locator ('name', 'code')
+2025-01-16 21:31:26,195 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border text-14 h-9 font-medium px-3 py-2'] span")'
+2025-01-16 21:31:26,530 - INFO - Sending keys by locator ('name', 'name')
+2025-01-16 21:31:26,949 - INFO - Sending keys by locator ('css selector', "input[placeholder='Category']")
+2025-01-16 21:31:28,435 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div[@role='option']//span")'
+2025-01-16 21:31:29,768 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Stock Details']")'
+2025-01-16 21:31:30,037 - INFO - Sending keys by locator ('css selector', "input[name='openingStock']")
+2025-01-16 21:31:30,420 - INFO - Clicking an element with locator '('xpath', "//button[normalize-space()='Select Units']")'
+2025-01-16 21:31:30,745 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//label[text()='Primary Unit']")'
+2025-01-16 21:31:31,174 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
+2025-01-16 21:31:31,568 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
+2025-01-16 21:31:31,710 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//label[text()='Secondary Unit']")'
+2025-01-16 21:31:32,133 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
+2025-01-16 21:31:32,440 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
+2025-01-16 21:31:32,644 - INFO - Sending keys by locator ('name', 'conversionRate')
+2025-01-16 21:31:32,994 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//button[.='Save']")'
+2025-01-16 21:31:33,290 - INFO - Sending keys by locator ('xpath', "//input[@name='salesPrice']")
+2025-01-16 21:31:34,745 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Others']")'
+2025-01-16 21:31:34,994 - INFO - Sending keys by locator ('name', 'code')
+2025-01-16 21:31:35,320 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border text-14 h-9 font-medium px-3 py-2'] span")'
+2025-01-16 21:31:35,634 - INFO - Sending keys by locator ('name', 'name')
+2025-01-16 21:31:36,035 - INFO - Sending keys by locator ('css selector', "input[placeholder='Category']")
+2025-01-16 21:31:37,583 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div[@role='option']//span")'
+2025-01-16 21:31:38,901 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Stock Details']")'
+2025-01-16 21:31:39,168 - INFO - Sending keys by locator ('css selector', "input[name='openingStock']")
+2025-01-16 21:31:39,548 - INFO - Sending keys by locator ('xpath', "//input[@name='salesPrice']")
+2025-01-16 21:31:39,935 - INFO - Sending keys by locator ('xpath', "//input[@name='purchasePrice']")
+2025-01-16 21:31:41,332 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Others']")'
+2025-01-16 21:31:41,699 - INFO - Sending keys by locator ('name', 'code')
+2025-01-16 21:31:42,024 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border text-14 h-9 font-medium px-3 py-2'] span")'
+2025-01-16 21:31:42,343 - INFO - Sending keys by locator ('name', 'name')
+2025-01-16 21:31:42,759 - INFO - Sending keys by locator ('css selector', "input[placeholder='Category']")
+2025-01-16 21:31:44,302 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div[@role='option']//span")'
+2025-01-16 21:31:44,600 - INFO - Clicking an element with locator '('css selector', "button[value='service']")'
+2025-01-16 21:31:45,957 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Stock Details']")'
+2025-01-16 21:31:46,204 - INFO - Sending keys by locator ('xpath', "//input[@name='salesPrice']")
+2025-01-16 21:31:47,613 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Others']")'
+2025-01-16 21:31:47,860 - INFO - Sending keys by locator ('name', 'code')
+2025-01-16 21:31:48,183 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border text-14 h-9 font-medium px-3 py-2'] span")'
+2025-01-16 21:31:48,511 - INFO - Sending keys by locator ('name', 'name')
+2025-01-16 21:31:48,929 - INFO - Sending keys by locator ('css selector', "input[placeholder='Category']")
+2025-01-16 21:31:50,507 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div[@role='option']//span")'
+2025-01-16 21:31:51,804 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Stock Details']")'
+2025-01-16 21:31:52,078 - INFO - Sending keys by locator ('css selector', "input[name='openingStock']")
+2025-01-16 21:31:52,459 - INFO - Clicking an element with locator '('xpath', "//button[normalize-space()='Select Units']")'
+2025-01-16 21:31:52,798 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//label[text()='Primary Unit']")'
+2025-01-16 21:31:53,180 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
+2025-01-16 21:31:53,498 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
+2025-01-16 21:31:53,668 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//label[text()='Secondary Unit']")'
+2025-01-16 21:31:54,127 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
+2025-01-16 21:31:54,471 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
+2025-01-16 21:31:54,624 - INFO - Sending keys by locator ('name', 'conversionRate')
+2025-01-16 21:31:54,976 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//button[.='Save']")'
+2025-01-16 21:31:55,282 - INFO - Sending keys by locator ('xpath', "//input[@name='salesPrice']")
+2025-01-16 21:31:55,695 - INFO - Sending keys by locator ('xpath', "//input[@name='purchasePrice']")
+2025-01-16 21:31:57,094 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Others']")'
+2025-01-16 21:31:57,347 - INFO - Sending keys by locator ('name', 'code')
+2025-01-16 21:31:57,674 - INFO - Clicking an element with locator '('css selector', "button[class*='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed bg-fill-primary hover:bg-fill-primary-hover active:bg-fill-primary-active text-primary-on-bg-fill text-14 h-9 font-medium px-3 py-2 order-last']")'
+2025-01-16 21:32:01,962 - INFO - All driver quited.
