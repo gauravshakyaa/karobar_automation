@@ -1,6 +1,7 @@
 import logging
 import time
 from selenium.webdriver.common.by import By
+from utils import excel_utils
 from utils.readProperties import ReadConfig
 from testCases import conftest
 from selenium.webdriver.chrome.webdriver import WebDriver
@@ -172,24 +173,40 @@ class InventoryPage:
             self.driver.get(ReadConfig.getURL() + "/inventory/add")
     
     def addItem(self, itemName=None, itemCategory=None, itemType=None, openingStock=None, primary_unit=None, secondary_unit=None, conversionRate=None, salesPrice=None, purchasePrice=None, lowStockAlert=None, lowStockQty=None, itemCode=None, description=None, location=None):
-        self.navigateToAddEditItemPage()
-        if itemName:
-            self.setItemName(itemName)
-        if itemCategory:
-            self.setItemCategory(itemCategory)
-        if itemType:
-            self.setItemType(itemType)
-        if openingStock:
-            self.setOpeningStock(openingStock)
-        if primary_unit:
-            self.setUnit(primary_unit, secondary_unit, conversionRate)
-        if salesPrice:
-            self.setSalesPrice(salesPrice)
-        if purchasePrice:
-            self.setPurchasePrice(purchasePrice)
-        if itemCode:
-            self.setItemCode(itemCode)
-        if description:
-            self.setDescription(description)
-        if location:
-            self.setLocation(location)
+        try:
+            self.navigateToAddEditItemPage()
+            if itemName:
+                self.setItemName(itemName)
+                if itemCategory:
+                    self.setItemCategory(itemCategory)
+                if itemType:
+                    self.setItemType(itemType)
+                if openingStock:
+                    self.setOpeningStock(openingStock)
+                if primary_unit:
+                    self.setUnit(primary_unit, secondary_unit, conversionRate)
+                if salesPrice:
+                    self.setSalesPrice(salesPrice)
+                if purchasePrice:
+                    self.setPurchasePrice(purchasePrice)
+                if itemCode:
+                    self.setItemCode(itemCode)
+                if description:
+                    self.setDescription(description)
+                if location:
+                    self.setLocation(location)
+        except Exception as e:
+            logging.error(f"Error while adding item: {e}")
+            exit(1)
+
+    def addBulkItems(self):
+        item_map_data = excel_utils.item_key_mapping
+        item_details = excel_utils.read_excel(filepath="utils//GuidedKarobarData.xlsx", sheetname="Item Data")
+        mapped_item_data = [excel_utils.map_excel_keys(data=item, key_mapping=item_map_data) for item in item_details]
+        for i, item_data in enumerate(mapped_item_data):
+            self.addItem(**item_data)
+            if i < len(mapped_item_data) - 1:
+                self.clickSaveAddNewButton()
+                time.sleep(0.2)
+            else:
+                self.clickSaveButton()

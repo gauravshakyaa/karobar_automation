@@ -1,9 +1,11 @@
+import datetime
 import logging
 import time
 from selenium.webdriver.common.by import By
+from utils import excel_utils
 from utils.readProperties import ReadConfig
 from testCases import conftest
-from selenium.webdriver.chrome.webdriver import WebDriver
+from selenium.webdriver.remote.webdriver import WebDriver
 
 class Party:
     ######### ADD PARTY DIALOG ##########
@@ -59,46 +61,46 @@ class Party:
             raise Exception("Invalid balance type")
 
     def setPartyAddress(self, address):
-        if conftest.isElementPresent(self.driver, self.inputField_partyAddress_name, timeout=1):
+        if conftest.isElementPresent(self.driver, self.inputField_partyAddress_name, timeout=0.5):
             conftest.sendKeys(self.driver, self.inputField_partyAddress_name, address)
         else:
             conftest.clickElement(self.driver, self.button_additionalInfo_xpath)
             conftest.sendKeys(self.driver, self.inputField_partyAddress_name, address)
 
     def setPartyEmail(self, email):
-        if conftest.isElementPresent(self.driver, self.inputField_partyEmail_name, timeout=1):
+        if conftest.isElementPresent(self.driver, self.inputField_partyEmail_name, timeout=0.5):
             conftest.sendKeys(self.driver, self.inputField_partyEmail_name, email)
         else:
             conftest.clickElement(self.driver, self.button_additionalInfo_xpath)
             conftest.sendKeys(self.driver, self.inputField_partyEmail_name, email)
     
     def setPartyPan(self, pan):
-        if conftest.isElementPresent(self.driver, self.inputField_partyPan_name, timeout=1):
+        if conftest.isElementPresent(self.driver, self.inputField_partyPan_name, timeout=0.5):
             conftest.sendKeys(self.driver, self.inputField_partyPan_name, pan)
         else:
             conftest.clickElement(self.driver, self.button_additionalInfo_xpath)
             conftest.sendKeys(self.driver, self.inputField_partyPan_name, pan)
     
     def clickSaveButton(self):
-        if conftest.isElementPresent(self.driver, self.button_saveParty_xpath):
+        if conftest.isElementPresent(self.driver, self.button_saveParty_xpath, timeout=0.5):
             conftest.clickElement(self.driver, self.button_saveParty_xpath)
         else:
             conftest.clickElement(self.driver, self.button_saveAndNewParty_xpath)
 
     def clickSaveAddNewButton(self):
-        if conftest.isElementPresent(self.driver, self.button_saveAndNewParty_xpath):
-            conftest.clickElement(self.driver, self.button_saveAndNewParty_xpath)
+        if conftest.isElementPresent(self.driver, self.button_saveAndNewParty_xpath, timeout=0.5):
+            conftest.clickElement(self.driver, self.button_saveAndNewParty_xpath, timeout=0.5)
         else:
-            conftest.clickElement(self.driver, self.button_saveParty_xpath)
+            conftest.clickElement(self.driver, self.button_saveParty_xpath, timeout=0.5)
 
     def clickAddNewPartyButton(self):
-        if conftest.isElementPresent(self.driver, self.button_addNewFirstParty_xpath):
+        if conftest.isElementPresent(self.driver, self.button_addNewFirstParty_xpath, timeout=0.5):
             conftest.clickElement(self.driver, self.button_addNewFirstParty_xpath)
         else:
             conftest.clickElement(self.driver, self.button_addParty_xpath)
     
     def openAddPartyDialog(self):
-        if conftest.isElementPresent(self.driver, locator="//div[@role='dialog']//h2[contains(.,'Party')]"): # If already on party dialog, skip the process
+        if conftest.isElementPresent(self.driver, locator="//div[@role='dialog']//h2[contains(.,'Party')]", timeout=0.5): # If already on party dialog, skip the process
             pass
         else:
             if "/parties" in self.driver.current_url:
@@ -117,7 +119,7 @@ class Party:
             self.setPartyPhoneNo(phone)
         if partyType:
             if partyType.lower() == "customer":
-                self.setCustomerPartyType()
+                pass
             elif partyType.lower() == "supplier":
                 self.setSupplierPartyType()
             else:
@@ -131,4 +133,15 @@ class Party:
             self.setPartyEmail(email)
         if pan:
             self.setPartyPan(pan)
-        
+    
+    def addBulkParty(self):
+        party_map_data = excel_utils.party_key_mapping
+        party_details = excel_utils.read_excel(filepath="utils//GuidedKarobarData.xlsx", sheetname="Party Data")
+        mapped_party_data = [excel_utils.map_excel_keys(data=party, key_mapping=party_map_data) for party in party_details]
+        total_time = 0
+        for i, party_data in enumerate(mapped_party_data):
+            self.addParty(**party_data)
+            if i < len(mapped_party_data) - 1:
+                self.clickSaveAddNewButton()
+            else:
+                self.clickSaveButton()

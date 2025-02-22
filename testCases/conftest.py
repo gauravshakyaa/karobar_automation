@@ -4,27 +4,35 @@ import logging
 import time
 import pytest
 from selenium import webdriver
-from selenium.common import NoSuchElementException
 from selenium.webdriver import Keys
-from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.common.by import By
 from utils.customLogger import setup_logging
 from utils.readProperties import ReadConfig
 from pageObjects.LoginPage import LoginPage
 
+
+def pytest_addoption(parser):
+    parser.addoption(
+        "--headless", action="store_true", default=False, help="Run tests in headless mode"
+    )
+    
+
 setup_logging()
 @pytest.fixture()
-def setup():
+def setup(request):
     global driver
+    headless_mode = request.config.getoption("--headless")
     clean_allure_results()
     clear_log_file()
     browser = ReadConfig.getBrowser()
     options = webdriver.ChromeOptions()
-    options.add_argument("--disable-gpu")
-    options.add_argument("--disable-extensions")
-    options.add_argument("--disable-blink-features=AutomationControlled")
+    if headless_mode and options:
+        options.add_argument("--headless")
+        options.add_argument("--disable-gpu")
+        options.add_argument("--disable-extensions")
+        options.add_argument("--disable-blink-features=AutomationControlled")
     if browser.__eq__("chrome"):
         driver = webdriver.Chrome(options=options)
     elif browser.__eq__("edge"):
@@ -48,8 +56,9 @@ def nav_to_dashboard():
     login_page.setPhoneNumber(ReadConfig.getPhoneNumber())
     login_page.clickContinueButton()
     login_page.setOTP(ReadConfig.getOTP())
+    time.sleep(2)
     if "choose-account" in driver.current_url:
-        login_page.selectBusiness(business_name="Performance")
+        login_page.selectBusiness(business_name="123")
     else:
         pass
 
@@ -64,48 +73,45 @@ def sendKeys(driver, locator, value, clear_field=True):
             driver.find_element(*locator).send_keys(Keys.CONTROL + 'a' + Keys.DELETE)
         driver.find_element(*locator).send_keys(value)
     except Exception as e:
-        logging.error(f"An error occured in sendKeys when sending '{value}' in locator {locator}, {e}")
+        logging.error(f"An error occured in sendKeys when sending '{value}' in locator {locator}")
 
     
-def clickElement(driver, locator, by=None):
+def clickElement(driver, locator, by=None, timeout=10):
     if by is None:
         try:
             logging.info(f"Clicking an element with locator '{locator}'")
-            waitForElement(driver, locator,timeout=10)
+            waitForElement(driver, locator, timeout=timeout)
             driver.find_element(*locator).click() 
         except Exception as e:
-            logging.error(f"An error occured in clickElement with locator {locator}, {e}")
+            logging.error(f"An error occured in clickElement with locator {locator}")
     else:
         try:
             logging.info(f"Clicking an element with locator '{locator}' by {by}")
-            waitForElement(driver, locator, by=by, timeout=10)
+            waitForElement(driver, locator, by=by, timeout=timeout)
             driver.find_element(by, locator).click() 
         except Exception as e:
-            logging.error(f"An error occured in clickElement with locator {locator}, {e}")
+            logging.error(f"An error occured in clickElement with locator {locator}")
 
 def clearInputField(driver, locator):
     try:
         waitForElement(driver, locator, timeout=10)
         driver.find_element(*locator).send_keys(Keys.CONTROL + "a" + Keys.DELETE)
     except Exception as e:
-        logging.error(f"An error occured in clearInputField with locator {locator}, {e}")
+        logging.error(f"An error occured in clearInputField with locator {locator}")
 
 def getTextFromTextField(driver, locator):
     try:
-        waitForElement(driver, *locator, timeout=10)
+        waitForElement(driver, locator, timeout=10)
         return driver.find_element(*locator).text
     except Exception as e:
-        logging.error(f"An error occured in getTextFromTextField with locator {locator}, {e}")
+        logging.error(f"An error occured in getTextFromTextField with locator {locator}")
 
-def clean_allure_results():
-    results_dir = "AllureReport"
-    if os.path.exists(results_dir):
-        shutil.rmtree(results_dir)
-    os.makedirs(results_dir)
-
-def clear_log_file():
-    with open('Configurations//Logs//revamp_karobar.log', 'w') as log_file:
-        log_file.write('')
+def get_snackbar_message(driver):
+    try:
+        snackbar_locator = (By.XPATH, "//li[@role='status']//div//div")
+        return getTextFromTextField(driver, snackbar_locator)
+    except Exception as e:
+        logging.error(f"An error occured in return_snackbar_message: {e}")
 
 def waitForElement(driver, locator, condition="visible", timeout=1):
     wait = WebDriverWait(driver, timeout)
@@ -130,17 +136,57 @@ def waitForElement(driver, locator, condition="visible", timeout=1):
                 f"Invalid condition '{condition}'. Use 'clickable', 'visible', 'present', or 'all'."
             )
     except Exception as e:
-        print(f"Error while waiting for element: {e}")
+        print("Error while waiting for element")
         raise
 
 def isElementPresent(driver, locator, timeout=2): 
     try:
-        wait = WebDriverWait(driver, timeout)
+        wait = WebDriverWait(driver, timeout=timeout)
         wait.until(EC.visibility_of_element_located(locator))
         return True
     except Exception:
         return False
         exit(1)
+
+def isElementEmpty(driver, locator, timeout=2):
+    wait = WebDriverWait(driver, timeout=timeout)
+    wait.until(EC.visibility_of_element_located(locator))
+    if driver.find_element(*locator).text == "":
+        return True
+    else:
+        return False
+
+def scroll_until_element_visible(driver, element_locator, dropdown_element):
+    while True:
+        try:
+            element = driver.find_element(*element_locator)
+            if element.is_displayed():
+                logging.info("Element is visible!")
+                return True
+        except Exception:
+            pass  
+        scrollable_element = driver.find_element(By.XPATH, dropdown_element)
+
+        previous_scroll_height = driver.execute_script("return arguments[0].scrollTop;", scrollable_element)
+        logging.info(f"Previous scroll height: {previous_scroll_height}")
+        driver.execute_script("arguments[0].scrollTop += 180;", scrollable_element)
+        
+        new_scroll_height = driver.execute_script("return arguments[0].scrollTop;", scrollable_element)
+        logging.info(f"New scroll height: {new_scroll_height}")
+        if new_scroll_height == previous_scroll_height:
+            logging.info("Reached the bottom of the page.")
+            break
+    return None  
+
+def clean_allure_results():
+    results_dir = "AllureReport"
+    if os.path.exists(results_dir):
+        shutil.rmtree(results_dir)
+    os.makedirs(results_dir)
+
+def clear_log_file():
+    with open('Configurations//Logs//revamp_karobar.log', 'w') as log_file:
+        log_file.write('')
 
 def setDate(day, month, year):
     month_mapping = {

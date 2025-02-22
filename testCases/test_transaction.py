@@ -8,7 +8,7 @@ from pageObjects.LoginPage import LoginPage
 # from utilities.customLogger import LogGenerator
 from utils.readProperties import ReadConfig
 from testCases import conftest
-from selenium.webdriver.chrome.webdriver import WebDriver
+from selenium.webdriver.remote.webdriver import WebDriver
 import allure
 from allure_commons.types import AttachmentType
 

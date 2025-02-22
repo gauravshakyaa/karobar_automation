@@ -31,6 +31,9 @@
 
 
 
+from datetime import date
+
+
 def Sudoku_add_and_copy():
   def print_sudoku(numbers: list):
     for number in range(len(numbers)):
@@ -300,13 +303,194 @@ def oldest_person_2():
         list.append(person[0])
     
     return list
+
+def object_and_method():
+  def smallest_average(person1: dict, person2:dict, person3:dict):
+    result = 0
+    persons = [person1, person2, person3]
+    for person in persons:
+      person_average = (person["result1"] + person["result2"] + person["result3"])/len(persons)
+      if person_average > result:
+        result = person_average
+  def pet():
+    class Pet:
+      def __init__(self, name: str, species: int, year_of_birth: str):
+        self.name = name
+        self.species = species
+        self.year_of_birth = year_of_birth
+
+    new_pet = Pet
+    fluffy = new_pet("Fluffy", "dog", 2017)
+    print(fluffy.name)
+    print(fluffy.species)
+    print(fluffy.year_of_birth)
+  def older_book1():
+    class Book:
+      def __init__(self, name, author, genre, year):
   
-  p1 = ("Adam", 1977)
-  p2 = ("Ellen", 1985)
-  p3 = ("Mary", 1953)
-  p4 = ("Ernest", 1997)
-  people = [p1, p2, p3, p4]
+          self.name = name  # Assigning the book title
+          self.author = author  # Assigning the book's author
+          self.genre = genre  # Assigning the book's genre
+          self.year = year  # Assigning the publication year
 
-  older = older_people(people, 1979)
-  print(older)
+    # Creating instances of the Book class
+    python = Book("Fluent Python", "Luciano Ramalho", "programming", 2015)
+    everest = Book("High Adventure", "Edmund Hillary", "autobiography", 1956)
+    norma = Book("Norma", "Sofi Oksanen", "crime", 2015)
+    def older_book(book1: Book, book2: Book):
+      if book1.year > book1.year:
+        print(f"{book1.name}, is older, it was published in {book1.year}")
+      elif book1.year < book2.year:
+        print(f"{book2.name}, is older, it was published in {book2.year}")
+      else:
+        print(f"{book1.name} and {book2.name} were published in {book1.year}")
+    
+    return older_book(python, everest)
+  
+  
+  older_book1()
 
+def bank():
+  class BankAccount:
+    def __init__(self, account_number: str, owner: str, balance: float, account_interest: float):
+      self.account_number = account_number
+      self.owner = owner
+      self.balance = balance
+      self.account_interest = account_interest
+    
+    def add_interest(self):
+      self.balance += self.balance * self.account_interest
+
+    def withdraw(self, amount: float):
+      if amount >= self.balance:
+        self.balance -= amount
+        return True
+      
+      return False
+  
+  peters_account = BankAccount("123456789", "Peter Python", 1000, 0.05)
+  print(peters_account.balance)
+  
+  if peters_account.withdraw(1000):
+    print(f"Withdrawal successful, new balance is {peters_account.balance}")
+  else:
+    print("Withdrawal failed, insufficient funds")
+
+def decreasing_counter():
+  class DecreasingCounter:
+    def __init__(self, initial_value: int):
+      self.value = initial_value
+      self.initial_value = initial_value
+
+    def print_value(self):
+      print("value:", self.value)
+
+    def decrease(self):
+      if self.value > 0:
+        self.value -= 1
+
+    def set_to_zero(self):
+      self.value = 0
+
+    def reset_original_value(self):
+      self.value =  self.initial_value
+
+  counter = DecreasingCounter(55)
+  counter.decrease()
+  counter.decrease()
+  counter.decrease()
+  counter.decrease()
+  counter.print_value()
+  counter.reset_original_value()
+  counter.print_value()
+
+def player():
+  class PersonalBest:
+    def __init__(self, player: str, day: int, month: int, year: int, points: int):
+      # Default values
+      self.player = ""
+      self.date_of_pb = date(1900, 1, 1)
+      self.points = 0
+
+      if self.name_ok(player):
+        self.player = player
+
+      if self.date_ok(day, month, year):
+        self.date_of_pb = date(year, month, day)
+      
+      if self.points_ok(points):
+          self.points = points
+
+    def name_ok(self, name: str) -> bool:
+      return len(name) >= 2
+    
+    def date_ok(self, day, month, year):
+      try:
+        date(year, month, day)
+        return True
+      except Exception:
+        return False
+      
+    def points_ok(self, points):
+      return points >= 0
+   
+
+def rectabgle():
+  class Rectangle:
+    def __init__(self, left_upper: tuple, right_lower: tuple):
+      self.left_upper = left_upper
+      self.right_lower = right_lower
+      self.width = right_lower[0]-left_upper[0]
+      self.height = right_lower[1]-left_upper[1]
+
+      def area(self):
+        return self.width * self.height
+      
+      def __repr__(self):
+        return f"Rectangle: ({self.left_upper}, {self.right_lower})"
+
+  rectangle = Rectangle((0, 0), (10, 10))
+  print(rectangle)
+
+def stopwatch():
+  class Stopwatch:
+    def __init__(self):
+      self.seconds = 0
+      self.minutes = 0
+    
+    def __str__(self):
+      return f"{self.minutes:02}:{self.seconds:02}"
+
+    def tick(self):
+      self.seconds += 1
+      if self.seconds == 60:
+        self.seconds = 0
+        self.minutes += 1
+
+  class Clock:
+    def __init__(self, hour, minute, second):
+      self.hour = hour
+      self.minute = minute
+      self.second = second
+    
+    def __str__(self):
+      return f"{self.hour:02}:{self.minute:02}:{self.second:02}"
+
+    def set(self, hour, minute, second=0):
+      self.hour = hour
+      self.minute = minute
+      self.second = second
+
+      return f"{self.hour:02}:{self.minute:02}:{self.second:02}"
+
+  # watch = Stopwatch()
+  # for i in range(3600):
+  #   print(watch)
+  #   watch.tick()
+  clock = Clock(12, 30, 0)
+  clock.set(12, 5)
+  print(clock)
+
+charge_amount = [100, 45]
+for i, charge in enumerate(charge_amount):
+  print(i+1, charge)

@@ -1,311 +1,336 @@
-2025-01-16 21:29:17,194 - INFO - Sending keys by locator ('name', 'phoneNumber')
-2025-01-16 21:29:17,730 - INFO - Clicking an element with locator '('xpath', "//button[@type='submit']")'
-2025-01-16 21:29:18,049 - INFO - Sending keys by locator ('id', 'otp-verification')
-2025-01-16 21:29:18,945 - INFO - Running End to End Test
-2025-01-16 21:29:23,961 - INFO - Sending keys by locator ('name', 'name')
-2025-01-16 21:29:24,339 - INFO - Sending keys by locator ('css selector', "input[placeholder='Category']")
-2025-01-16 21:29:24,855 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div[@role='option'][.='Category 1']")'
-2025-01-16 21:29:25,207 - INFO - Sending keys by locator ('css selector', "input[name='openingStock']")
-2025-01-16 21:29:25,560 - INFO - Sending keys by locator ('xpath', "//input[@name='salesPrice']")
-2025-01-16 21:29:25,862 - INFO - Sending keys by locator ('xpath', "//input[@name='purchasePrice']")
-2025-01-16 21:29:27,279 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Others']")'
-2025-01-16 21:29:27,588 - INFO - Sending keys by locator ('name', 'code')
-2025-01-16 21:29:27,917 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border text-14 h-9 font-medium px-3 py-2'] span")'
-2025-01-16 21:29:28,298 - INFO - Sending keys by locator ('name', 'name')
-2025-01-16 21:29:28,739 - INFO - Sending keys by locator ('css selector', "input[placeholder='Category']")
-2025-01-16 21:29:30,291 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div[@role='option']//span")'
-2025-01-16 21:29:31,662 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Stock Details']")'
-2025-01-16 21:29:31,976 - INFO - Sending keys by locator ('css selector', "input[name='openingStock']")
-2025-01-16 21:29:32,353 - INFO - Sending keys by locator ('xpath', "//input[@name='salesPrice']")
-2025-01-16 21:29:32,698 - INFO - Sending keys by locator ('xpath', "//input[@name='purchasePrice']")
-2025-01-16 21:29:34,058 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Others']")'
-2025-01-16 21:29:34,370 - INFO - Sending keys by locator ('name', 'code')
-2025-01-16 21:29:34,505 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border text-14 h-9 font-medium px-3 py-2'] span")'
-2025-01-16 21:29:34,625 - INFO - Sending keys by locator ('name', 'name')
-2025-01-16 21:29:35,020 - INFO - Sending keys by locator ('css selector', "input[placeholder='Category']")
-2025-01-16 21:29:36,299 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div[@role='option']//span")'
-2025-01-16 21:29:37,596 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Stock Details']")'
-2025-01-16 21:29:37,770 - INFO - Sending keys by locator ('css selector', "input[name='openingStock']")
-2025-01-16 21:29:37,937 - INFO - Clicking an element with locator '('xpath', "//button[normalize-space()='Select Units']")'
-2025-01-16 21:29:38,101 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//label[text()='Primary Unit']")'
-2025-01-16 21:29:38,383 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
-2025-01-16 21:29:38,583 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
-2025-01-16 21:29:38,711 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//label[text()='Secondary Unit']")'
-2025-01-16 21:29:39,199 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
-2025-01-16 21:29:39,539 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
-2025-01-16 21:29:39,689 - INFO - Sending keys by locator ('name', 'conversionRate')
-2025-01-16 21:29:40,042 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//button[.='Save']")'
-2025-01-16 21:29:40,383 - INFO - Sending keys by locator ('xpath', "//input[@name='salesPrice']")
-2025-01-16 21:29:40,778 - INFO - Sending keys by locator ('xpath', "//input[@name='purchasePrice']")
-2025-01-16 21:29:42,167 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Others']")'
-2025-01-16 21:29:42,421 - INFO - Sending keys by locator ('name', 'code')
-2025-01-16 21:29:42,749 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border text-14 h-9 font-medium px-3 py-2'] span")'
-2025-01-16 21:29:43,080 - INFO - Sending keys by locator ('name', 'name')
-2025-01-16 21:29:43,572 - INFO - Sending keys by locator ('css selector', "input[placeholder='Category']")
-2025-01-16 21:29:44,964 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div[@role='option']//span")'
-2025-01-16 21:29:46,293 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Stock Details']")'
-2025-01-16 21:29:46,566 - INFO - Clicking an element with locator '('xpath', "//button[normalize-space()='Select Units']")'
-2025-01-16 21:29:46,985 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//label[text()='Primary Unit']")'
-2025-01-16 21:29:47,429 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
-2025-01-16 21:29:47,772 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
-2025-01-16 21:29:47,945 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//button[.='Save']")'
-2025-01-16 21:29:48,303 - INFO - Sending keys by locator ('xpath', "//input[@name='salesPrice']")
-2025-01-16 21:29:48,742 - INFO - Sending keys by locator ('xpath', "//input[@name='purchasePrice']")
-2025-01-16 21:29:50,139 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Others']")'
-2025-01-16 21:29:50,392 - INFO - Sending keys by locator ('name', 'code')
-2025-01-16 21:29:50,717 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border text-14 h-9 font-medium px-3 py-2'] span")'
-2025-01-16 21:29:51,053 - INFO - Sending keys by locator ('name', 'name')
-2025-01-16 21:29:51,475 - INFO - Sending keys by locator ('css selector', "input[placeholder='Category']")
-2025-01-16 21:29:52,991 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div[@role='option']//span")'
-2025-01-16 21:29:53,299 - INFO - Clicking an element with locator '('css selector', "button[value='service']")'
-2025-01-16 21:29:54,684 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Stock Details']")'
-2025-01-16 21:29:54,940 - INFO - Sending keys by locator ('xpath', "//input[@name='salesPrice']")
-2025-01-16 21:29:56,355 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Others']")'
-2025-01-16 21:29:56,611 - INFO - Sending keys by locator ('name', 'code')
-2025-01-16 21:29:56,936 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border text-14 h-9 font-medium px-3 py-2'] span")'
-2025-01-16 21:29:57,265 - INFO - Sending keys by locator ('name', 'name')
-2025-01-16 21:29:57,678 - INFO - Sending keys by locator ('css selector', "input[placeholder='Category']")
-2025-01-16 21:29:59,160 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div[@role='option']//span")'
-2025-01-16 21:30:00,489 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Stock Details']")'
-2025-01-16 21:30:00,763 - INFO - Sending keys by locator ('css selector', "input[name='openingStock']")
-2025-01-16 21:30:01,135 - INFO - Clicking an element with locator '('xpath', "//button[normalize-space()='Select Units']")'
-2025-01-16 21:30:01,491 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//label[text()='Primary Unit']")'
-2025-01-16 21:30:01,897 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
-2025-01-16 21:30:02,241 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
-2025-01-16 21:30:02,407 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//label[text()='Secondary Unit']")'
-2025-01-16 21:30:02,833 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
-2025-01-16 21:30:03,161 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
-2025-01-16 21:30:03,310 - INFO - Sending keys by locator ('name', 'conversionRate')
-2025-01-16 21:30:03,655 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//button[.='Save']")'
-2025-01-16 21:30:03,951 - INFO - Sending keys by locator ('xpath', "//input[@name='salesPrice']")
-2025-01-16 21:30:04,370 - INFO - Sending keys by locator ('xpath', "//input[@name='purchasePrice']")
-2025-01-16 21:30:05,749 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Others']")'
-2025-01-16 21:30:06,001 - INFO - Sending keys by locator ('name', 'code')
-2025-01-16 21:30:06,343 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border text-14 h-9 font-medium px-3 py-2'] span")'
-2025-01-16 21:30:06,671 - INFO - Sending keys by locator ('name', 'name')
-2025-01-16 21:30:07,068 - INFO - Sending keys by locator ('css selector', "input[placeholder='Category']")
-2025-01-16 21:30:08,672 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div[@role='option']//span")'
-2025-01-16 21:30:10,002 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Stock Details']")'
-2025-01-16 21:30:10,273 - INFO - Sending keys by locator ('css selector', "input[name='openingStock']")
-2025-01-16 21:30:10,648 - INFO - Clicking an element with locator '('xpath', "//button[normalize-space()='Select Units']")'
-2025-01-16 21:30:11,005 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//label[text()='Primary Unit']")'
-2025-01-16 21:30:11,481 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
-2025-01-16 21:30:11,828 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
-2025-01-16 21:30:11,983 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//button[.='Save']")'
-2025-01-16 21:30:12,277 - INFO - Sending keys by locator ('xpath', "//input[@name='salesPrice']")
-2025-01-16 21:30:12,762 - INFO - Sending keys by locator ('xpath', "//input[@name='purchasePrice']")
-2025-01-16 21:30:14,158 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Others']")'
-2025-01-16 21:30:14,426 - INFO - Sending keys by locator ('name', 'code')
-2025-01-16 21:30:14,746 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border text-14 h-9 font-medium px-3 py-2'] span")'
-2025-01-16 21:30:15,065 - INFO - Sending keys by locator ('name', 'name')
-2025-01-16 21:30:15,470 - INFO - Sending keys by locator ('css selector', "input[placeholder='Category']")
-2025-01-16 21:30:16,983 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div[@role='option']//span")'
-2025-01-16 21:30:18,320 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Stock Details']")'
-2025-01-16 21:30:18,586 - INFO - Sending keys by locator ('css selector', "input[name='openingStock']")
-2025-01-16 21:30:19,055 - INFO - Clicking an element with locator '('xpath', "//button[normalize-space()='Select Units']")'
-2025-01-16 21:30:19,353 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//label[text()='Primary Unit']")'
-2025-01-16 21:30:19,763 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
-2025-01-16 21:30:20,082 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
-2025-01-16 21:30:20,254 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//label[text()='Secondary Unit']")'
-2025-01-16 21:30:20,701 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
-2025-01-16 21:30:21,004 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
-2025-01-16 21:30:21,132 - INFO - Sending keys by locator ('name', 'conversionRate')
-2025-01-16 21:30:21,286 - ERROR - An error occured in sendKeys when sending '1000.0' in locator ('name', 'conversionRate'), Message: element not interactable
-  (Session info: chrome=132.0.6834.83)
-Stacktrace:
-	GetHandleVerifier [0x00007FF69B5BFBE5+28741]
-	(No symbol) [0x00007FF69B527890]
-	(No symbol) [0x00007FF69B3C4E09]
-	(No symbol) [0x00007FF69B412C84]
-	(No symbol) [0x00007FF69B410D89]
-	(No symbol) [0x00007FF69B43FF0A]
-	(No symbol) [0x00007FF69B40BE46]
-	(No symbol) [0x00007FF69B440120]
-	(No symbol) [0x00007FF69B4600B4]
-	(No symbol) [0x00007FF69B43FCB3]
-	(No symbol) [0x00007FF69B409FB3]
-	(No symbol) [0x00007FF69B40B331]
-	GetHandleVerifier [0x00007FF69B8FA73D+3414941]
-	GetHandleVerifier [0x00007FF69B90E64A+3496618]
-	GetHandleVerifier [0x00007FF69B90413D+3454365]
-	GetHandleVerifier [0x00007FF69B68848B+850155]
-	(No symbol) [0x00007FF69B5337FF]
-	(No symbol) [0x00007FF69B52F0C4]
-	(No symbol) [0x00007FF69B52F25D]
-	(No symbol) [0x00007FF69B51E079]
-	BaseThreadInitThunk [0x00007FFED6257374+20]
-	RtlUserThreadStart [0x00007FFED639CC91+33]
+2025-02-22 22:25:02,685 - INFO - Sending keys by locator ('name', 'phoneNumber')
+2025-02-22 22:25:03,009 - INFO - Clicking an element with locator '('xpath', "//button[@type='submit']")'
+2025-02-22 22:25:03,261 - INFO - Sending keys by locator ('id', 'otp-verification')
+2025-02-22 22:25:07,167 - INFO - Running End to End Test
+2025-02-22 22:25:07,799 - INFO - Selecting Cash as party
+2025-02-22 22:25:07,800 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div[1]//div[1]")'
+2025-02-22 22:25:09,865 - INFO - Setting invoice number: 1
+2025-02-22 22:25:09,865 - INFO - Sending keys by locator ('xpath', "//input[@class='flex items-center hover:border-hover hover:bg-secondary active:border-hover active:bg-secondary w-full rounded-4 border border-border placeholder:text-default-tertiary text-default disabled:cursor-not-allowed disabled:bg-fill-primary-disabled disabled:placeholder:text-disabled disabled:text-disabled focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-soft focus:ring-offset-2 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none text-16 h-11 px-3 py-2 bg-transparent']")
+2025-02-22 22:25:10,284 - INFO - Sending keys by locator ('name', 'totalAmount')
+2025-02-22 22:25:10,990 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border font-medium text-16 px-5 py-2.5 -order-1']")'
+2025-02-22 22:25:11,971 - INFO - Snackbar message: Purchase bill created successfully
+2025-02-22 22:25:12,393 - INFO - Selecting party: Party 3
+2025-02-22 22:25:12,394 - INFO - Sending keys by locator ('name', 'party')
+2025-02-22 22:25:13,790 - INFO - Element is visible!
+2025-02-22 22:25:13,790 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div//div[text()='Party 3']")'
+2025-02-22 22:25:14,083 - INFO - Setting invoice number: 2
+2025-02-22 22:25:14,084 - INFO - Sending keys by locator ('xpath', "//input[@class='flex items-center hover:border-hover hover:bg-secondary active:border-hover active:bg-secondary w-full rounded-4 border border-border placeholder:text-default-tertiary text-default disabled:cursor-not-allowed disabled:bg-fill-primary-disabled disabled:placeholder:text-disabled disabled:text-disabled focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-soft focus:ring-offset-2 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none text-16 h-11 px-3 py-2 bg-transparent']")
+2025-02-22 22:25:14,468 - INFO - Sending keys by locator ('name', 'totalAmount')
+2025-02-22 22:25:15,305 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border font-medium text-16 px-5 py-2.5 -order-1']")'
+2025-02-22 22:25:15,948 - INFO - Snackbar message: Purchase bill created successfully
+2025-02-22 22:25:16,362 - INFO - Selecting party: Party 8
+2025-02-22 22:25:16,362 - INFO - Sending keys by locator ('name', 'party')
+2025-02-22 22:25:18,391 - INFO - Previous scroll height: 0
+2025-02-22 22:25:18,437 - INFO - New scroll height: 180
+2025-02-22 22:25:18,741 - INFO - Element is visible!
+2025-02-22 22:25:18,741 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div//div[text()='Party 8']")'
+2025-02-22 22:25:19,017 - INFO - Setting invoice number: 3
+2025-02-22 22:25:19,017 - INFO - Sending keys by locator ('xpath', "//input[@class='flex items-center hover:border-hover hover:bg-secondary active:border-hover active:bg-secondary w-full rounded-4 border border-border placeholder:text-default-tertiary text-default disabled:cursor-not-allowed disabled:bg-fill-primary-disabled disabled:placeholder:text-disabled disabled:text-disabled focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-soft focus:ring-offset-2 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none text-16 h-11 px-3 py-2 bg-transparent']")
+2025-02-22 22:25:19,268 - INFO - Sending keys by locator ('name', 'totalAmount')
+2025-02-22 22:25:19,971 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border font-medium text-16 px-5 py-2.5 -order-1']")'
+2025-02-22 22:25:20,726 - INFO - Snackbar message: Purchase bill created successfully
+2025-02-22 22:25:21,060 - INFO - Selecting Cash as party
+2025-02-22 22:25:21,060 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div[1]//div[1]")'
+2025-02-22 22:25:22,658 - INFO - Setting invoice number: 4
+2025-02-22 22:25:22,658 - INFO - Sending keys by locator ('xpath', "//input[@class='flex items-center hover:border-hover hover:bg-secondary active:border-hover active:bg-secondary w-full rounded-4 border border-border placeholder:text-default-tertiary text-default disabled:cursor-not-allowed disabled:bg-fill-primary-disabled disabled:placeholder:text-disabled disabled:text-disabled focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-soft focus:ring-offset-2 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none text-16 h-11 px-3 py-2 bg-transparent']")
+2025-02-22 22:25:23,028 - INFO - Sending keys by locator ('name', 'totalAmount')
+2025-02-22 22:25:23,695 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border font-medium text-16 px-5 py-2.5 -order-1']")'
+2025-02-22 22:25:24,503 - INFO - Snackbar message: Purchase bill created successfully
+2025-02-22 22:25:24,950 - INFO - Selecting party: Party 17
 
-2025-01-16 21:30:21,286 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//button[.='Save']")'
-2025-01-16 21:30:21,586 - INFO - Sending keys by locator ('xpath', "//input[@name='salesPrice']")
-2025-01-16 21:30:22,009 - INFO - Sending keys by locator ('xpath', "//input[@name='purchasePrice']")
-2025-01-16 21:30:23,400 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Others']")'
-2025-01-16 21:30:23,653 - INFO - Sending keys by locator ('name', 'code')
-2025-01-16 21:30:23,981 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border text-14 h-9 font-medium px-3 py-2'] span")'
-2025-01-16 21:30:24,314 - INFO - Sending keys by locator ('name', 'name')
-2025-01-16 21:30:24,729 - INFO - Sending keys by locator ('css selector', "input[placeholder='Category']")
-2025-01-16 21:30:26,218 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div[@role='option']//span")'
-2025-01-16 21:30:27,548 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Stock Details']")'
-2025-01-16 21:30:27,824 - INFO - Sending keys by locator ('css selector', "input[name='openingStock']")
-2025-01-16 21:30:28,207 - INFO - Sending keys by locator ('xpath', "//input[@name='salesPrice']")
-2025-01-16 21:30:29,602 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Others']")'
-2025-01-16 21:30:29,847 - INFO - Sending keys by locator ('name', 'code')
-2025-01-16 21:30:30,172 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border text-14 h-9 font-medium px-3 py-2'] span")'
-2025-01-16 21:30:30,503 - INFO - Sending keys by locator ('name', 'name')
-2025-01-16 21:30:30,998 - INFO - Sending keys by locator ('css selector', "input[placeholder='Category']")
-2025-01-16 21:30:32,537 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div[@role='option']//span")'
-2025-01-16 21:30:33,858 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Stock Details']")'
-2025-01-16 21:30:34,138 - INFO - Sending keys by locator ('css selector', "input[name='openingStock']")
-2025-01-16 21:30:34,517 - INFO - Clicking an element with locator '('xpath', "//button[normalize-space()='Select Units']")'
-2025-01-16 21:30:34,847 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//label[text()='Primary Unit']")'
-2025-01-16 21:30:35,290 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
-2025-01-16 21:30:35,630 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
-2025-01-16 21:30:35,797 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//button[.='Save']")'
-2025-01-16 21:30:36,145 - INFO - Sending keys by locator ('xpath', "//input[@name='salesPrice']")
-2025-01-16 21:30:36,609 - INFO - Sending keys by locator ('xpath', "//input[@name='purchasePrice']")
-2025-01-16 21:30:38,017 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Others']")'
-2025-01-16 21:30:38,319 - INFO - Sending keys by locator ('name', 'code')
-2025-01-16 21:30:38,646 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border text-14 h-9 font-medium px-3 py-2'] span")'
-2025-01-16 21:30:38,987 - INFO - Sending keys by locator ('name', 'name')
-2025-01-16 21:30:39,399 - INFO - Sending keys by locator ('css selector', "input[placeholder='Category']")
-2025-01-16 21:30:40,902 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div[@role='option']//span")'
-2025-01-16 21:30:41,199 - INFO - Clicking an element with locator '('css selector', "button[value='service']")'
-2025-01-16 21:30:42,626 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Stock Details']")'
-2025-01-16 21:30:42,885 - INFO - Sending keys by locator ('xpath', "//input[@name='salesPrice']")
-2025-01-16 21:30:44,299 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Others']")'
-2025-01-16 21:30:44,561 - INFO - Sending keys by locator ('name', 'code')
-2025-01-16 21:30:44,888 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border text-14 h-9 font-medium px-3 py-2'] span")'
-2025-01-16 21:30:45,214 - INFO - Sending keys by locator ('name', 'name')
-2025-01-16 21:30:45,640 - INFO - Sending keys by locator ('css selector', "input[placeholder='Category']")
-2025-01-16 21:30:47,264 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div[@role='option']//span")'
-2025-01-16 21:30:48,595 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Stock Details']")'
-2025-01-16 21:30:48,863 - INFO - Sending keys by locator ('css selector', "input[name='openingStock']")
-2025-01-16 21:30:49,266 - INFO - Clicking an element with locator '('xpath', "//button[normalize-space()='Select Units']")'
-2025-01-16 21:30:49,655 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//label[text()='Primary Unit']")'
-2025-01-16 21:30:50,075 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
-2025-01-16 21:30:50,402 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
-2025-01-16 21:30:50,565 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//label[text()='Secondary Unit']")'
-2025-01-16 21:30:51,005 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
-2025-01-16 21:30:51,280 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
-2025-01-16 21:30:51,357 - INFO - Sending keys by locator ('name', 'conversionRate')
-2025-01-16 21:30:51,630 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//button[.='Save']")'
-2025-01-16 21:30:51,929 - INFO - Sending keys by locator ('xpath', "//input[@name='salesPrice']")
-2025-01-16 21:30:52,330 - INFO - Sending keys by locator ('xpath', "//input[@name='purchasePrice']")
-2025-01-16 21:30:53,709 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Others']")'
-2025-01-16 21:30:53,961 - INFO - Sending keys by locator ('name', 'code')
-2025-01-16 21:30:54,289 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border text-14 h-9 font-medium px-3 py-2'] span")'
-2025-01-16 21:30:54,643 - INFO - Sending keys by locator ('name', 'name')
-2025-01-16 21:30:54,959 - INFO - Sending keys by locator ('css selector', "input[placeholder='Category']")
-2025-01-16 21:30:56,589 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div[@role='option']//span")'
-2025-01-16 21:30:57,917 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Stock Details']")'
-2025-01-16 21:30:58,170 - INFO - Sending keys by locator ('css selector', "input[name='openingStock']")
-2025-01-16 21:30:58,522 - INFO - Clicking an element with locator '('xpath', "//button[normalize-space()='Select Units']")'
-2025-01-16 21:30:58,852 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//label[text()='Primary Unit']")'
-2025-01-16 21:30:59,243 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
-2025-01-16 21:30:59,590 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
-2025-01-16 21:30:59,774 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//button[.='Save']")'
-2025-01-16 21:31:00,174 - INFO - Sending keys by locator ('xpath', "//input[@name='salesPrice']")
-2025-01-16 21:31:00,620 - INFO - Sending keys by locator ('xpath', "//input[@name='purchasePrice']")
-2025-01-16 21:31:02,006 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Others']")'
-2025-01-16 21:31:02,260 - INFO - Sending keys by locator ('name', 'code')
-2025-01-16 21:31:02,590 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border text-14 h-9 font-medium px-3 py-2'] span")'
-2025-01-16 21:31:02,917 - INFO - Sending keys by locator ('name', 'name')
-2025-01-16 21:31:03,332 - INFO - Sending keys by locator ('css selector', "input[placeholder='Category']")
-2025-01-16 21:31:04,769 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div[@role='option']//span")'
-2025-01-16 21:31:06,109 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Stock Details']")'
-2025-01-16 21:31:06,387 - INFO - Sending keys by locator ('css selector', "input[name='openingStock']")
-2025-01-16 21:31:06,768 - INFO - Clicking an element with locator '('xpath', "//button[normalize-space()='Select Units']")'
-2025-01-16 21:31:07,086 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//label[text()='Primary Unit']")'
-2025-01-16 21:31:07,523 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
-2025-01-16 21:31:07,752 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
-2025-01-16 21:31:07,816 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//label[text()='Secondary Unit']")'
-2025-01-16 21:31:08,278 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
-2025-01-16 21:31:08,655 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
-2025-01-16 21:31:08,803 - INFO - Sending keys by locator ('name', 'conversionRate')
-2025-01-16 21:31:09,188 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//button[.='Save']")'
-2025-01-16 21:31:09,502 - INFO - Sending keys by locator ('xpath', "//input[@name='salesPrice']")
-2025-01-16 21:31:09,915 - INFO - Sending keys by locator ('xpath', "//input[@name='purchasePrice']")
-2025-01-16 21:31:11,300 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Others']")'
-2025-01-16 21:31:11,554 - INFO - Sending keys by locator ('name', 'code')
-2025-01-16 21:31:11,873 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border text-14 h-9 font-medium px-3 py-2'] span")'
-2025-01-16 21:31:12,198 - INFO - Sending keys by locator ('name', 'name')
-2025-01-16 21:31:12,610 - INFO - Sending keys by locator ('css selector', "input[placeholder='Category']")
-2025-01-16 21:31:14,097 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div[@role='option']//span")'
-2025-01-16 21:31:15,430 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Stock Details']")'
-2025-01-16 21:31:15,699 - INFO - Sending keys by locator ('css selector', "input[name='openingStock']")
-2025-01-16 21:31:16,077 - INFO - Clicking an element with locator '('xpath', "//button[normalize-space()='Select Units']")'
-2025-01-16 21:31:16,396 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//label[text()='Primary Unit']")'
-2025-01-16 21:31:16,826 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
-2025-01-16 21:31:17,162 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
-2025-01-16 21:31:17,334 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//button[.='Save']")'
-2025-01-16 21:31:17,721 - INFO - Sending keys by locator ('xpath', "//input[@name='salesPrice']")
-2025-01-16 21:31:18,067 - INFO - Sending keys by locator ('xpath', "//input[@name='purchasePrice']")
-2025-01-16 21:31:19,476 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Others']")'
-2025-01-16 21:31:19,731 - INFO - Sending keys by locator ('name', 'code')
-2025-01-16 21:31:20,060 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border text-14 h-9 font-medium px-3 py-2'] span")'
-2025-01-16 21:31:20,394 - INFO - Sending keys by locator ('name', 'name')
-2025-01-16 21:31:20,811 - INFO - Sending keys by locator ('css selector', "input[placeholder='Category']")
-2025-01-16 21:31:22,290 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div[@role='option']//span")'
-2025-01-16 21:31:22,599 - INFO - Clicking an element with locator '('css selector', "button[value='service']")'
-2025-01-16 21:31:23,950 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Stock Details']")'
-2025-01-16 21:31:24,196 - INFO - Sending keys by locator ('xpath', "//input[@name='salesPrice']")
-2025-01-16 21:31:25,623 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Others']")'
-2025-01-16 21:31:25,871 - INFO - Sending keys by locator ('name', 'code')
-2025-01-16 21:31:26,195 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border text-14 h-9 font-medium px-3 py-2'] span")'
-2025-01-16 21:31:26,530 - INFO - Sending keys by locator ('name', 'name')
-2025-01-16 21:31:26,949 - INFO - Sending keys by locator ('css selector', "input[placeholder='Category']")
-2025-01-16 21:31:28,435 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div[@role='option']//span")'
-2025-01-16 21:31:29,768 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Stock Details']")'
-2025-01-16 21:31:30,037 - INFO - Sending keys by locator ('css selector', "input[name='openingStock']")
-2025-01-16 21:31:30,420 - INFO - Clicking an element with locator '('xpath', "//button[normalize-space()='Select Units']")'
-2025-01-16 21:31:30,745 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//label[text()='Primary Unit']")'
-2025-01-16 21:31:31,174 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
-2025-01-16 21:31:31,568 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
-2025-01-16 21:31:31,710 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//label[text()='Secondary Unit']")'
-2025-01-16 21:31:32,133 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
-2025-01-16 21:31:32,440 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
-2025-01-16 21:31:32,644 - INFO - Sending keys by locator ('name', 'conversionRate')
-2025-01-16 21:31:32,994 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//button[.='Save']")'
-2025-01-16 21:31:33,290 - INFO - Sending keys by locator ('xpath', "//input[@name='salesPrice']")
-2025-01-16 21:31:34,745 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Others']")'
-2025-01-16 21:31:34,994 - INFO - Sending keys by locator ('name', 'code')
-2025-01-16 21:31:35,320 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border text-14 h-9 font-medium px-3 py-2'] span")'
-2025-01-16 21:31:35,634 - INFO - Sending keys by locator ('name', 'name')
-2025-01-16 21:31:36,035 - INFO - Sending keys by locator ('css selector', "input[placeholder='Category']")
-2025-01-16 21:31:37,583 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div[@role='option']//span")'
-2025-01-16 21:31:38,901 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Stock Details']")'
-2025-01-16 21:31:39,168 - INFO - Sending keys by locator ('css selector', "input[name='openingStock']")
-2025-01-16 21:31:39,548 - INFO - Sending keys by locator ('xpath', "//input[@name='salesPrice']")
-2025-01-16 21:31:39,935 - INFO - Sending keys by locator ('xpath', "//input[@name='purchasePrice']")
-2025-01-16 21:31:41,332 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Others']")'
-2025-01-16 21:31:41,699 - INFO - Sending keys by locator ('name', 'code')
-2025-01-16 21:31:42,024 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border text-14 h-9 font-medium px-3 py-2'] span")'
-2025-01-16 21:31:42,343 - INFO - Sending keys by locator ('name', 'name')
-2025-01-16 21:31:42,759 - INFO - Sending keys by locator ('css selector', "input[placeholder='Category']")
-2025-01-16 21:31:44,302 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div[@role='option']//span")'
-2025-01-16 21:31:44,600 - INFO - Clicking an element with locator '('css selector', "button[value='service']")'
-2025-01-16 21:31:45,957 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Stock Details']")'
-2025-01-16 21:31:46,204 - INFO - Sending keys by locator ('xpath', "//input[@name='salesPrice']")
-2025-01-16 21:31:47,613 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Others']")'
-2025-01-16 21:31:47,860 - INFO - Sending keys by locator ('name', 'code')
-2025-01-16 21:31:48,183 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border text-14 h-9 font-medium px-3 py-2'] span")'
-2025-01-16 21:31:48,511 - INFO - Sending keys by locator ('name', 'name')
-2025-01-16 21:31:48,929 - INFO - Sending keys by locator ('css selector', "input[placeholder='Category']")
-2025-01-16 21:31:50,507 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div[@role='option']//span")'
-2025-01-16 21:31:51,804 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Stock Details']")'
-2025-01-16 21:31:52,078 - INFO - Sending keys by locator ('css selector', "input[name='openingStock']")
-2025-01-16 21:31:52,459 - INFO - Clicking an element with locator '('xpath', "//button[normalize-space()='Select Units']")'
-2025-01-16 21:31:52,798 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//label[text()='Primary Unit']")'
-2025-01-16 21:31:53,180 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
-2025-01-16 21:31:53,498 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
-2025-01-16 21:31:53,668 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//label[text()='Secondary Unit']")'
-2025-01-16 21:31:54,127 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
-2025-01-16 21:31:54,471 - INFO - Sending keys by locator ('xpath', "//input[@placeholder='Search Units']")
-2025-01-16 21:31:54,624 - INFO - Sending keys by locator ('name', 'conversionRate')
-2025-01-16 21:31:54,976 - INFO - Clicking an element with locator '('xpath', "//div[@role='dialog']//button[.='Save']")'
-2025-01-16 21:31:55,282 - INFO - Sending keys by locator ('xpath', "//input[@name='salesPrice']")
-2025-01-16 21:31:55,695 - INFO - Sending keys by locator ('xpath', "//input[@name='purchasePrice']")
-2025-01-16 21:31:57,094 - INFO - Clicking an element with locator '('xpath', "//span[normalize-space()='Others']")'
-2025-01-16 21:31:57,347 - INFO - Sending keys by locator ('name', 'code')
-2025-01-16 21:31:57,674 - INFO - Clicking an element with locator '('css selector', "button[class*='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed bg-fill-primary hover:bg-fill-primary-hover active:bg-fill-primary-active text-primary-on-bg-fill text-14 h-9 font-medium px-3 py-2 order-last']")'
-2025-01-16 21:32:01,962 - INFO - All driver quited.
+2025-02-22 22:25:24,950 - INFO - Sending keys by locator ('name', 'party')
+2025-02-22 22:25:28,321 - ERROR - Error while selecting party: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//div[@role='listbox']"}
+  (Session info: chrome=133.0.6943.127); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x00007FF758AD6EE5+28773]
+	(No symbol) [0x00007FF758A425D0]
+	(No symbol) [0x00007FF7588D8FAA]
+	(No symbol) [0x00007FF75892F286]
+	(No symbol) [0x00007FF75892F4BC]
+	(No symbol) [0x00007FF758982A27]
+	(No symbol) [0x00007FF75895728F]
+	(No symbol) [0x00007FF75897F6F3]
+	(No symbol) [0x00007FF758957023]
+	(No symbol) [0x00007FF75891FF5E]
+	(No symbol) [0x00007FF7589211E3]
+	GetHandleVerifier [0x00007FF758E2422D+3490733]
+	GetHandleVerifier [0x00007FF758E3BA13+3586963]
+	GetHandleVerifier [0x00007FF758E3144D+3544525]
+	GetHandleVerifier [0x00007FF758B9C9AA+838442]
+	(No symbol) [0x00007FF758A4D01F]
+	(No symbol) [0x00007FF758A495E4]
+	(No symbol) [0x00007FF758A49786]
+	(No symbol) [0x00007FF758A38CB9]
+	BaseThreadInitThunk [0x00007FFD6D5F7374+20]
+	RtlUserThreadStart [0x00007FFD6F33CC91+33]
+
+2025-02-22 22:25:28,322 - INFO - Setting invoice number: 5
+2025-02-22 22:25:28,322 - INFO - Sending keys by locator ('xpath', "//input[@class='flex items-center hover:border-hover hover:bg-secondary active:border-hover active:bg-secondary w-full rounded-4 border border-border placeholder:text-default-tertiary text-default disabled:cursor-not-allowed disabled:bg-fill-primary-disabled disabled:placeholder:text-disabled disabled:text-disabled focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-soft focus:ring-offset-2 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none text-16 h-11 px-3 py-2 bg-transparent']")
+2025-02-22 22:25:28,525 - INFO - Sending keys by locator ('name', 'totalAmount')
+2025-02-22 22:25:29,009 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border font-medium text-16 px-5 py-2.5 -order-1']")'
+2025-02-22 22:25:39,889 - ERROR - An error occured in getTextFromTextField with locator ('xpath', "//li[@role='status']//div//div")
+2025-02-22 22:25:39,889 - INFO - Snackbar message: None
+2025-02-22 22:25:40,225 - INFO - Selecting party: Party 17
+
+2025-02-22 22:25:40,226 - INFO - Sending keys by locator ('name', 'party')
+2025-02-22 22:25:43,544 - ERROR - Error while selecting party: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//div[@role='listbox']"}
+  (Session info: chrome=133.0.6943.127); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x00007FF758AD6EE5+28773]
+	(No symbol) [0x00007FF758A425D0]
+	(No symbol) [0x00007FF7588D8FAA]
+	(No symbol) [0x00007FF75892F286]
+	(No symbol) [0x00007FF75892F4BC]
+	(No symbol) [0x00007FF758982A27]
+	(No symbol) [0x00007FF75895728F]
+	(No symbol) [0x00007FF75897F6F3]
+	(No symbol) [0x00007FF758957023]
+	(No symbol) [0x00007FF75891FF5E]
+	(No symbol) [0x00007FF7589211E3]
+	GetHandleVerifier [0x00007FF758E2422D+3490733]
+	GetHandleVerifier [0x00007FF758E3BA13+3586963]
+	GetHandleVerifier [0x00007FF758E3144D+3544525]
+	GetHandleVerifier [0x00007FF758B9C9AA+838442]
+	(No symbol) [0x00007FF758A4D01F]
+	(No symbol) [0x00007FF758A495E4]
+	(No symbol) [0x00007FF758A49786]
+	(No symbol) [0x00007FF758A38CB9]
+	BaseThreadInitThunk [0x00007FFD6D5F7374+20]
+	RtlUserThreadStart [0x00007FFD6F33CC91+33]
+
+2025-02-22 22:25:43,546 - INFO - Setting invoice number: 6
+2025-02-22 22:25:43,546 - INFO - Sending keys by locator ('xpath', "//input[@class='flex items-center hover:border-hover hover:bg-secondary active:border-hover active:bg-secondary w-full rounded-4 border border-border placeholder:text-default-tertiary text-default disabled:cursor-not-allowed disabled:bg-fill-primary-disabled disabled:placeholder:text-disabled disabled:text-disabled focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-soft focus:ring-offset-2 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none text-16 h-11 px-3 py-2 bg-transparent']")
+2025-02-22 22:25:43,897 - INFO - Adding billing item: Item 1
+2025-02-22 22:25:43,897 - INFO - Sending keys by locator ('css selector', "tr input[name='invoiceItems.0.name']")
+2025-02-22 22:25:44,521 - INFO - Clicking an element with locator '('xpath', "//div[@role='option']//div[@class='flex gap-3 items-center col-span-2']//p[contains(text(), 'Item 1')]")'
+2025-02-22 22:25:44,946 - INFO - Sending keys by locator ('xpath', '//tbody/tr[1]/td[3]/div/input')
+2025-02-22 22:25:45,676 - INFO - Sending keys by locator ('xpath', '//tbody/tr[1]/td[4]/input')
+2025-02-22 22:25:46,433 - INFO - Adding billing item: Item 2
+2025-02-22 22:25:46,433 - INFO - Sending keys by locator ('css selector', "tr input[name='invoiceItems.1.name']")
+2025-02-22 22:25:47,057 - INFO - Clicking an element with locator '('xpath', "//div[@role='option']//div[@class='flex gap-3 items-center col-span-2']//p[contains(text(), 'Item 2')]")'
+2025-02-22 22:25:47,803 - INFO - Sending keys by locator ('xpath', '//tbody/tr[2]/td[3]/div/input')
+2025-02-22 22:25:48,619 - INFO - Sending keys by locator ('xpath', '//tbody/tr[2]/td[4]/input')
+2025-02-22 22:25:49,221 - INFO - Adding billing item: Item 3
+2025-02-22 22:25:49,222 - INFO - Sending keys by locator ('css selector', "tr input[name='invoiceItems.2.name']")
+2025-02-22 22:25:49,731 - INFO - Clicking an element with locator '('xpath', "//div[@role='option']//div[@class='flex gap-3 items-center col-span-2']//p[contains(text(), 'Item 3')]")'
+2025-02-22 22:25:50,547 - INFO - Sending keys by locator ('xpath', '//tbody/tr[3]/td[3]/div/input')
+2025-02-22 22:25:51,383 - INFO - Sending keys by locator ('xpath', '//tbody/tr[3]/td[4]/input')
+2025-02-22 22:25:52,109 - INFO - Adding billing item: Item 4
+2025-02-22 22:25:52,110 - INFO - Sending keys by locator ('css selector', "tr input[name='invoiceItems.3.name']")
+2025-02-22 22:25:52,738 - INFO - Clicking an element with locator '('xpath', "//div[@role='option']//div[@class='flex gap-3 items-center col-span-2']//p[contains(text(), 'Item 4')]")'
+2025-02-22 22:25:53,635 - INFO - Sending keys by locator ('xpath', '//tbody/tr[4]/td[3]/div/input')
+2025-02-22 22:25:54,742 - INFO - Sending keys by locator ('xpath', '//tbody/tr[4]/td[4]/input')
+2025-02-22 22:25:55,360 - INFO - Adding billing item: Item 5
+2025-02-22 22:25:55,360 - INFO - Sending keys by locator ('css selector', "tr input[name='invoiceItems.4.name']")
+2025-02-22 22:25:55,994 - INFO - Clicking an element with locator '('xpath', "//div[@role='option']//div[@class='flex gap-3 items-center col-span-2']//p[contains(text(), 'Item 5')]")'
+2025-02-22 22:25:56,704 - INFO - Sending keys by locator ('xpath', '//tbody/tr[5]/td[3]/div/input')
+2025-02-22 22:25:57,541 - INFO - Adding billing item: Item 6
+2025-02-22 22:25:57,541 - INFO - Sending keys by locator ('css selector', "tr input[name='invoiceItems.5.name']")
+2025-02-22 22:25:58,134 - INFO - Clicking an element with locator '('xpath', "//div[@role='option']//div[@class='flex gap-3 items-center col-span-2']//p[contains(text(), 'Item 6')]")'
+2025-02-22 22:25:58,934 - INFO - Sending keys by locator ('xpath', '//tbody/tr[6]/td[3]/div/input')
+2025-02-22 22:25:59,778 - INFO - Sending keys by locator ('xpath', '//tbody/tr[6]/td[4]/input')
+2025-02-22 22:26:00,801 - INFO - Adding billing item: Item 7
+2025-02-22 22:26:00,801 - INFO - Sending keys by locator ('css selector', "tr input[name='invoiceItems.6.name']")
+2025-02-22 22:26:01,409 - INFO - Clicking an element with locator '('xpath', "//div[@role='option']//div[@class='flex gap-3 items-center col-span-2']//p[contains(text(), 'Item 7')]")'
+2025-02-22 22:26:02,109 - INFO - Sending keys by locator ('xpath', '//tbody/tr[7]/td[3]/div/input')
+2025-02-22 22:26:03,249 - INFO - Sending keys by locator ('xpath', '//tbody/tr[7]/td[4]/input')
+2025-02-22 22:26:04,300 - INFO - Adding billing item: Item 8
+2025-02-22 22:26:04,303 - INFO - Sending keys by locator ('css selector', "tr input[name='invoiceItems.7.name']")
+2025-02-22 22:26:04,989 - INFO - Clicking an element with locator '('xpath', "//div[@role='option']//div[@class='flex gap-3 items-center col-span-2']//p[contains(text(), 'Item 8')]")'
+2025-02-22 22:26:05,807 - INFO - Sending keys by locator ('xpath', '//tbody/tr[8]/td[3]/div/input')
+2025-02-22 22:26:07,147 - INFO - Sending keys by locator ('xpath', '//tbody/tr[8]/td[4]/input')
+2025-02-22 22:26:08,264 - INFO - Adding billing item: Item 9
+2025-02-22 22:26:08,264 - INFO - Sending keys by locator ('css selector', "tr input[name='invoiceItems.8.name']")
+2025-02-22 22:26:08,938 - INFO - Clicking an element with locator '('xpath', "//div[@role='option']//div[@class='flex gap-3 items-center col-span-2']//p[contains(text(), 'Item 9')]")'
+2025-02-22 22:26:09,719 - INFO - Sending keys by locator ('xpath', '//tbody/tr[9]/td[3]/div/input')
+2025-02-22 22:26:10,676 - INFO - Adding billing item: Item 10
+2025-02-22 22:26:10,677 - INFO - Sending keys by locator ('css selector', "tr input[name='invoiceItems.9.name']")
+2025-02-22 22:26:11,296 - INFO - Clicking an element with locator '('xpath', "//div[@role='option']//div[@class='flex gap-3 items-center col-span-2']//p[contains(text(), 'Item 10')]")'
+2025-02-22 22:26:11,746 - INFO - Sending keys by locator ('xpath', '//tbody/tr[10]/td[3]/div/input')
+2025-02-22 22:26:13,220 - INFO - Sending keys by locator ('xpath', '//tbody/tr[10]/td[4]/input')
+2025-02-22 22:26:14,634 - INFO - Adding billing item: Item 11
+2025-02-22 22:26:14,634 - INFO - Sending keys by locator ('css selector', "tr input[name='invoiceItems.10.name']")
+2025-02-22 22:26:15,250 - INFO - Clicking an element with locator '('xpath', "//div[@role='option']//div[@class='flex gap-3 items-center col-span-2']//p[contains(text(), 'Item 11')]")'
+2025-02-22 22:26:15,755 - INFO - Sending keys by locator ('xpath', '//tbody/tr[11]/td[3]/div/input')
+2025-02-22 22:26:16,926 - INFO - Adding billing item: Item 12
+2025-02-22 22:26:16,926 - INFO - Sending keys by locator ('css selector', "tr input[name='invoiceItems.11.name']")
+2025-02-22 22:26:17,436 - INFO - Clicking an element with locator '('xpath', "//div[@role='option']//div[@class='flex gap-3 items-center col-span-2']//p[contains(text(), 'Item 12')]")'
+2025-02-22 22:26:17,987 - INFO - Sending keys by locator ('xpath', '//tbody/tr[12]/td[3]/div/input')
+2025-02-22 22:26:19,467 - INFO - Sending keys by locator ('xpath', '//tbody/tr[12]/td[4]/input')
+2025-02-22 22:26:20,983 - INFO - Adding billing item: Item 13
+2025-02-22 22:26:20,984 - INFO - Sending keys by locator ('css selector', "tr input[name='invoiceItems.12.name']")
+2025-02-22 22:26:21,857 - INFO - Clicking an element with locator '('xpath', "//div[@role='option']//div[@class='flex gap-3 items-center col-span-2']//p[contains(text(), 'Item 13')]")'
+2025-02-22 22:26:22,436 - INFO - Sending keys by locator ('xpath', '//tbody/tr[13]/td[3]/div/input')
+2025-02-22 22:26:24,187 - INFO - Sending keys by locator ('xpath', '//tbody/tr[13]/td[4]/input')
+2025-02-22 22:26:25,510 - INFO - Adding billing item: Item 14
+2025-02-22 22:26:25,511 - INFO - Sending keys by locator ('css selector', "tr input[name='invoiceItems.13.name']")
+2025-02-22 22:26:26,522 - INFO - Clicking an element with locator '('xpath', "//div[@role='option']//div[@class='flex gap-3 items-center col-span-2']//p[contains(text(), 'Item 14')]")'
+2025-02-22 22:26:27,189 - INFO - Sending keys by locator ('xpath', '//tbody/tr[14]/td[3]/div/input')
+2025-02-22 22:26:28,740 - INFO - Sending keys by locator ('xpath', '//tbody/tr[14]/td[4]/input')
+2025-02-22 22:26:30,149 - INFO - Adding billing item: Item 15
+2025-02-22 22:26:30,149 - INFO - Sending keys by locator ('css selector', "tr input[name='invoiceItems.14.name']")
+2025-02-22 22:26:31,235 - INFO - Clicking an element with locator '('xpath', "//div[@role='option']//div[@class='flex gap-3 items-center col-span-2']//p[contains(text(), 'Item 15')]")'
+2025-02-22 22:26:31,669 - INFO - Sending keys by locator ('xpath', '//tbody/tr[15]/td[3]/div/input')
+2025-02-22 22:26:33,398 - INFO - Sending keys by locator ('xpath', '//tbody/tr[15]/td[4]/input')
+2025-02-22 22:26:34,848 - INFO - Adding billing item: Item 16
+2025-02-22 22:26:34,848 - INFO - Sending keys by locator ('css selector', "tr input[name='invoiceItems.15.name']")
+2025-02-22 22:26:35,524 - INFO - Clicking an element with locator '('xpath', "//div[@role='option']//div[@class='flex gap-3 items-center col-span-2']//p[contains(text(), 'Item 16')]")'
+2025-02-22 22:26:36,086 - INFO - Sending keys by locator ('xpath', '//tbody/tr[16]/td[3]/div/input')
+2025-02-22 22:26:37,288 - INFO - Adding billing item: Item 17
+2025-02-22 22:26:37,289 - INFO - Sending keys by locator ('css selector', "tr input[name='invoiceItems.16.name']")
+2025-02-22 22:26:38,140 - INFO - Clicking an element with locator '('xpath', "//div[@role='option']//div[@class='flex gap-3 items-center col-span-2']//p[contains(text(), 'Item 17')]")'
+2025-02-22 22:26:38,834 - INFO - Sending keys by locator ('xpath', '//tbody/tr[17]/td[3]/div/input')
+2025-02-22 22:26:40,090 - INFO - Adding billing item: Item 18
+2025-02-22 22:26:40,090 - INFO - Sending keys by locator ('css selector', "tr input[name='invoiceItems.17.name']")
+2025-02-22 22:26:40,984 - INFO - Clicking an element with locator '('xpath', "//div[@role='option']//div[@class='flex gap-3 items-center col-span-2']//p[contains(text(), 'Item 18')]")'
+2025-02-22 22:26:41,445 - INFO - Sending keys by locator ('xpath', '//tbody/tr[18]/td[3]/div/input')
+2025-02-22 22:26:43,167 - INFO - Sending keys by locator ('xpath', '//tbody/tr[18]/td[4]/input')
+2025-02-22 22:26:44,934 - INFO - Adding billing item: Item 19
+2025-02-22 22:26:44,934 - INFO - Sending keys by locator ('css selector', "tr input[name='invoiceItems.18.name']")
+2025-02-22 22:26:45,664 - INFO - Clicking an element with locator '('xpath', "//div[@role='option']//div[@class='flex gap-3 items-center col-span-2']//p[contains(text(), 'Item 19')]")'
+2025-02-22 22:26:46,596 - INFO - Sending keys by locator ('xpath', '//tbody/tr[19]/td[3]/div/input')
+2025-02-22 22:26:47,973 - INFO - Adding billing item: Item 20
+2025-02-22 22:26:47,973 - INFO - Sending keys by locator ('css selector', "tr input[name='invoiceItems.19.name']")
+2025-02-22 22:26:48,556 - INFO - Clicking an element with locator '('xpath', "//div[@role='option']//div[@class='flex gap-3 items-center col-span-2']//p[contains(text(), 'Item 20')]")'
+2025-02-22 22:26:49,412 - INFO - Sending keys by locator ('xpath', '//tbody/tr[20]/td[3]/div/input')
+2025-02-22 22:26:51,465 - INFO - Sending keys by locator ('xpath', '//tbody/tr[20]/td[4]/input')
+2025-02-22 22:26:53,816 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border font-medium text-16 px-5 py-2.5 -order-1']")'
+2025-02-22 22:26:55,379 - INFO - Snackbar message: Purchase bill created successfully
+2025-02-22 22:26:56,497 - INFO - Selecting party: Party 3
+2025-02-22 22:26:56,498 - INFO - Sending keys by locator ('name', 'party')
+2025-02-22 22:26:57,939 - INFO - Element is visible!
+2025-02-22 22:26:57,939 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div//div[text()='Party 3']")'
+2025-02-22 22:26:58,225 - INFO - Setting invoice number: 1
+2025-02-22 22:26:58,225 - INFO - Sending keys by locator ('xpath', "//input[@class='flex items-center hover:border-hover hover:bg-secondary active:border-hover active:bg-secondary w-full rounded-4 border border-border placeholder:text-default-tertiary text-default disabled:cursor-not-allowed disabled:bg-fill-primary-disabled disabled:placeholder:text-disabled disabled:text-disabled focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-soft focus:ring-offset-2 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none text-16 h-11 px-3 py-2 bg-transparent']")
+2025-02-22 22:26:58,614 - INFO - Sending keys by locator ('name', 'totalAmount')
+2025-02-22 22:26:59,408 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border font-medium text-16 px-5 py-2.5 -order-1']")'
+2025-02-22 22:27:00,203 - INFO - Snackbar message: Sales return created successfully
+2025-02-22 22:27:00,688 - INFO - Selecting Cash as party
+2025-02-22 22:27:00,688 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div[1]//div[1]")'
+2025-02-22 22:27:02,077 - INFO - Setting invoice number: 2
+2025-02-22 22:27:02,077 - INFO - Sending keys by locator ('xpath', "//input[@class='flex items-center hover:border-hover hover:bg-secondary active:border-hover active:bg-secondary w-full rounded-4 border border-border placeholder:text-default-tertiary text-default disabled:cursor-not-allowed disabled:bg-fill-primary-disabled disabled:placeholder:text-disabled disabled:text-disabled focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-soft focus:ring-offset-2 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none text-16 h-11 px-3 py-2 bg-transparent']")
+2025-02-22 22:27:02,446 - INFO - Sending keys by locator ('name', 'totalAmount')
+2025-02-22 22:27:03,098 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border font-medium text-16 px-5 py-2.5 -order-1']")'
+2025-02-22 22:27:03,879 - INFO - Snackbar message: Sales return created successfully
+2025-02-22 22:27:04,312 - INFO - Selecting party: Party 12
+2025-02-22 22:27:04,312 - INFO - Sending keys by locator ('name', 'party')
+2025-02-22 22:27:06,055 - INFO - Element is visible!
+2025-02-22 22:27:06,055 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div//div[text()='Party 12']")'
+2025-02-22 22:27:06,357 - INFO - Setting invoice number: 3
+2025-02-22 22:27:06,358 - INFO - Sending keys by locator ('xpath', "//input[@class='flex items-center hover:border-hover hover:bg-secondary active:border-hover active:bg-secondary w-full rounded-4 border border-border placeholder:text-default-tertiary text-default disabled:cursor-not-allowed disabled:bg-fill-primary-disabled disabled:placeholder:text-disabled disabled:text-disabled focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-soft focus:ring-offset-2 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none text-16 h-11 px-3 py-2 bg-transparent']")
+2025-02-22 22:27:06,750 - INFO - Sending keys by locator ('name', 'totalAmount')
+2025-02-22 22:27:07,606 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border font-medium text-16 px-5 py-2.5 -order-1']")'
+2025-02-22 22:27:08,390 - INFO - Snackbar message: Sales return created successfully
+2025-02-22 22:27:08,781 - INFO - Selecting party: Party 19
+2025-02-22 22:27:08,781 - INFO - Sending keys by locator ('name', 'party')
+2025-02-22 22:27:10,257 - INFO - Element is visible!
+2025-02-22 22:27:10,257 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div//div[text()='Party 19']")'
+2025-02-22 22:27:10,533 - INFO - Setting invoice number: 4
+2025-02-22 22:27:10,533 - INFO - Sending keys by locator ('xpath', "//input[@class='flex items-center hover:border-hover hover:bg-secondary active:border-hover active:bg-secondary w-full rounded-4 border border-border placeholder:text-default-tertiary text-default disabled:cursor-not-allowed disabled:bg-fill-primary-disabled disabled:placeholder:text-disabled disabled:text-disabled focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-soft focus:ring-offset-2 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none text-16 h-11 px-3 py-2 bg-transparent']")
+2025-02-22 22:27:10,906 - INFO - Sending keys by locator ('name', 'totalAmount')
+2025-02-22 22:27:11,647 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border font-medium text-16 px-5 py-2.5 -order-1']")'
+2025-02-22 22:27:12,413 - INFO - Snackbar message: Sales return created successfully
+2025-02-22 22:27:12,806 - INFO - Selecting party: Party 18
+2025-02-22 22:27:12,808 - INFO - Sending keys by locator ('name', 'party')
+2025-02-22 22:27:14,155 - INFO - Element is visible!
+2025-02-22 22:27:14,155 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div//div[text()='Party 18']")'
+2025-02-22 22:27:14,461 - INFO - Setting invoice number: 5
+2025-02-22 22:27:14,461 - INFO - Sending keys by locator ('xpath', "//input[@class='flex items-center hover:border-hover hover:bg-secondary active:border-hover active:bg-secondary w-full rounded-4 border border-border placeholder:text-default-tertiary text-default disabled:cursor-not-allowed disabled:bg-fill-primary-disabled disabled:placeholder:text-disabled disabled:text-disabled focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-soft focus:ring-offset-2 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none text-16 h-11 px-3 py-2 bg-transparent']")
+2025-02-22 22:27:14,847 - INFO - Sending keys by locator ('name', 'totalAmount')
+2025-02-22 22:27:15,525 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border font-medium text-16 px-5 py-2.5 -order-1']")'
+2025-02-22 22:27:16,334 - INFO - Snackbar message: Sales return created successfully
+2025-02-22 22:27:16,867 - INFO - Selecting Cash as party
+2025-02-22 22:27:16,868 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div[1]//div[1]")'
+2025-02-22 22:27:18,371 - INFO - Setting invoice number: 1
+2025-02-22 22:27:18,371 - INFO - Sending keys by locator ('xpath', "//input[@class='flex items-center hover:border-hover hover:bg-secondary active:border-hover active:bg-secondary w-full rounded-4 border border-border placeholder:text-default-tertiary text-default disabled:cursor-not-allowed disabled:bg-fill-primary-disabled disabled:placeholder:text-disabled disabled:text-disabled focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-soft focus:ring-offset-2 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none text-16 h-11 px-3 py-2 bg-transparent']")
+2025-02-22 22:27:18,755 - INFO - Sending keys by locator ('name', 'totalAmount')
+2025-02-22 22:27:19,371 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border font-medium text-16 px-5 py-2.5 -order-1']")'
+2025-02-22 22:27:20,158 - INFO - Snackbar message: Purchase return created successfully
+2025-02-22 22:27:20,546 - INFO - Selecting party: Party 12
+2025-02-22 22:27:20,547 - INFO - Sending keys by locator ('name', 'party')
+2025-02-22 22:27:21,694 - INFO - Element is visible!
+2025-02-22 22:27:21,694 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div//div[text()='Party 12']")'
+2025-02-22 22:27:21,977 - INFO - Setting invoice number: 2
+2025-02-22 22:27:21,977 - INFO - Sending keys by locator ('xpath', "//input[@class='flex items-center hover:border-hover hover:bg-secondary active:border-hover active:bg-secondary w-full rounded-4 border border-border placeholder:text-default-tertiary text-default disabled:cursor-not-allowed disabled:bg-fill-primary-disabled disabled:placeholder:text-disabled disabled:text-disabled focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-soft focus:ring-offset-2 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none text-16 h-11 px-3 py-2 bg-transparent']")
+2025-02-22 22:27:22,370 - INFO - Sending keys by locator ('name', 'totalAmount')
+2025-02-22 22:27:22,958 - INFO - Sending keys by locator ('name', 'receivedAmount')
+2025-02-22 22:27:23,687 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border font-medium text-16 px-5 py-2.5 -order-1']")'
+2025-02-22 22:27:24,478 - INFO - Snackbar message: Purchase return created successfully
+2025-02-22 22:27:24,878 - INFO - Selecting party: Party 18
+2025-02-22 22:27:24,878 - INFO - Sending keys by locator ('name', 'party')
+2025-02-22 22:27:25,994 - INFO - Element is visible!
+2025-02-22 22:27:25,994 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div//div[text()='Party 18']")'
+2025-02-22 22:27:26,301 - INFO - Setting invoice number: 3
+2025-02-22 22:27:26,302 - INFO - Sending keys by locator ('xpath', "//input[@class='flex items-center hover:border-hover hover:bg-secondary active:border-hover active:bg-secondary w-full rounded-4 border border-border placeholder:text-default-tertiary text-default disabled:cursor-not-allowed disabled:bg-fill-primary-disabled disabled:placeholder:text-disabled disabled:text-disabled focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-soft focus:ring-offset-2 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none text-16 h-11 px-3 py-2 bg-transparent']")
+2025-02-22 22:27:26,657 - INFO - Sending keys by locator ('name', 'totalAmount')
+2025-02-22 22:27:27,334 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border font-medium text-16 px-5 py-2.5 -order-1']")'
+2025-02-22 22:27:27,894 - INFO - Snackbar message: Purchase return created successfully
+2025-02-22 22:27:28,314 - INFO - Selecting party: Party 16
+2025-02-22 22:27:28,314 - INFO - Sending keys by locator ('name', 'party')
+2025-02-22 22:27:29,629 - INFO - Element is visible!
+2025-02-22 22:27:29,629 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div//div[text()='Party 16']")'
+2025-02-22 22:27:29,936 - INFO - Setting invoice number: 4
+2025-02-22 22:27:29,936 - INFO - Sending keys by locator ('xpath', "//input[@class='flex items-center hover:border-hover hover:bg-secondary active:border-hover active:bg-secondary w-full rounded-4 border border-border placeholder:text-default-tertiary text-default disabled:cursor-not-allowed disabled:bg-fill-primary-disabled disabled:placeholder:text-disabled disabled:text-disabled focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-soft focus:ring-offset-2 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none text-16 h-11 px-3 py-2 bg-transparent']")
+2025-02-22 22:27:30,337 - INFO - Sending keys by locator ('name', 'totalAmount')
+2025-02-22 22:27:30,989 - INFO - Sending keys by locator ('name', 'receivedAmount')
+2025-02-22 22:27:31,615 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border font-medium text-16 px-5 py-2.5 -order-1']")'
+2025-02-22 22:27:32,374 - INFO - Snackbar message: Purchase return created successfully
+2025-02-22 22:27:32,793 - INFO - Selecting party: Party 2
+2025-02-22 22:27:32,793 - INFO - Sending keys by locator ('name', 'party')
+2025-02-22 22:27:34,492 - INFO - Element is visible!
+2025-02-22 22:27:34,492 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div//div[text()='Party 2']")'
+2025-02-22 22:27:34,779 - INFO - Setting invoice number: 5
+2025-02-22 22:27:34,780 - INFO - Sending keys by locator ('xpath', "//input[@class='flex items-center hover:border-hover hover:bg-secondary active:border-hover active:bg-secondary w-full rounded-4 border border-border placeholder:text-default-tertiary text-default disabled:cursor-not-allowed disabled:bg-fill-primary-disabled disabled:placeholder:text-disabled disabled:text-disabled focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-soft focus:ring-offset-2 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none text-16 h-11 px-3 py-2 bg-transparent']")
+2025-02-22 22:27:35,176 - INFO - Adding billing item: Item 2
+2025-02-22 22:27:35,177 - INFO - Sending keys by locator ('css selector', "tr input[name='invoiceItems.0.name']")
+2025-02-22 22:27:35,722 - INFO - Clicking an element with locator '('xpath', "//div[@role='option']//div[@class='flex gap-3 items-center col-span-2']//p[contains(text(), 'Item 2')]")'
+2025-02-22 22:27:36,395 - INFO - Sending keys by locator ('xpath', '//tbody/tr[1]/td[3]/div/input')
+2025-02-22 22:27:37,176 - INFO - Sending keys by locator ('xpath', '//tbody/tr[1]/td[4]/input')
+2025-02-22 22:27:37,817 - INFO - Adding billing item: Item 8
+2025-02-22 22:27:37,818 - INFO - Sending keys by locator ('css selector', "tr input[name='invoiceItems.1.name']")
+2025-02-22 22:27:38,452 - INFO - Clicking an element with locator '('xpath', "//div[@role='option']//div[@class='flex gap-3 items-center col-span-2']//p[contains(text(), 'Item 8')]")'
+2025-02-22 22:27:39,142 - INFO - Sending keys by locator ('xpath', '//tbody/tr[2]/td[3]/div/input')
+2025-02-22 22:27:40,024 - INFO - Adding billing item: Item 17
+2025-02-22 22:27:40,024 - INFO - Sending keys by locator ('css selector', "tr input[name='invoiceItems.2.name']")
+2025-02-22 22:27:40,653 - INFO - Clicking an element with locator '('xpath', "//div[@role='option']//div[@class='flex gap-3 items-center col-span-2']//p[contains(text(), 'Item 17')]")'
+2025-02-22 22:27:41,093 - INFO - Sending keys by locator ('xpath', '//tbody/tr[3]/td[3]/div/input')
+2025-02-22 22:27:41,871 - INFO - Sending keys by locator ('xpath', '//tbody/tr[3]/td[4]/input')
+2025-02-22 22:27:42,642 - INFO - Sending keys by locator ('xpath', '//tbody/tr[3]/td[5]/div/div[1]//input')
+2025-02-22 22:27:43,466 - INFO - Adding billing item: Item 20
+2025-02-22 22:27:43,466 - INFO - Sending keys by locator ('css selector', "tr input[name='invoiceItems.3.name']")
+2025-02-22 22:27:44,135 - INFO - Clicking an element with locator '('xpath', "//div[@role='option']//div[@class='flex gap-3 items-center col-span-2']//p[contains(text(), 'Item 20')]")'
+2025-02-22 22:27:44,799 - INFO - Sending keys by locator ('xpath', '//tbody/tr[4]/td[3]/div/input')
+2025-02-22 22:27:46,093 - INFO - Sending keys by locator ('xpath', '//tbody/tr[4]/td[4]/input')
+2025-02-22 22:27:49,751 - INFO - Clicking an element with locator '('xpath', "//li[@class='flex flex-wrap gap-y-6 gap-x-8']//button[.='Add Discount']")'
+2025-02-22 22:27:50,134 - INFO - Sending keys by locator ('xpath', "//input[@class='flex items-center hover:border-hover hover:bg-secondary active:border-hover active:bg-secondary rounded-4 border border-border placeholder:text-default-tertiary text-default disabled:cursor-not-allowed disabled:bg-fill-primary-disabled disabled:placeholder:text-disabled disabled:text-disabled focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-soft focus:ring-offset-2 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none text-16 h-11 px-3 py-2 bg-background pl-10 w-[130px]']")
+2025-02-22 22:27:50,928 - INFO - Clicking an element with locator '('xpath', "//li[@class='flex flex-wrap gap-y-6 gap-x-8']//button[contains(.,'Charges')]")'
+2025-02-22 22:27:51,369 - INFO - Sending keys by locator ('xpath', "//ul//li[1]//input[@placeholder='Enter charge name']")
+2025-02-22 22:27:51,867 - INFO - Sending keys by locator ('xpath', "//ul//li[1]//input[@placeholder='Enter charge name']//following-sibling::div//input")
+2025-02-22 22:27:52,591 - INFO - Clicking an element with locator '('xpath', "//li[@class='flex flex-wrap gap-y-6 gap-x-8']//button[contains(.,'Charges')]")'
+2025-02-22 22:27:52,993 - INFO - Sending keys by locator ('xpath', "//ul//li[2]//input[@placeholder='Enter charge name']")
+2025-02-22 22:27:53,568 - INFO - Sending keys by locator ('xpath', "//ul//li[2]//input[@placeholder='Enter charge name']//following-sibling::div//input")
+2025-02-22 22:27:54,272 - INFO - Sending keys by locator ('name', 'receivedAmount')
+2025-02-22 22:27:55,431 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border font-medium text-16 px-5 py-2.5 -order-1']")'
+2025-02-22 22:27:56,314 - INFO - Snackbar message: Purchase return created successfully
+2025-02-22 22:27:57,182 - INFO - Selecting party: Party 11
+2025-02-22 22:27:57,183 - INFO - Sending keys by locator ('name', 'party')
+2025-02-22 22:27:58,456 - INFO - Element is visible!
+2025-02-22 22:27:58,456 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div//div[text()='Party 11']")'
+2025-02-22 22:27:58,686 - INFO - Sending keys by locator ('name', 'totalAmount')
+2025-02-22 22:27:59,030 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border font-medium text-16 px-5 py-2.5 -order-1']")'
+2025-02-22 22:27:59,741 - INFO - Snackbar message: Quotation created successfully
+2025-02-22 22:28:00,125 - INFO - Selecting party: Party 13
+2025-02-22 22:28:00,125 - INFO - Sending keys by locator ('name', 'party')
+2025-02-22 22:28:01,556 - INFO - Element is visible!
+2025-02-22 22:28:01,556 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div//div[text()='Party 13']")'
+2025-02-22 22:28:01,684 - INFO - Sending keys by locator ('name', 'totalAmount')
+2025-02-22 22:28:01,970 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border font-medium text-16 px-5 py-2.5 -order-1']")'
+2025-02-22 22:28:02,327 - INFO - Snackbar message: Quotation created successfully
+2025-02-22 22:28:02,668 - INFO - Selecting party: Party 2
+2025-02-22 22:28:02,669 - INFO - Sending keys by locator ('name', 'party')
+2025-02-22 22:28:04,073 - INFO - Element is visible!
+2025-02-22 22:28:04,073 - INFO - Clicking an element with locator '('xpath', "//div[@role='listbox']//div//div[text()='Party 2']")'
+2025-02-22 22:28:04,374 - INFO - Sending keys by locator ('name', 'totalAmount')
+2025-02-22 22:28:04,986 - INFO - Clicking an element with locator '('css selector', "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border font-medium text-16 px-5 py-2.5 -order-1']")'
+2025-02-22 22:28:05,746 - INFO - Snackbar message: Quotation created successfully
+2025-02-22 22:28:10,756 - INFO - All driver quited.

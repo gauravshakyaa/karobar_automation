@@ -34,8 +34,8 @@ class LoginPage:
     def selectBusiness(self, business_name=None, index=None, business_role=None):
         locator = "//div[contains(@class,'md:pl-12 md:-ml-12 py-1.5 flex flex-col gap-y-4 mt-8 pr-1 max-h-[485px] overflow-y-auto scrollbar-thin ')]"
         if business_name:
-            locator += f"//div[contains(text(),'{business_name}')]"
-            conftest.clickElement(self.driver, locator, by=By.XPATH)
+            locator += f"//h2[contains(text(),'{business_name}')]"
+            conftest.clickElement(self.driver, locator)
         elif index:
             locator += f"//button[{index}]"
-            conftest.clickElement(self.driver, locator, by=By.XPATH)
+            conftest.clickElement(self.driver, locator)

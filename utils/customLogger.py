@@ -8,7 +8,7 @@ def setup_logging(log_file=os.path.join(os.getcwd(), "Configurations", "Logs", "
         format='%(asctime)s - %(levelname)s - %(message)s',  # Log format
         handlers=[
             logging.FileHandler(log_file),  # Log to file
-            logging.StreamHandler()        # Print logs to console
+            # logging.StreamHandler()        # Print logs to console
         ],
         force=True
     )
