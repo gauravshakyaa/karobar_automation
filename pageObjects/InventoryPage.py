@@ -6,6 +6,7 @@ from utils.readProperties import ReadConfig
 from testCases import conftest
 from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.select import Select
 
 class InventoryPage:
     ######### ADD/EDIT ITEM Page ##########
@@ -39,6 +40,20 @@ class InventoryPage:
 
     button_save_css = (By.CSS_SELECTOR, "button[class*='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed bg-fill-primary hover:bg-fill-primary-hover active:bg-fill-primary-active text-primary-on-bg-fill text-14 h-9 font-medium px-3 py-2 order-last']")
     button_saveAddNew_css = (By.CSS_SELECTOR, "button[class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border text-14 h-9 font-medium px-3 py-2'] span")
+
+    # Locators for item detail page
+    searchField_searchItem_css = (By.CSS_SELECTOR, ".relative.flex-grow.flex.items-stretch input")
+    list_items_xpath = (By.XPATH, "//div[@class='absolute top-0 left-0 w-full']//h3")
+    button_adjustStock_xpath = (By.XPATH, "//div//button[.='Adjust Stock']")
+    button_addStock_xpath = (By.XPATH, "//div[contains(text(),'Add Stock')]")
+    button_reduceStock_xpath = (By.XPATH, "//div[contains(text(),'Reduce Stock')]")
+
+    # Locators for item adjustment dialog
+    inputField_adjustmentQuantity_xpath = (By.XPATH, "//div[@role='dialog']//input[@name='quantity']")
+    select_adjustmentItemUnit_xpath = (By.XPATH, "//div[@role='dialog']//select")
+    inputField_adjustmentRate_xpath = (By.XPATH, "//div[@role='dialog']//input[@name='rate']")
+    inputField_adjustmentNote_xpath = (By.XPATH, "//div[@role='dialog']//input[@name='note']")
+    button_addReduceStock_xpath = (By.XPATH, "//div[@role='dialog']//button[@type='submit']")
 
     def __init__(self, driver: WebDriver):
         self.driver = driver
@@ -100,7 +115,7 @@ class InventoryPage:
             conftest.sendKeys(self.driver, self.inputField_purchasePrice_xpath, purchase_price)
 
     def setUnit(self, primary_unit=None, secondary_unit=None, conversionRate=None):
-        def methodUnit():
+        def addUnit():
             if primary_unit:
                 conftest.clickElement(self.driver, self.button_selectUnit_xpath)
                 conftest.clickElement(self.driver, self.dropdown_primaryUnit_xpath)
@@ -116,10 +131,10 @@ class InventoryPage:
                 conftest.clickElement(self.driver, self.button_saveUnitDialog_xpath)
 
         if conftest.isElementPresent(self.driver, self.button_selectUnit_xpath, timeout=1):
-            methodUnit()
+            addUnit()
         else:
             conftest.clickElement(self.driver, self.tabList_stockDetailsTab_xpath)
-            methodUnit()
+            addUnit()
 
 
     def mrpPrice(self, mrp_price):
@@ -210,3 +225,31 @@ class InventoryPage:
                 time.sleep(0.2)
             else:
                 self.clickSaveButton()
+
+    def navigateToItemDetailPage(self, item_name):
+        def clickItem(item_name):
+            list_items_locator = (By.XPATH, self.list_items_xpath+f"[.='{item_name}']")
+            conftest.sendKeys(self.driver, self.searchField_searchItem_css, item_name)
+            conftest.clickElement(self.driver, list_items_locator)
+        if "/inventory/item-detail" in self.driver.current_url:
+            clickItem(item_name)
+        else:
+            self.driver.get(ReadConfig.getURL() + "/inventory/item-detail/")
+            clickItem(item_name)
+    
+    def addItemAdjustment(self, adjustment_type, adjustment_qty, rate = None, secondary_unit=None):
+        conftest.clickElement(self.driver, self.button_adjustStock_xpath)
+        if adjustment_type == "add":
+            conftest.clickElement(self.driver, self.button_addStock_xpath)
+        elif adjustment_type == "reduce":
+            conftest.clickElement(self.driver, self.button_reduceStock_xpath)
+        else:
+            logging.error("Invalid adjustment type")
+            exit(1)
+        conftest.sendKeys(self.driver, self.inputField_adjustmentQuantity_xpath, adjustment_qty)
+        if secondary_unit:
+            select_unit_locator = Select(self.driver.find_element(*self.select_adjustmentItemUnit_xpath))
+            select_unit_locator.select_by_value("secondary")
+        conftest.sendKeys(self.driver, self.inputField_adjustmentRate_xpath, rate)
+
+    

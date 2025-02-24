@@ -13,17 +13,6 @@ class TransactionPage: # This includes Sales, Sales Return, Purchase, Purchase R
     inputField_invoice_xpath = (By.XPATH, "//input[@class='flex items-center hover:border-hover hover:bg-secondary active:border-hover active:bg-secondary w-full rounded-4 border border-border placeholder:text-default-tertiary text-default disabled:cursor-not-allowed disabled:bg-fill-primary-disabled disabled:placeholder:text-disabled disabled:text-disabled focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-soft focus:ring-offset-2 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none text-16 h-11 px-3 py-2 bg-transparent']")
     datepicker_invoiceDate_xpath = (By.XPATH, "//button[@class='flex items-center hover:border-hover hover:bg-secondary active:border-hover active:bg-secondary w-full rounded-4 border border-border placeholder:text-default-tertiary text-default disabled:cursor-not-allowed disabled:bg-fill-primary-disabled disabled:placeholder:text-disabled disabled:text-disabled focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-soft focus:ring-offset-2 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none px-3 py-2 bg-transparent relative pr-10 justify-between font-normal h-11 text-16']")
 
-    # Item-related locators
-    # itemTableColumnIndex = 1  # By default, first column of the billing table will be assigned
-    # inputField_quantity_xpath = (By.XPATH, f"//tbody/tr[{itemTableColumnIndex}]/td[2]/div/input")
-    # button_unit_xpath = (By.XPATH, f"//tbody/tr[{itemTableColumnIndex}]/td[2]/div//button")
-    # select_unit_xpath = (By.XPATH, f"//tbody/tr[{itemTableColumnIndex}]/td[2]/div//select")
-    # inputField_rate_xpath = (By.XPATH, f"//tbody/tr[{itemTableColumnIndex}]/td[3]/input")
-    # inputField_itemDiscountPercent_xpath = (By.XPATH, f"//tbody/tr[{itemTableColumnIndex}]/td[4]/div/div[1]//input")
-    # inputField_itemDiscountAmount_xpath = (By.XPATH, f"//tbody/tr[{itemTableColumnIndex}]/td[4]/div/div[2]//input")
-    # inputField_billingAmount_xpath = (By.XPATH, f"//tbody/tr[{itemTableColumnIndex}]/td[5]//input")
-    # button_deleteBillingItem_xpath = (By.XPATH, f"//tbody/tr[{itemTableColumnIndex}]/td[5]/span/button")
-
     # Buttons for overall discount, tax, additional charges, and round-off
     button_addOverallDiscount_xpath = (By.XPATH, "//li[@class='flex flex-wrap gap-y-6 gap-x-8']//button[.='Add Discount']")
     button_addTAX_xpath = (By.XPATH, "//li[@class='flex flex-wrap gap-y-6 gap-x-8']//button[.='Add Tax']")
@@ -50,7 +39,6 @@ class TransactionPage: # This includes Sales, Sales Return, Purchase, Purchase R
         try:
             party_dropdown_listbox = "//div[@role='listbox']"
             party_dropdown_list = (By.XPATH, f"//div[@role='listbox']//div//div[text()='{name}']")
-            "//div[@role='listbox']//div[1]//div[1]"
             if "Cash" in name:
                 party_dropdown_list = (By.XPATH, "//div[@role='listbox']//div[1]//div[1]")
                 logging.info("Selecting Cash as party")

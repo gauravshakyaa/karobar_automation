@@ -49,8 +49,11 @@ def get_transaction_details_json(transaction_type=None):
         transaction_details = read_excel("utils//GuidedKarobarData.xlsx", sheetname="Sales Return Data")
     elif transaction_type == "pr":
         transaction_details = read_excel("utils//GuidedKarobarData.xlsx", sheetname="Purchase Return Data")
-    else:
+    elif transaction_type == "q":
         transaction_details = read_excel("utils//GuidedKarobarData.xlsx", sheetname="Quotation Data")   
+    else:
+        logging.error("Invalid transaction type provided")
+        return None
     structured_sales = []
     for row in transaction_details:
         structured_billing_items = []
@@ -58,7 +61,7 @@ def get_transaction_details_json(transaction_type=None):
         billing_text = (row.get("Billing Details") or "").strip()   # Get value safely, stripping whitespace
         
         # Regex to extract item details
-        item_pattern = r"Item\s(\d+):\s([\d.]*)\s([\w]*)\s*@\s*Rs[.\s]*([\d.]*)(?:\swith\s([\d.]*)%\sDiscount)?"
+        item_pattern = r"Item\s*(\d+):\s*([\d.]*)\s*([\w]*)\s*@\s*Rs[.\s]*([\d.]*)(?:\s*with\s*([\d.]*)%\s*Discount)?"
 
         # Regex to capture overall discount, tax, and charges
         discount_percent_pattern = r"Overall Discount[:\s]+([\d.]*)%"
@@ -81,29 +84,33 @@ def get_transaction_details_json(transaction_type=None):
                 "rate": float(match[3]) if match[3] else None,
                 "item_discount_percent": float(match[4]) if match[4] else None
             }
+           
             structured_billing_items.append(item)
 
         structured_row = {
             "invoice_number": row.get("Invoice No.", None),
-            "party_name": row.get("Bill To:"),
+            "party_name": row.get("Bill To:").strip(),
             "Billing Details": structured_billing_items,
             "overall_discount_percent":  float(overall_discount_percent.group(1)) if overall_discount_percent else None,
             "overall_discount_amount": float(overall_discount_amount.group(1)) if overall_discount_amount else None,
             "tax": float(tax.group(1)) if tax and tax.group(1) else None,
             "charge_amount": [float(charge) for charge in (charges or []) if charge] if charges else None,
             "total_amount": float(row["Total Amount"]) if row.get("Total Amount") not in [None, ""] else None,
-            "used_amount": float(row["Received Amount"]) if row.get("Received Amount") not in [None, ""] else None,
-            "payment_mode": row.get("Payment Mode", ""),
+            "used_amount": (
+                float(row["Received Amount"]) if row.get("Received Amount") not in [None, ""] 
+                else float(row["Paid Amount"]) if row.get("Paid Amount") not in [None, ""] 
+                else None
+            ),
+            "payment_mode": row.get("Payment Mode", "").strip(),
         }
 
         structured_sales.append(structured_row)
 
-    return json.dumps(structured_sales, indent=4)
+    return json.dumps(structured_sales)
 
 
 #####  This is for test purpose only #####
-sales_details = read_excel("utils//GuidedKarobarData.xlsx", sheetname="Sales Data")
-transaction_json_data = json.loads(get_transaction_details_json())
+transaction_json_data = json.loads(get_transaction_details_json(transaction_type="q"))
 for transaction in transaction_json_data:
     invoice_number = transaction.get("invoice_number")
     party_name = transaction.get("party_name")
@@ -124,4 +131,6 @@ for transaction in transaction_json_data:
             "rate": item.get("rate"),
             "discount_percent": item.get("item_discount_percent") if item.get("item_discount_percent") is not None else item.get("discount_amount"),
         }
-    print(invoice_number, charge_amount)
+    print(transaction)
+    print()
+

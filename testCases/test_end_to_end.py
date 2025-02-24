@@ -23,10 +23,11 @@ class Test_end_to_end:
         # item.addBulkItems()
         # transaction.addTransaction(transaction_type="s", party_name="Party 1", items=[{"item_name":"Item 3", "quantity":"10", "secondary_unit":"PCS", "rate":"100", "item_discount_percent":"10"}, {"item_name":"Item 2", "quantity":"2", "rate":"2", "item_discount_percent":"10"}], overall_discount_percent="10", tax=True, charge_amount=[100, 500])
 
-        # transaction.addBulkTransactions(transaction_type="s")
-        transaction.addBulkTransactions(transaction_type="p")
-        transaction.addBulkTransactions(transaction_type="sr")
-        transaction.addBulkTransactions(transaction_type="pr")
-        transaction.addBulkTransactions(transaction_type="q")
+        transaction.addBulkTransactions(transaction_type="s")
+        # transaction.addBulkTransactions(transaction_type="p")
+        # transaction.addBulkTransactions(transaction_type="sr")
+        # transaction.addBulkTransactions(transaction_type="pr")
+        # transaction.addBulkTransactions(transaction_type="q")
         
         time.sleep(5)
+        
