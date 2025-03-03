@@ -481,16 +481,3 @@ def stopwatch():
       self.minute = minute
       self.second = second
 
-      return f"{self.hour:02}:{self.minute:02}:{self.second:02}"
-
-  # watch = Stopwatch()
-  # for i in range(3600):
-  #   print(watch)
-  #   watch.tick()
-  clock = Clock(12, 30, 0)
-  clock.set(12, 5)
-  print(clock)
-
-charge_amount = [100, 45]
-for i, charge in enumerate(charge_amount):
-  print(i+1, charge)

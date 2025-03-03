@@ -13,7 +13,7 @@ class LoginPage:
     button_verifyOTP_xpath = (By.XPATH, "//button[@type='submit']")
 
     # Locators for choose business page
-
+    text_selectProfile_xpath = (By.XPATH, "//h2[normalize-space()='Select Profile']")
 
     def __init__(self, driver):
         self.driver = driver
@@ -34,8 +34,8 @@ class LoginPage:
     def selectBusiness(self, business_name=None, index=None, business_role=None):
         locator = "//div[contains(@class,'md:pl-12 md:-ml-12 py-1.5 flex flex-col gap-y-4 mt-8 pr-1 max-h-[485px] overflow-y-auto scrollbar-thin ')]"
         if business_name:
-            locator += f"//h2[contains(text(),'{business_name}')]"
-            conftest.clickElement(self.driver, locator)
+            real_locator = (By.XPATH, f"{locator}//h2[contains(text(),'{business_name}')]")
+            conftest.clickElement(self.driver, real_locator)
         elif index:
             locator += f"//button[{index}]"
             conftest.clickElement(self.driver, locator)

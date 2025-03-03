@@ -38,7 +38,7 @@ class TransactionPage: # This includes Sales, Sales Return, Purchase, Purchase R
     def setParty(self, name):
         try:
             party_dropdown_listbox = "//div[@role='listbox']"
-            party_dropdown_list = (By.XPATH, f"//div[@role='listbox']//div//div[text()='{name}']")
+            party_element = (By.XPATH, f"//div[@role='listbox']//div//div[text()='{name}']")
             if "Cash" in name:
                 party_dropdown_list = (By.XPATH, "//div[@role='listbox']//div[1]//div[1]")
                 logging.info("Selecting Cash as party")
@@ -47,8 +47,8 @@ class TransactionPage: # This includes Sales, Sales Return, Purchase, Purchase R
                 logging.info(f"Selecting party: {name}")
                 conftest.sendKeys(self.driver, self.searchField_selectParty_name, name)
                 self.driver.implicitly_wait(1)
-                if conftest.scroll_until_element_visible(self.driver, element_locator=party_dropdown_list, dropdown_element=party_dropdown_listbox):
-                    conftest.clickElement(self.driver, party_dropdown_list)
+                if conftest.scroll_until_element_visible(self.driver, element_locator=party_element, scrollable_element_locator=party_dropdown_listbox):
+                    conftest.clickElement(self.driver, party_element)
         except Exception as e:
             logging.error(f"Error while selecting party: {e}")
     

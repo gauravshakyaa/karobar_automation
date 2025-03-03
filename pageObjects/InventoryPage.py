@@ -43,10 +43,10 @@ class InventoryPage:
 
     # Locators for item detail page
     searchField_searchItem_css = (By.CSS_SELECTOR, ".relative.flex-grow.flex.items-stretch input")
-    list_items_xpath = (By.XPATH, "//div[@class='absolute top-0 left-0 w-full']//h3")
+    list_itemDetail_xpath = "//div[@class='absolute top-0 left-0 w-full']//h3"
     button_adjustStock_xpath = (By.XPATH, "//div//button[.='Adjust Stock']")
-    button_addStock_xpath = (By.XPATH, "//div[contains(text(),'Add Stock')]")
-    button_reduceStock_xpath = (By.XPATH, "//div[contains(text(),'Reduce Stock')]")
+    button_saveAddStock_xpath = (By.XPATH, "//div[contains(text(),'Add Stock')]")
+    button_saveReduceStock_xpath = (By.XPATH, "//div[contains(text(),'Reduce Stock')]")
 
     # Locators for item adjustment dialog
     inputField_adjustmentQuantity_xpath = (By.XPATH, "//div[@role='dialog']//input[@name='quantity']")
@@ -214,10 +214,44 @@ class InventoryPage:
             logging.error(f"Error while adding item: {e}")
             exit(1)
 
+    def navigateToItemDetailPage(self, item_name):
+        def clickItem(item_name):
+            scrollable_element_locator = "//div[@class='min-h-0 overflow-y-auto scrollbar-thin flex-grow']"
+            list_items_locator = (By.XPATH, f"{self.list_itemDetail_xpath}[.='{item_name}']")
+            conftest.sendKeys(self.driver, locator=self.searchField_searchItem_css, value=item_name, condition="all")
+            conftest.waitForElement(self.driver, locator=list_items_locator, condition="visible")
+            if conftest.scroll_until_element_visible(self.driver, element_locator=list_items_locator, scrollable_element_locator=scrollable_element_locator) is True:
+                conftest.clickElement(self.driver, list_items_locator)
+            else:
+                logging.error(f"{item_name} not found in the list")
+        if "/inventory/item-detail" in self.driver.current_url:
+            clickItem(item_name)
+        else:
+            self.driver.get(ReadConfig.getURL() + "/inventory/item-detail/")
+            clickItem(item_name)
+    
+    def addItemAdjustment(self, item_name, adjustment_type, adjustment_qty, rate = None, secondary_unit=None):
+        self.navigateToItemDetailPage(item_name=item_name)
+        time.sleep(0.2)
+        conftest.clickElement(self.driver, self.button_adjustStock_xpath)
+        if adjustment_type.lower() == "add":
+            conftest.clickElement(self.driver, self.button_saveAddStock_xpath)
+        elif adjustment_type.lower() == "reduce":
+            conftest.clickElement(self.driver, self.button_saveReduceStock_xpath)
+        else:
+            logging.error("Invalid adjustment type")
+            exit(1)
+        conftest.sendKeys(self.driver, self.inputField_adjustmentQuantity_xpath, adjustment_qty)
+        if secondary_unit == "SU":
+            select_unit_locator = Select(self.driver.find_element(*self.select_adjustmentItemUnit_xpath))
+            select_unit_locator.select_by_value("secondary")
+        conftest.sendKeys(self.driver, self.inputField_adjustmentRate_xpath, rate)
+        conftest.clickElement(self.driver, self.button_addReduceStock_xpath)
+        conftest.waitForElement(self.driver, locator=self.inputField_adjustmentQuantity_xpath, condition="not_visible")
+    
     def addBulkItems(self):
-        item_map_data = excel_utils.item_key_mapping
-        item_details = excel_utils.read_excel(filepath="utils//GuidedKarobarData.xlsx", sheetname="Item Data")
-        mapped_item_data = [excel_utils.map_excel_keys(data=item, key_mapping=item_map_data) for item in item_details]
+        item_mapping_data = excel_utils.KEY_MAPPINGS["item_key_mapping"]
+        mapped_item_data = excel_utils.map_excel_keys(key_mapping=item_mapping_data, sheet_name="Item Data")
         for i, item_data in enumerate(mapped_item_data):
             self.addItem(**item_data)
             if i < len(mapped_item_data) - 1:
@@ -226,30 +260,9 @@ class InventoryPage:
             else:
                 self.clickSaveButton()
 
-    def navigateToItemDetailPage(self, item_name):
-        def clickItem(item_name):
-            list_items_locator = (By.XPATH, self.list_items_xpath+f"[.='{item_name}']")
-            conftest.sendKeys(self.driver, self.searchField_searchItem_css, item_name)
-            conftest.clickElement(self.driver, list_items_locator)
-        if "/inventory/item-detail" in self.driver.current_url:
-            clickItem(item_name)
-        else:
-            self.driver.get(ReadConfig.getURL() + "/inventory/item-detail/")
-            clickItem(item_name)
-    
-    def addItemAdjustment(self, adjustment_type, adjustment_qty, rate = None, secondary_unit=None):
-        conftest.clickElement(self.driver, self.button_adjustStock_xpath)
-        if adjustment_type == "add":
-            conftest.clickElement(self.driver, self.button_addStock_xpath)
-        elif adjustment_type == "reduce":
-            conftest.clickElement(self.driver, self.button_reduceStock_xpath)
-        else:
-            logging.error("Invalid adjustment type")
-            exit(1)
-        conftest.sendKeys(self.driver, self.inputField_adjustmentQuantity_xpath, adjustment_qty)
-        if secondary_unit:
-            select_unit_locator = Select(self.driver.find_element(*self.select_adjustmentItemUnit_xpath))
-            select_unit_locator.select_by_value("secondary")
-        conftest.sendKeys(self.driver, self.inputField_adjustmentRate_xpath, rate)
-
-    
+    def addBulkItemAdjustments(self):
+        adjustment_mapping_data = excel_utils.KEY_MAPPINGS["item_adjustment_key_mapping"]
+        mapped_adjustment_data = excel_utils.map_excel_keys(key_mapping=adjustment_mapping_data, sheet_name="Item Adjustment Data")
+        for adjustment_data in mapped_adjustment_data:
+            self.addItemAdjustment(item_name=adjustment_data["item_name"], adjustment_type=adjustment_data["adjustment_type"], adjustment_qty=adjustment_data["adjustment_qty"], rate=adjustment_data["rate"], secondary_unit=adjustment_data["secondary_unit"])
+            

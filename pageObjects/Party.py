@@ -8,7 +8,7 @@ from testCases import conftest
 from selenium.webdriver.remote.webdriver import WebDriver
 
 class Party:
-    ######### ADD PARTY DIALOG ##########
+    # ADD PARTY DIALOG #
     inputField_partyName_name = (By.NAME, "fullName")
     inputField_partyPhoneNumber_name = (By.NAME, "phoneNumber")
     radioButton_customerPartyType_xpath = (By.XPATH, "//div[@role='dialog']//button[normalize-space()='Customer']")
@@ -32,7 +32,9 @@ class Party:
     button_addParty_xpath = (By.XPATH, "//button[normalize-space()='Add Party']")
     button_addNewFirstParty_xpath = (By.XPATH, "//button[normalize-space()='Add New Party']")
 
-    ######### PARTY LIST/DETAIL PAGE ##########
+    wait_forPartyButton_xpath = "//button[contains(., 'Party')]"
+
+    # PARTY LIST/DETAIL PAGE #
     listView_partiesList_xpath = (By.XPATH, "//div[@class='min-h-0 overflow-y-auto scrollbar-thin flex-grow']")
 
     def __init__(self, driver):
@@ -94,22 +96,30 @@ class Party:
             conftest.clickElement(self.driver, self.button_saveParty_xpath, timeout=0.5)
 
     def clickAddNewPartyButton(self):
-        if conftest.isElementPresent(self.driver, self.button_addNewFirstParty_xpath, timeout=0.5):
-            conftest.clickElement(self.driver, self.button_addNewFirstParty_xpath)
-        else:
-            conftest.clickElement(self.driver, self.button_addParty_xpath)
-    
-    def openAddPartyDialog(self):
         if conftest.isElementPresent(self.driver, locator="//div[@role='dialog']//h2[contains(.,'Party')]", timeout=0.5): # If already on party dialog, skip the process
             pass
         else:
-            if "/parties" in self.driver.current_url:
-                time.sleep(1)
-                self.clickAddNewPartyButton()
+            if not conftest.isElementPresent(self.driver, self.button_addNewFirstParty_xpath, timeout=0.5):
+                conftest.clickElement(self.driver, self.button_addParty_xpath)
             else:
-                self.driver.get(ReadConfig.getURL() + "/parties")
-                time.sleep(1)
-                self.clickAddNewPartyButton()
+                conftest.clickElement(self.driver, self.button_addNewFirstParty_xpath)
+    
+    def openAddPartyDialog(self):
+        if conftest.isElementPresent(self.driver, locator="//div[@role='dialog']//h2[contains(.,'Party')]", timeout=8): # If already on party dialog, skip the process
+            pass
+        else:
+            try:
+                if "/parties" in self.driver.current_url:
+                    time.sleep(1)
+                    # conftest.waitForElement(self.driver, self.wait_forPartyButton_xpath, timeout=1)
+                    self.clickAddNewPartyButton()
+                else:
+                    self.driver.get(ReadConfig.getURL() + "/parties")
+                    time.sleep(1)
+                    # conftest.waitForElement(self.driver, self.wait_forPartyButton_xpath, timeout=1)
+                    self.clickAddNewPartyButton()
+            except Exception:
+                pass
     
     def addParty(self, name=None, phone=None, partyType=None, balance=None, balanceType=None, address=None, email=None, pan=None):
         self.openAddPartyDialog()
@@ -124,7 +134,6 @@ class Party:
                 self.setSupplierPartyType()
             else:
                 raise Exception("Invalid party type while adding party")
-                exit(1)
         if balance:
             self.setOpeningBalance(balance, balanceType)
         if address:
@@ -135,9 +144,8 @@ class Party:
             self.setPartyPan(pan)
     
     def addBulkParty(self):
-        party_map_data = excel_utils.party_key_mapping
-        party_details = excel_utils.read_excel(filepath="utils//GuidedKarobarData.xlsx", sheetname="Party Data")
-        mapped_party_data = [excel_utils.map_excel_keys(data=party, key_mapping=party_map_data) for party in party_details]
+        party_map_data = excel_utils.KEY_MAPPINGS["party_key_mapping"]
+        mapped_party_data = excel_utils.map_excel_keys(key_mapping=party_map_data, sheet_name="Party Data")
         total_time = 0
         for i, party_data in enumerate(mapped_party_data):
             self.addParty(**party_data)

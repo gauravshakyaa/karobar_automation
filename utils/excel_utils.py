@@ -3,54 +3,73 @@ import logging
 import re
 import pandas as pd
 
-party_key_mapping = {
-        "Party Name": "name",
-        "Phone Number": "phone",
-        "Opening Balance": "balance",
-        "Balance Type": "balanceType",
-        "Address": "address",
-        "Email ID": "email",
-        "PAN Number": "pan",
-        "Type": "partyType"
+KEY_MAPPINGS = {
+    "party_key_mapping" : {
+            "Party Name": "name",
+            "Phone Number": "phone",
+            "Opening Balance": "balance",
+            "Balance Type": "balanceType",
+            "Address": "address",
+            "Email ID": "email",
+            "PAN Number": "pan",
+            "Type": "partyType"
+        },
+    "item_key_mapping" : {
+        "Item Name": "itemName",
+        "Item Category": "itemCategory",
+        "Item Type": "itemType",
+        "Opening Stock": "openingStock", 
+        "Sales Price": "salesPrice",
+        "Purchase Price": "purchasePrice", 
+        "Primary Unit": "primary_unit",
+        "Secondary Unit": "secondary_unit",
+        "Conversion Rate": "conversionRate",
+        "Item Code": "itemCode",
+        "Remarks": "description",
+        "Location": "location"
+    },
+    "item_adjustment_key_mapping" : {
+        "Adjustment Type": "adjustment_type",
+        "Item Name": "item_name",
+        "Quantity to Add": "adjustment_qty",
+        "Primary / Secondary": "secondary_unit",
+        "Price": "rate"
+    },
+    "accounts_key_mapping" : {
+        "Account Name": "account_name",
+        "Account Type": "account_type"
     }
-
-item_key_mapping = {
-    "Item Name": "itemName",
-    "Item Category": "itemCategory",
-    "Item Type": "itemType",
-    "Opening Stock": "openingStock", 
-    "Sales Price": "salesPrice",
-    "Purchase Price": "purchasePrice", 
-    "Primary Unit": "primary_unit",
-    "Secondary Unit": "secondary_unit",
-    "Conversion Rate": "conversionRate",
-    "Item Code": "itemCode",
-    "Remarks": "description",
-    "Location": "location"
 }
 
-def read_excel(filepath, sheetname=None):
+def read_excel(filepath="utils//GuidedKarobarData.xlsx", sheet_name=None):
     try: 
-        df = pd.read_excel(filepath, sheet_name=sheetname)
+        df = pd.read_excel(filepath, sheet_name=sheet_name)
         df = df.replace({float('nan'): None})
+
         return df.to_dict(orient='records')
     except Exception as e:
         logging.error("Error while reading excel file: " + str(e))
 
-def map_excel_keys(data, key_mapping):
-    return {key_mapping.get(k, k): v for k, v in data.items()}
+def map_excel_keys(key_mapping, sheet_name):
+    excel_file_data = read_excel(sheet_name=sheet_name)
+    # Ensure we process each dictionary in the list
+    mapped_data = []
+    for data in excel_file_data:
+        mapped_dict = {key_mapping.get(k.strip(), k.strip()): v for k, v in data.items()}  # Trim whitespace
+        mapped_data.append(mapped_dict)
+    return mapped_data
 
 def get_transaction_details_json(transaction_type=None):
     if transaction_type == "s":
-        transaction_details = read_excel("utils//GuidedKarobarData.xlsx", sheetname="Sales Data")
+        transaction_details = read_excel("utils//GuidedKarobarData.xlsx", sheet_name="Sales Data")
     elif transaction_type == "p":
-        transaction_details = read_excel("utils//GuidedKarobarData.xlsx", sheetname="Purchase Data")
+        transaction_details = read_excel("utils//GuidedKarobarData.xlsx", sheet_name="Purchase Data")
     elif transaction_type == "sr":
-        transaction_details = read_excel("utils//GuidedKarobarData.xlsx", sheetname="Sales Return Data")
+        transaction_details = read_excel("utils//GuidedKarobarData.xlsx", sheet_name="Sales Return Data")
     elif transaction_type == "pr":
-        transaction_details = read_excel("utils//GuidedKarobarData.xlsx", sheetname="Purchase Return Data")
+        transaction_details = read_excel("utils//GuidedKarobarData.xlsx", sheet_name="Purchase Return Data")
     elif transaction_type == "q":
-        transaction_details = read_excel("utils//GuidedKarobarData.xlsx", sheetname="Quotation Data")   
+        transaction_details = read_excel("utils//GuidedKarobarData.xlsx", sheet_name="Quotation Data")   
     else:
         logging.error("Invalid transaction type provided")
         return None
@@ -108,29 +127,4 @@ def get_transaction_details_json(transaction_type=None):
 
     return json.dumps(structured_sales)
 
-
-#####  This is for test purpose only #####
-transaction_json_data = json.loads(get_transaction_details_json(transaction_type="q"))
-for transaction in transaction_json_data:
-    invoice_number = transaction.get("invoice_number")
-    party_name = transaction.get("party_name")
-    billing_details = transaction.get("Billing Details", [])
-    total_amount = transaction.get("total_amount")
-    used_amount = transaction.get("used_amount")
-    payment_mode = transaction.get("payment_mode")
-    overall_discount_percent = transaction.get("overall_discount_percent")
-    overall_discount_amount = transaction.get("overall_discount_amount")
-    tax = bool(transaction.get("tax"))
-    charge_amount = transaction.get("charge_amount") if transaction.get("charge_amount") else None
-    for index, item in enumerate(billing_details, start=1):
-        item_details = {
-            "index": index,
-            "item_name": item.get("item_name"),
-            "quantity": item.get("quantity"),
-            "secondary_unit": item.get("secondary_unit"),
-            "rate": item.get("rate"),
-            "discount_percent": item.get("item_discount_percent") if item.get("item_discount_percent") is not None else item.get("discount_amount"),
-        }
-    print(transaction)
-    print()
-
+# print(map_excel_keys(KEY_MAPPINGS["party_key_mapping"], "Party Data"))

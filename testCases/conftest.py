@@ -56,19 +56,19 @@ def nav_to_dashboard():
     login_page.setPhoneNumber(ReadConfig.getPhoneNumber())
     login_page.clickContinueButton()
     login_page.setOTP(ReadConfig.getOTP())
-    time.sleep(2)
+    waitForElement(driver, login_page.text_selectProfile_xpath, timeout=5)
     if "choose-account" in driver.current_url:
-        login_page.selectBusiness(business_name="123")
+        login_page.selectBusiness(business_name="pl")
     else:
         pass
 
 def headless_chrome():
     print()
 
-def sendKeys(driver, locator, value, clear_field=True):
+def sendKeys(driver, locator, value, clear_field=True, condition="visible"):
     try:
         logging.info(f"Sending keys by locator {locator}")
-        waitForElement(driver, locator, timeout=10)
+        waitForElement(driver, locator, timeout=5, condition=condition)
         if clear_field:
             driver.find_element(*locator).send_keys(Keys.CONTROL + 'a' + Keys.DELETE)
         driver.find_element(*locator).send_keys(value)
@@ -76,18 +76,18 @@ def sendKeys(driver, locator, value, clear_field=True):
         logging.error(f"An error occured in sendKeys when sending '{value}' in locator {locator}")
 
     
-def clickElement(driver, locator, by=None, timeout=10):
+def clickElement(driver, locator, by=None, timeout=5, condition="visible"):
     if by is None:
         try:
             logging.info(f"Clicking an element with locator '{locator}'")
-            waitForElement(driver, locator, timeout=timeout)
-            driver.find_element(*locator).click() 
+            waitForElement(driver, locator, timeout=timeout, condition=condition)
+            driver.find_element(*locator).click()
         except Exception as e:
             logging.error(f"An error occured in clickElement with locator {locator}")
     else:
         try:
             logging.info(f"Clicking an element with locator '{locator}' by {by}")
-            waitForElement(driver, locator, by=by, timeout=timeout)
+            waitForElement(driver, locator, by=by, timeout=timeout, condition=condition)
             driver.find_element(by, locator).click() 
         except Exception as e:
             logging.error(f"An error occured in clickElement with locator {locator}")
@@ -113,31 +113,26 @@ def get_snackbar_message(driver):
     except Exception as e:
         logging.error(f"An error occured in return_snackbar_message: {e}")
 
-def waitForElement(driver, locator, condition="visible", timeout=1):
+def waitForElement(driver, locator, condition="visible", timeout=2):
     wait = WebDriverWait(driver, timeout)
     try:
-        if condition == "clickable":
-            return wait.until(EC.element_to_be_clickable(locator))
-        elif condition == "visible":
-            return wait.until(EC.visibility_of_element_located(locator))
-        elif condition == "present":
-            return wait.until(EC.presence_of_element_located(locator))
-        elif condition == "all":
-            # Custom callable function for combining multiple conditions
-            def combined_condition():
-                return (
-                    EC.presence_of_element_located(locator) and
-                    EC.visibility_of_element_located(locator) and
-                    EC.element_to_be_clickable(locator)
-                )
-            return wait.until(combined_condition)
-        else:
-            raise ValueError(
-                f"Invalid condition '{condition}'. Use 'clickable', 'visible', 'present', or 'all'."
-            )
-    except Exception as e:
-        print("Error while waiting for element")
-        raise
+        conditions = {
+        "clickable": EC.element_to_be_clickable(locator),
+        "visible": EC.visibility_of_element_located(locator),
+        "present": EC.presence_of_element_located(locator),
+        "not_visible": EC.invisibility_of_element_located(locator),
+        "all": lambda driver: all([
+            EC.presence_of_element_located(locator)(driver),
+            EC.visibility_of_element_located(locator)(driver),
+            EC.element_to_be_clickable(locator)(driver)
+            ])
+        }
+        if condition not in conditions:
+            raise ValueError(f"Invalid condition: {condition}")
+
+        return wait.until(conditions[condition])
+    except Exception:
+        logging.warning(f"Error while waiting for element {locator}")
 
 def isElementPresent(driver, locator, timeout=2): 
     try:
@@ -156,7 +151,7 @@ def isElementEmpty(driver, locator, timeout=2):
     else:
         return False
 
-def scroll_until_element_visible(driver, element_locator, dropdown_element):
+def scroll_until_element_visible(driver, element_locator, scrollable_element_locator):
     while True:
         try:
             element = driver.find_element(*element_locator)
@@ -165,19 +160,16 @@ def scroll_until_element_visible(driver, element_locator, dropdown_element):
                 return True
         except Exception:
             pass  
-        scrollable_element = driver.find_element(By.XPATH, dropdown_element)
+        scrollable_element = driver.find_element(By.XPATH, scrollable_element_locator)
 
         previous_scroll_height = driver.execute_script("return arguments[0].scrollTop;", scrollable_element)
-        logging.info(f"Previous scroll height: {previous_scroll_height}")
         driver.execute_script("arguments[0].scrollTop += 180;", scrollable_element)
-        
         new_scroll_height = driver.execute_script("return arguments[0].scrollTop;", scrollable_element)
-        logging.info(f"New scroll height: {new_scroll_height}")
         if new_scroll_height == previous_scroll_height:
             logging.info("Reached the bottom of the page.")
             break
-    return None  
-
+    return False
+            
 def clean_allure_results():
     results_dir = "AllureReport"
     if os.path.exists(results_dir):
@@ -233,5 +225,3 @@ def setDate(day, month, year):
     day_element = f"//span[@class='cursor-pointer rounded-3 flex items-center justify-center w-full aspect-square relative overflow-hidden p-0 font-normal text-center text-14'][normalize-space()='{day}']"
     clickElement(driver, day_element)
 
-def read_excel_file(file_path, sheet_name):
-    pass
