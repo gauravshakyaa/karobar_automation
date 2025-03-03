@@ -1,6 +1,6 @@
 from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
-from utilities.readProperties import ReadConfig
+from utils.readProperties import ReadConfig
 from selenium.common.exceptions import NoSuchElementException
 from testCases import conftest
 

@@ -7,12 +7,12 @@ import pytest
 import logging
 from pageObjects.LoginPage import LoginPage
 # from utilities.customLogger import LogGenerator
-from utilities.readProperties import ReadConfig
+from utils.readProperties import ReadConfig
 from testCases import conftest
-from selenium.webdriver.chrome.webdriver import WebDriver
+from selenium.webdriver.remote.webdriver import WebDriver
 import allure
 from allure_commons.types import AttachmentType
-from utilities.customLogger import setup_logging
+from utils.customLogger import setup_logging
 
 class Test_001_Login:
     setup_logging()
