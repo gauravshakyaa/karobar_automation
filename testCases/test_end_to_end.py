@@ -2,17 +2,15 @@ import logging
 import time
 
 import pytest
-from pageObjects.PaymentInOut import PaymentInOut
+from pageObjects.PaymentInOutPage import PaymentInOut
 from pageObjects.ManageAccount import ManageAccount
 from pageObjects.TransactionPage import TransactionPage
 from pageObjects.InventoryPage import InventoryPage
-from pageObjects.Party import Party
+from pageObjects.PartyPage import Party
 from selenium.webdriver.remote.webdriver import WebDriver
 from testCases import conftest
 from utils import excel_utils
 from selenium.webdriver.common.by import By
-
-from utils.readProperties import ReadConfig
 
 class Test_end_to_end:
     def test_end_to_end(self, setup, nav_to_dashboard):
