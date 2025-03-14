@@ -45,7 +45,7 @@ class ManageAccount:
             self.driver.get(ReadConfig.getURL() + "/manage-account")
             conftest.clickElement(self.driver, self.cardView_cashAccount_xpath)
         else:
-            pass
+            logging.info("Already on manage account page")
 
     def add_account(self, account_type, account_name, account_number=123, account_holder_name="Guided Tester", opening_balance=None):
         def add_new_account():
@@ -63,7 +63,7 @@ class ManageAccount:
                 conftest.clickElement(self.driver, self.button_saveAccount_css)
             else:
                 logging.warning("Cash account already exists. Skipping adding a new account.")
-
+        # Starts here
         logging.info("Adding a new account")
         self.navigate_to_manage_account()
         add_new_account()
@@ -74,18 +74,47 @@ class ManageAccount:
         for account_data in mapped_account_data:
             self.add_account(account_data["account_type"], account_data["account_name"])
 
-    def add_reduce_money(self, account_name, amount, account_type):
-        self.navigate_to_manage_account()
-        conftest.clickElement(self.driver, self.button_adjustBalance_xpath)
-        if account_type.lower() == "add money":
-            conftest.clickElement(self.driver, self.button_addMoney_xpath)
-        elif account_type.lower() == "reduce money":
-            conftest.clickElement(self.driver, self.button_reduceMoney_xpath)
-        elif account_type.lower() == "transfer money":
-            conftest.clickElement(self.driver, self.button_transferMoney_xpath)
-        else:
-            logging.error("Invalid account type provided. Please provide a valid account type.")
-            return
-    
+    def add_reduce_money(self, adjustment_type, from_account_name, amount, to_account_name=None):
+        try:
+            def add_reduce_money():
+                conftest.waitForElement(self.driver, self.radiobutton_typeAddMoney_xpath)
+                select = Select(self.driver.find_element(*self.dropdown_selectAddReduceAccount_xpath))
+                select.select_by_visible_text(from_account_name)
+                conftest.sendKeys(self.driver, self.inputField_totalAmount_name, amount)
+                conftest.clickElement(self.driver, self.button_saveAdjustBalance_xpath)
+            self.navigate_to_manage_account()
+            conftest.clickElement(self.driver, self.cardView_cashAccount_xpath)
+            conftest.clickElement(self.driver, self.button_adjustBalance_xpath, condition="clickable")
+            if conftest.isElementPresent(self.driver, self.button_addMoney_xpath):
+                if adjustment_type.lower() == "add":  
+                    conftest.clickElement(self.driver, self.button_addMoney_xpath)
+                    logging.info(f"Adding amount {amount} to {from_account_name}")
+                    add_reduce_money()
+                elif adjustment_type.lower() == "reduce":
+                    conftest.clickElement(self.driver, self.button_reduceMoney_xpath)
+                    logging.info(f"Reducing amount {amount} from {from_account_name}")
+                    add_reduce_money()
+                elif adjustment_type.lower() == "transfer":
+                    conftest.clickElement(self.driver, self.button_transferMoney_xpath)
+                    logging.info(f"Transferring amount {amount} from {from_account_name} to {to_account_name}")
+                    select_from_account = Select(self.driver.find_element(*self.dropdown_selectFromAccount_xpath))
+                    select_from_account.select_by_visible_text(from_account_name)
+                    select_to_account = Select(self.driver.find_element(*self.dropdown_selectToAccount_xpath))
+                    select_to_account.select_by_visible_text(to_account_name)
+                    conftest.sendKeys(self.driver, self.inputField_totalAmount_name, amount)
+                    conftest.clickElement(self.driver, self.button_saveAdjustBalance_xpath)
+                else:
+                    logging.error("Invalid account type provided. Please provide a valid account type.")
+                    return
+            else:
+                logging.error("Add/Reduce/Transfer button not found. Please check if the element is loaded properly.")
+        except Exception as e:
+            logging.error(f"Error occurred while adding/reducing/transferring money: {e}")
 
-    
+    def add_bulk_account_adjustments(self):
+        account_adjustment_mapping_data = excel_utils.KEY_MAPPINGS["accounts_adjustment_key_mapping"]
+        mapped_account_adjustment_data = excel_utils.map_excel_keys(key_mapping=account_adjustment_mapping_data, sheet_name="Transaction Adjustment Data")
+        for account_adjustment_data in mapped_account_adjustment_data:
+            self.add_reduce_money(adjustment_type=account_adjustment_data["adjustment_type"], from_account_name=account_adjustment_data["from_account_name"], 
+                                  amount=account_adjustment_data["amount"], 
+                                  to_account_name=account_adjustment_data["to_account_name"]) 

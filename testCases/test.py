@@ -481,3 +481,8 @@ def stopwatch():
       self.minute = minute
       self.second = second
 
+
+var = "google"
+len = len(var)-1
+for i in range(len, -1, -1):
+  print(var[i])

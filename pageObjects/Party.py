@@ -96,18 +96,19 @@ class Party:
             conftest.clickElement(self.driver, self.button_saveParty_xpath, timeout=0.5)
 
     def clickAddNewPartyButton(self):
-        if conftest.isElementPresent(self.driver, locator="//div[@role='dialog']//h2[contains(.,'Party')]", timeout=0.5): # If already on party dialog, skip the process
-            pass
+        if not conftest.isElementPresent(self.driver, locator="//div[@role='dialog']//h2[contains(.,'Party')]", timeout=0): # If already on party dialog, skip the process
+            try:
+                if conftest.isElementPresent(self.driver, self.button_addParty_xpath, timeout=0.5):
+                    conftest.clickElement(self.driver, self.button_addParty_xpath)
+                else:
+                    conftest.clickElement(self.driver, self.button_addNewFirstParty_xpath)
+            except Exception:
+                pass
         else:
-            if not conftest.isElementPresent(self.driver, self.button_addNewFirstParty_xpath, timeout=0.5):
-                conftest.clickElement(self.driver, self.button_addParty_xpath)
-            else:
-                conftest.clickElement(self.driver, self.button_addNewFirstParty_xpath)
+            pass
     
     def openAddPartyDialog(self):
-        if conftest.isElementPresent(self.driver, locator="//div[@role='dialog']//h2[contains(.,'Party')]", timeout=8): # If already on party dialog, skip the process
-            pass
-        else:
+        if conftest.isElementPresent(self.driver, locator="//div[@role='dialog']//h2[contains(.,'Party')]", timeout=0) is False: # If not in party dialog, open add party dialog
             try:
                 if "/parties" in self.driver.current_url:
                     time.sleep(1)
@@ -120,7 +121,9 @@ class Party:
                     self.clickAddNewPartyButton()
             except Exception:
                 pass
-    
+        else:
+            pass
+        
     def addParty(self, name=None, phone=None, partyType=None, balance=None, balanceType=None, address=None, email=None, pan=None):
         self.openAddPartyDialog()
         if name:
