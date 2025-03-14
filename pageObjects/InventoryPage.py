@@ -248,7 +248,7 @@ class InventoryPage:
         conftest.sendKeys(self.driver, self.inputField_adjustmentRate_xpath, rate)
         conftest.clickElement(self.driver, self.button_addReduceStock_xpath)
         conftest.waitForElement(self.driver, locator=self.inputField_adjustmentQuantity_xpath, condition="not_visible")
-    
+     
     def addBulkItems(self):
         item_mapping_data = excel_utils.KEY_MAPPINGS["item_key_mapping"]
         mapped_item_data = excel_utils.map_excel_keys(key_mapping=item_mapping_data, sheet_name="Item Data")

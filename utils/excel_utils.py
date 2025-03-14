@@ -6,7 +6,7 @@ import pandas as pd
 KEY_MAPPINGS = {
     "party_key_mapping" : {
             "Party Name": "name",
-            "Phone Number": "phone",
+            "Phone Number": "phone",     
             "Opening Balance": "balance",
             "Balance Type": "balanceType",
             "Address": "address",
@@ -38,6 +38,18 @@ KEY_MAPPINGS = {
     "accounts_key_mapping" : {
         "Account Name": "account_name",
         "Account Type": "account_type"
+    },
+    "accounts_adjustment_key_mapping" : {
+        "Txn Type": "adjustment_type",
+        "Payment Account From": "from_account_name",
+        "Payment Account To": "to_account_name",
+        "Total Amount": "amount"
+    },
+    "payment_in_out_key_mapping": {
+        "Receipt Number": "invoice_no",
+        "Party Name": "party_name",
+        "Amount": "total_amount",
+        "Payment Mode": "payment_mode"
     }
 }
 
@@ -52,10 +64,9 @@ def read_excel(filepath="utils//GuidedKarobarData.xlsx", sheet_name=None):
 
 def map_excel_keys(key_mapping, sheet_name):
     excel_file_data = read_excel(sheet_name=sheet_name)
-    # Ensure we process each dictionary in the list
     mapped_data = []
     for data in excel_file_data:
-        mapped_dict = {key_mapping.get(k.strip(), k.strip()): v for k, v in data.items()}  # Trim whitespace
+        mapped_dict = {key_mapping.get(k.strip(), k.strip()): v for k, v in data.items()}
         mapped_data.append(mapped_dict)
     return mapped_data
 
@@ -128,3 +139,4 @@ def get_transaction_details_json(transaction_type=None):
     return json.dumps(structured_sales)
 
 # print(map_excel_keys(KEY_MAPPINGS["party_key_mapping"], "Party Data"))
+print(map_excel_keys(KEY_MAPPINGS["accounts_adjustment_key_mapping"], "Transaction Adjustment Data"))
