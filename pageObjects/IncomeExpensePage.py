@@ -2,14 +2,9 @@ import logging
 import time
 from selenium.webdriver.common.by import By
 from utils import excel_utils
-from utils.readProperties import ReadConfig
 from testCases import conftest
 from selenium.webdriver.remote.webdriver import WebDriver
-from selenium.webdriver.support.select import Select
 from pageObjects.PaymentInOutPage import PaymentInOut
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.common.keys import Keys
-
 
 class IncomeExpense(PaymentInOut):
     inputField_receiptNumber_xpath = (By.XPATH,"//div[@role='dialog']//label[.='Expense No.']//parent::div//following-sibling::div//input")

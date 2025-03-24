@@ -8,7 +8,6 @@ from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
-from selenium.common.exceptions import NoSuchElementException, TimeoutException
 
 class PaymentInOut:
     # Payment in/out page locators
