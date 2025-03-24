@@ -46,7 +46,6 @@ class TransactionPage: # This includes Sales, Sales Return, Purchase, Purchase R
             else:
                 logging.info(f"Selecting party: {name}")
                 conftest.sendKeys(self.driver, self.searchField_selectParty_name, name)
-                self.driver.implicitly_wait(1)
                 if conftest.scroll_until_element_visible(self.driver, element_locator=party_element, scrollable_element_locator=party_dropdown_listbox):
                     conftest.clickElement(self.driver, party_element)
         except Exception as e:
@@ -108,13 +107,13 @@ class TransactionPage: # This includes Sales, Sales Return, Purchase, Purchase R
     def setOverallDiscount(self, discount_percent=None, discount_amount=None):
         try:
             if discount_percent:
-                if conftest.isElementPresent(self.driver, self.inputField_overallDiscountPercent_xpath):
+                if conftest.isElementPresent(self.driver, self.inputField_overallDiscountPercent_xpath, timeout=1):
                     conftest.sendKeys(self.driver, self.inputField_overallDiscountPercent_xpath, value = discount_percent)
                 else:
                     conftest.clickElement(self.driver, self.button_addOverallDiscount_xpath)
                     conftest.sendKeys(self.driver, self.inputField_overallDiscountPercent_xpath, value = discount_percent)
             if discount_amount:
-                if conftest.isElementPresent(self.driver, self.inputField_overallDiscountAmount_xpath):
+                if conftest.isElementPresent(self.driver, self.inputField_overallDiscountAmount_xpath, timeout=1):
                     conftest.sendKeys(self.driver, self.inputField_overallDiscountAmount_xpath, value = discount_amount)
                 else:
                     conftest.clickElement(self.driver, self.button_addOverallDiscount_xpath)
@@ -187,6 +186,7 @@ class TransactionPage: # This includes Sales, Sales Return, Purchase, Purchase R
                 pass
             else:
                 self.driver.get(target_url)
+            conftest.waitForElement(self.driver, self.inputField_invoice_xpath)
         except Exception as e:
             logging.error(f"Error while navigating to create transaction page: {e}")
 
@@ -247,4 +247,4 @@ class TransactionPage: # This includes Sales, Sales Return, Purchase, Purchase R
             self.clickSaveAndNewButton()
             snackbar_message = conftest.get_snackbar_message(self.driver)
             logging.info(f"Snackbar message: {snackbar_message}")
-            self.driver.implicitly_wait(0.5)
+            self.driver.implicitly_wait(1)

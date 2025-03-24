@@ -50,6 +50,12 @@ KEY_MAPPINGS = {
         "Party Name": "party_name",
         "Amount": "total_amount",
         "Payment Mode": "payment_mode"
+    },
+    "income_expense_key_mapping": {
+        "Number": "number",
+        "Category": "category",
+        "Total Amount": "total_amount",
+        "Payment Mode": "payment_mode"
     }
 }
 
@@ -139,4 +145,4 @@ def get_transaction_details_json(transaction_type=None):
     return json.dumps(structured_sales)
 
 # print(map_excel_keys(KEY_MAPPINGS["party_key_mapping"], "Party Data"))
-print(map_excel_keys(KEY_MAPPINGS["accounts_adjustment_key_mapping"], "Transaction Adjustment Data"))
+print(map_excel_keys(KEY_MAPPINGS["payment_in_out_key_mapping"], "Payments In Data"))
