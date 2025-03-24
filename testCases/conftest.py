@@ -70,7 +70,7 @@ def get_text_from_attribute(driver, locator, attribute):
     try:
         waitForElement(driver, locator, timeout=3)
         return driver.find_element(*locator).get_attribute(attribute)
-    except Exception as e:
+    except Exception:
         logging.error(f"An error occured in get_text_from_attribute with locator {locator}")
 
 def sendKeys(driver, locator, value, clear_field=True, condition="visible", timeout=3):
