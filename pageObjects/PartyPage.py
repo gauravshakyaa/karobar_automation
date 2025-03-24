@@ -8,7 +8,7 @@ from testCases import conftest
 from selenium.webdriver.remote.webdriver import WebDriver
 
 class Party:
-    # ADD PARTY DIALOG #
+    # Add Party Dialog #
     inputField_partyName_name = (By.NAME, "fullName")
     inputField_partyPhoneNumber_name = (By.NAME, "phoneNumber")
     radioButton_customerPartyType_xpath = (By.XPATH, "//div[@role='dialog']//button[normalize-space()='Customer']")
@@ -41,7 +41,10 @@ class Party:
         self.driver : WebDriver = driver
         
     def setPartyName(self, name):
-        conftest.sendKeys(self.driver, self.inputField_partyName_name, value=name)
+        try:
+            conftest.sendKeys(self.driver, self.inputField_partyName_name, value=name)
+        except Exception:
+            logging.error("Error while setting party name")
 
     def setPartyPhoneNo(self, name):
         conftest.sendKeys(self.driver, self.inputField_partyPhoneNumber_name, value=name)
@@ -52,7 +55,7 @@ class Party:
     def setSupplierPartyType(self):
         conftest.clickElement(self.driver, self.radioButton_supplierPartyType_xpath)
     
-    def setOpeningBalance(self, balance, balanceType  : str):
+    def setOpeningBalance(self, balance, balanceType : str):
         conftest.sendKeys(self.driver, self.inputField_openingBalance_name, balance)
         if balanceType.lower() == "receivable":
             conftest.clickElement(self.driver, self.button_toReceiveBalanceStatus_xpath)
@@ -82,41 +85,37 @@ class Party:
         else:
             conftest.clickElement(self.driver, self.button_additionalInfo_xpath)
             conftest.sendKeys(self.driver, self.inputField_partyPan_name, pan)
-    
-    def clickSaveButton(self):
-        if conftest.isElementPresent(self.driver, self.button_saveParty_xpath, timeout=0.5):
-            conftest.clickElement(self.driver, self.button_saveParty_xpath)
-        else:
-            conftest.clickElement(self.driver, self.button_saveAndNewParty_xpath)
 
     def clickSaveAddNewButton(self):
-        if conftest.isElementPresent(self.driver, self.button_saveAndNewParty_xpath, timeout=0.5):
-            conftest.clickElement(self.driver, self.button_saveAndNewParty_xpath, timeout=0.5)
+        if conftest.isElementPresent(self.driver, self.button_saveAndNewParty_xpath, timeout=2):
+            conftest.clickElement(self.driver, self.button_saveAndNewParty_xpath, timeout=1)
         else:
-            conftest.clickElement(self.driver, self.button_saveParty_xpath, timeout=0.5)
+            conftest.clickElement(self.driver, self.button_saveParty_xpath, timeout=1)
 
     def clickAddNewPartyButton(self):
-        if not conftest.isElementPresent(self.driver, locator="//div[@role='dialog']//h2[contains(.,'Party')]", timeout=0): # If already on party dialog, skip the process
-            try:
-                if conftest.isElementPresent(self.driver, self.button_addParty_xpath, timeout=0.5):
-                    conftest.clickElement(self.driver, self.button_addParty_xpath)
-                else:
-                    conftest.clickElement(self.driver, self.button_addNewFirstParty_xpath)
-            except Exception:
+        try:
+            if not conftest.isElementPresent(self.driver, locator="//div[@role='dialog']//h2[contains(.,'Party')]", timeout=2): # If already on party dialog, skip the process
+                try:
+                    if conftest.isElementPresent(self.driver, self.button_addParty_xpath, timeout=1):
+                        conftest.clickElement(self.driver, self.button_addParty_xpath)
+                    else:
+                        conftest.clickElement(self.driver, self.button_addNewFirstParty_xpath)
+                except Exception:
+                    pass
+            else:
                 pass
-        else:
+        except Exception:
             pass
     
     def openAddPartyDialog(self):
-        if conftest.isElementPresent(self.driver, locator="//div[@role='dialog']//h2[contains(.,'Party')]", timeout=0) is False: # If not in party dialog, open add party dialog
+        if conftest.isElementPresent(self.driver, locator="//div[@role='dialog']//h2[contains(.,'Party')]", timeout=2) is False: # If not in party dialog, open add party dialog
             try:
                 if "/parties" in self.driver.current_url:
-                    time.sleep(1)
                     # conftest.waitForElement(self.driver, self.wait_forPartyButton_xpath, timeout=1)
                     self.clickAddNewPartyButton()
                 else:
                     self.driver.get(ReadConfig.getURL() + "/parties")
-                    time.sleep(1)
+                    time.sleep(1.5)
                     # conftest.waitForElement(self.driver, self.wait_forPartyButton_xpath, timeout=1)
                     self.clickAddNewPartyButton()
             except Exception:
@@ -147,12 +146,11 @@ class Party:
             self.setPartyPan(pan)
     
     def addBulkParty(self):
-        party_map_data = excel_utils.KEY_MAPPINGS["party_key_mapping"]
-        mapped_party_data = excel_utils.map_excel_keys(key_mapping=party_map_data, sheet_name="Party Data")
-        total_time = 0
-        for i, party_data in enumerate(mapped_party_data):
-            self.addParty(**party_data)
-            if i < len(mapped_party_data) - 1:
+        try:
+            party_map_data = excel_utils.KEY_MAPPINGS["party_key_mapping"]
+            mapped_party_data = excel_utils.map_excel_keys(key_mapping=party_map_data, sheet_name="Party Data")
+            for i, party_data in enumerate(mapped_party_data):
+                self.addParty(**party_data)
                 self.clickSaveAddNewButton()
-            else:
-                self.clickSaveButton()
+        except Exception:
+            self.driver.quit()

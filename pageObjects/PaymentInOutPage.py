@@ -19,8 +19,8 @@ class PaymentInOut:
     searchInputField_selectParty_name = (By.NAME, "party")
     inputField_totalAmount_name = (By.NAME, "totalAmount")
     dropdown_selectPaymentMode_xpath = (By.XPATH, "//div[@role='dialog']//select[@aria-hidden='true']")
-    button_save_xpath = (By.XPATH, "//div[@role='dialog']//button[normalize-space()='Save Payment In']")
-    button_saveAddNew_xpath = (By.XPATH, "//div[@role='dialog']//button[normalize-space()='Save & New']")
+    button_save_xpath = (By.XPATH, "//button[@class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed bg-fill-primary hover:bg-fill-primary-hover active:bg-fill-primary-active text-primary-on-bg-fill font-medium text-16 px-5 py-2.5']")
+    button_saveAddNew_xpath = (By.XPATH, "//button[@class='inline-flex group relative rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft items-center justify-center disabled:cursor-not-allowed text-default border border-border font-medium text-16 px-5 py-2.5 -order-1']")
 
     def __init__(self, driver: WebDriver):
         self.driver = driver
@@ -41,6 +41,7 @@ class PaymentInOut:
             logging.error("Invalid transaction type. Please provide either 'in' or 'out' argument in a transaction_type parameter")
 
     def open_addPaymentInOut_dialog(self, transaction_type):
+        self.navigate_to_payment_in_out_page(transaction_type=transaction_type)
         conftest.waitForElement(self.driver, self.searchInputField_selectParty_name, condition="all")
         if conftest.isElementPresent(self.driver, self.searchInputField_selectParty_name, timeout=2) is False:
             actions = ActionChains(self.driver)
@@ -66,7 +67,7 @@ class PaymentInOut:
                 if conftest.scroll_until_element_visible(self.driver, element_locator=select_party_locator, scrollable_element_locator=party_list__scrollable_container, scroll_by=100):
                     conftest.clickElement(self.driver, select_party_locator)
                 else:
-                    logging.error("Party not found in the list")
+                    logging.error(f"Party {party_name} not found in the list")
         except Exception:
             logging.error("Error while selecting party in payment in/out dialog")
     
@@ -83,18 +84,23 @@ class PaymentInOut:
         except Exception:
             logging.error("Error while selecting payment mode in payment in/out dialog")
             exit(1)
-
+    def get_payment_in_out_receipt_number_using_attribute(self):
+        try:
+            return conftest.get_text_from_attribute(self.driver, locator=self.inputField_receiptNumber_xpath, attribute="value")
+        except Exception:
+            logging.warning("Error while getting receipt number from payment in/out dialog")
     def click_save_button(self):
         try:
+            logging.info("Clicking save & add new button")
             conftest.clickElement(self.driver, self.button_saveAddNew_xpath)
         except Exception:
+            logging.info("Clicking save button")
             conftest.clickElement(self.driver, self.button_save_xpath)
     
     def add_payment_in_out(self, transaction_type, party_name, invoice_no, total_amount, payment_mode):
         try:
             self.open_addPaymentInOut_dialog(transaction_type=transaction_type)
             self.set_party(party_name=party_name)
-            self.set_invoice_no(invoice_no=invoice_no)
             self.set_total_amount(total_amount=total_amount)
             self.set_payment_mode(payment_mode=payment_mode)
         except Exception:
@@ -111,4 +117,5 @@ class PaymentInOut:
         for data in mapped_data:
             self.add_payment_in_out(transaction_type=transaction_type, party_name=data["party_name"], invoice_no=data["invoice_no"], total_amount=data["total_amount"], payment_mode=data["payment_mode"])
             self.click_save_button()
+            time.sleep(1)
             # assert "recorded successfully" in conftest.get_snackbar_message(self.driver)

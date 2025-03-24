@@ -47,7 +47,7 @@ class InventoryPage:
     button_adjustStock_xpath = (By.XPATH, "//div//button[.='Adjust Stock']")
     button_saveAddStock_xpath = (By.XPATH, "//div[contains(text(),'Add Stock')]")
     button_saveReduceStock_xpath = (By.XPATH, "//div[contains(text(),'Reduce Stock')]")
-
+    text_itemNameTitle_xpath = (By.XPATH, "//section[@class='md:p-6 p-4']//div[1]//div[1]//div[2]//h2")
     # Locators for item adjustment dialog
     inputField_adjustmentQuantity_xpath = (By.XPATH, "//div[@role='dialog']//input[@name='quantity']")
     select_adjustmentItemUnit_xpath = (By.XPATH, "//div[@role='dialog']//select")
@@ -59,11 +59,14 @@ class InventoryPage:
         self.driver = driver
     
     def setItemName(self, itemName):
-        if conftest.isElementPresent(self.driver, self.inputField_itemName_name, timeout=1):
-            conftest.sendKeys(self.driver, self.inputField_itemName_name, itemName)
-        else:
-            conftest.clickElement(self.driver, self.tabList_stockDetailsTab_xpath)
-            conftest.sendKeys(self.driver, self.inputField_itemName_name, itemName)
+        try:
+            if conftest.isElementPresent(self.driver, self.inputField_itemName_name, timeout=1):
+                conftest.sendKeys(self.driver, self.inputField_itemName_name, itemName)
+            else:
+                conftest.clickElement(self.driver, self.tabList_stockDetailsTab_xpath)
+                conftest.sendKeys(self.driver, self.inputField_itemName_name, itemName)
+        except Exception:
+            logging.error("Error while setting item name")
     
     def setItemCategory(self, itemCategory):
         dropdown_itemCategory_xpath = (By.XPATH, f"//div[@role='listbox']//div[@role='option'][.='{itemCategory}']")
@@ -205,7 +208,8 @@ class InventoryPage:
                 if purchasePrice:
                     self.setPurchasePrice(purchasePrice)
                 if itemCode:
-                    self.setItemCode(itemCode)
+                    # self.setItemCode(itemCode)
+                    pass
                 if description:
                     self.setDescription(description)
                 if location:
@@ -218,12 +222,12 @@ class InventoryPage:
         def clickItem(item_name):
             scrollable_element_locator = "//div[@class='min-h-0 overflow-y-auto scrollbar-thin flex-grow']"
             list_items_locator = (By.XPATH, f"{self.list_itemDetail_xpath}[.='{item_name}']")
-            conftest.sendKeys(self.driver, locator=self.searchField_searchItem_css, value=item_name, condition="all")
-            conftest.waitForElement(self.driver, locator=list_items_locator, condition="visible")
-            if conftest.scroll_until_element_visible(self.driver, element_locator=list_items_locator, scrollable_element_locator=scrollable_element_locator) is True:
-                conftest.clickElement(self.driver, list_items_locator)
+            conftest.sendKeys(self.driver, locator=self.searchField_searchItem_css, value=item_name, condition="all", timeout=1)
+            if conftest.scroll_until_element_visible(self.driver, element_locator=list_items_locator, scrollable_element_locator=scrollable_element_locator, timeout=3) is True:
+                conftest.clickElement(self.driver, list_items_locator, timeout=1)
+                assert conftest.waitForElement(driver=self.driver, locator=self.text_itemNameTitle_xpath, condition="text", text=item_name) is True, f"{item_name} is not clicked from the list"
             else:
-                logging.error(f"{item_name} not found in the list")
+                assert False, logging.error(f"{item_name} not found in the list")
         if "/inventory/item-detail" in self.driver.current_url:
             clickItem(item_name)
         else:
@@ -256,7 +260,7 @@ class InventoryPage:
             self.addItem(**item_data)
             if i < len(mapped_item_data) - 1:
                 self.clickSaveAddNewButton()
-                time.sleep(0.2)
+                time.sleep(1)
             else:
                 self.clickSaveButton()
 
