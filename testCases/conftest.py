@@ -1,97 +1,184 @@
 import os
 import shutil
-import time
 import logging
+import time
 import pytest
 from selenium import webdriver
-from selenium.common import NoSuchElementException
 from selenium.webdriver import Keys
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import *
-import allure
-# from pageObjects.LoginPage import LoginPage
-# from utilities.URLs import URLs
-from utilities.customLogger import setup_logging
-from utilities.readProperties import ReadConfig
+from selenium.webdriver.common.by import By
+from selenium.common.exceptions import TimeoutException, NoSuchElementException, ElementNotInteractableException, StaleElementReferenceException, WebDriverException
+from utils.customLogger import setup_logging
+from utils.readProperties import ReadConfig
 from pageObjects.LoginPage import LoginPage
 
+
+def pytest_addoption(parser):
+    parser.addoption(
+        "--headless", action="store_true", default=False, help="Run tests in headless mode"
+    )
+    
+
 setup_logging()
-
 @pytest.fixture()
-def setup():
+def setup(request):
     global driver
+    headless_mode = request.config.getoption("--headless")
     clean_allure_results()
+    clear_log_file()
     browser = ReadConfig.getBrowser()
-
+    options = webdriver.ChromeOptions()
+    if headless_mode and options:
+        options.add_argument("--headless")
+        options.add_argument("--disable-gpu")
+        options.add_argument("--disable-extensions")
+        options.add_argument("--disable-blink-features=AutomationControlled")
     if browser.__eq__("chrome"):
-        driver = webdriver.Chrome()
+        driver = webdriver.Chrome(options=options)
     elif browser.__eq__("edge"):
-        driver = webdriver.Edge()
+        driver = webdriver.Edge(options=options)
     elif browser.__eq__("firefox"):
-        driver = webdriver.Firefox()
+        driver = webdriver.Firefox(options=options)
     elif browser.__eq__("safari"):
-        driver = webdriver.Safari()
+        driver = webdriver.Safari(options=options)
     else:
         raise ValueError(f"Unsupported browser: {browser}")
+    
     driver.get(f"{ReadConfig.getURL()}")
     driver.maximize_window()
-    time.sleep(5)
     yield driver
+    logging.info("All driver quited.")
     driver.quit()
 
-@pytest.fixture()
+@pytest.fixture
 def nav_to_dashboard(setup):
+    driver = setup
     login_page =  LoginPage(driver)
-    login_page.setPhoneNumber("9860725577")
+    login_page.setPhoneNumber(ReadConfig.getPhoneNumber())
     login_page.clickContinueButton()
+    login_page.setOTP(ReadConfig.getOTP())
+    waitForElement(driver, login_page.text_selectProfile_xpath, timeout=2)
+    if "choose-account" in driver.current_url:
+        login_page.selectBusiness(business_name="pl")
+    else:
+        pass
 
 def headless_chrome():
-    from selenium.webdriver.chrome.service import Service
-    
-def sendKeys(driver, locator, value, by=By.XPATH):
+    print()
+
+def sendKeys(driver, locator, value, clear_field=True, condition="visible", timeout=3):
     try:
-        logging.info(f"Sending keys by {by} with locator '{locator}")
-        driver.find_element(by, locator).send_keys(Keys.CONTROL + 'a' + Keys.DELETE)
-        driver.find_element(by, locator).send_keys(value)
+        logging.info(f"Sending keys by locator {locator}")
+        waitForElement(driver, locator, timeout=timeout, condition=condition)
+        if clear_field:
+            driver.find_element(*locator).send_keys(Keys.CONTROL + 'a' + Keys.DELETE)
+        driver.find_element(*locator).send_keys(value)
     except Exception as e:
-        logging.error(f"An error occured in sendKeys when finding '{value}' with {by}: {locator}, {e}")
+        logging.error(f"An error occured in sendKeys when sending '{value}' in locator {locator}")
 
     
-def findElement(driver, locator, by=By.XPATH, timeout = 10):
+def clickElement(driver, locator, by=None, timeout=3, condition="visible"):
+    if by is None:
+        try:
+            logging.info(f"Clicking an element with locator '{locator}'")
+            waitForElement(driver, locator, timeout=timeout, condition=condition)
+            driver.find_element(*locator).click()
+        except Exception as e:
+            logging.error(f"An error occured in clickElement with locator {locator}")
+    else:
+        try:
+            logging.info(f"Clicking an element with locator '{locator}' by {by}")
+            waitForElement(driver, locator, by=by, timeout=timeout, condition=condition)
+            driver.find_element(by, locator).click() 
+        except Exception as e:
+            logging.error(f"An error occured in clickElement with locator {locator}")
+
+def clearInputField(driver, locator):
     try:
-        logging.info(f"Locating element by {by} with locator '{locator}'")
-        return WebDriverWait(driver, timeout).until(EC.presence_of_element_located((by, locator)))
-    except TimeoutException:
-        logging.error(f"Element with locator '{locator}' not found within {timeout} seconds")
-        raise
+        waitForElement(driver, locator, timeout=3)
+        driver.find_element(*locator).send_keys(Keys.CONTROL + "a" + Keys.DELETE)
+    except Exception as e:
+        logging.error(f"An error occured in clearInputField with locator {locator}")
+
+def getTextFromTextField(driver, locator):
+    try:
+        waitForElement(driver, locator, timeout=3)
+        return driver.find_element(*locator).text
+    except Exception as e:
+        logging.error(f"An error occured in getTextFromTextField with locator {locator}")
+
+def get_snackbar_message(driver):
+    try:
+        snackbar_locator = (By.XPATH, "//li[@role='status']//div//div[1]")
+        return getTextFromTextField(driver, snackbar_locator)
+    except Exception as e:
+        logging.error(f"An error occured in return_snackbar_message: {e}")
+
+def waitForElement(driver, locator, condition="visible", timeout=3):
+    wait = WebDriverWait(driver, timeout)
+    try:
+        conditions = {
+        "clickable": EC.element_to_be_clickable(locator),
+        "visible": EC.visibility_of_element_located(locator),
+        "present": EC.presence_of_element_located(locator),
+        "not_visible": EC.invisibility_of_element_located(locator),
+        "all": lambda driver: (
+                EC.presence_of_element_located(locator)(driver) and
+                EC.visibility_of_element_located(locator)(driver) and
+                EC.element_to_be_clickable(locator)(driver)
+            )
+        }
+        if condition not in conditions:
+            raise ValueError(f"Invalid condition: {condition}")
+        return wait.until(conditions[condition])
     except NoSuchElementException:
-        logging.error(f"Element with locator '{locator}' does not exist on the page")
-        raise
+        logging.warning(f"No such element found with locator {locator}")
+    except TimeoutException:
+        logging.warning(f"Timeout exception occurred while waiting for element with locator {locator}")
+    except ElementNotInteractableException:
+        logging.warning(f"Element not interactable with locator {locator}")
+    except StaleElementReferenceException:
+        logging.warning(f"Stale element reference exception occurred while waiting for element with locator {locator}")
+    except WebDriverException:
+        logging.warning(f"Web driver exception occurred while waiting for element with locator {locator}")
 
-def clickElement(driver, locator, by=By.XPATH):
+def isElementPresent(driver, locator, timeout=3, condition="visible"): 
     try:
-        logging.info(f"Clicking an element by {by} with locator '{locator}'")
-        driver.find_element(by, locator).click()
-    except Exception as e:
-        logging.error(f"An error occured in clickElement with {by}: {locator}, {e}")
-        exit(1)
+        if waitForElement(driver, locator=locator, condition=condition, timeout=timeout):
+            return True
+        else:
+            return False
+    except Exception:
+        return False
 
-def clearInputField(driver, locator, by=By.XPATH):
-    try:
-        driver.find_element(by, locator).send_keys(Keys.CONTROL + "a" + Keys.DELETE)
-    except Exception as e:
-        logging.error(f"An error occured in clearInputField with {by}: {locator}, {e}")
-        exit(1)
+def isElementEmpty(driver, locator, timeout=2):
+    wait = WebDriverWait(driver, timeout=timeout)
+    wait.until(EC.visibility_of_element_located(locator))
+    if driver.find_element(*locator).text == "":
+        return True
+    else:
+        return False
 
-def getTextFromTextField(driver, locator, by=By.XPATH):
-    try:
-        return driver.find_element(by, locator).text
-    except Exception as e:
-        logging.error(f"An error occured in getTextFromTextField with {by}: {locator}, {e}")
-        exit(1)
+def scroll_until_element_visible(driver, element_locator, scrollable_element_locator, scroll_by=500):
+    while True:
+        try:
+            waitForElement(driver, locator=element_locator, timeout=3, condition="all")
+            element = driver.find_element(*element_locator)
+            if element.is_displayed():
+                logging.info("Element is visible!")
+                return True
+        except Exception:
+            pass  
+        scrollable_element = driver.find_element(By.XPATH, scrollable_element_locator)
+        previous_scroll_height = driver.execute_script("return arguments[0].scrollTop;", scrollable_element)
+        driver.execute_script(f"arguments[0].scrollTop += {scroll_by};", scrollable_element)
+        waitForElement(driver, element_locator, timeout=2, condition="clickable")
+        new_scroll_height = driver.execute_script("return arguments[0].scrollTop;", scrollable_element)
+        if new_scroll_height == previous_scroll_height:
+            logging.info("Reached the bottom of the page.")
+            break
+    return False
 
 def clean_allure_results():
     results_dir = "AllureReport"
@@ -99,6 +186,52 @@ def clean_allure_results():
         shutil.rmtree(results_dir)
     os.makedirs(results_dir)
 
-# def waitForElement(driver, locator, by=By.XPATH):
-#     try:
-#         driver
+def clear_log_file():
+    with open('Configurations//Logs//revamp_karobar.log', 'w') as log_file:
+        log_file.write('')
+
+def setDate(day, month, year):
+    month_mapping = {
+        1: "Baisakh",
+        2: "Jestha",
+        3: "Asar",
+        4: "Shrawan",
+        5: "Bhadra",
+        6: "Aswin",
+        7: "Kartik",
+        8: "Mangsir",
+        9: "Poush",
+        10: "Magh",
+        11: "Falgun",
+        12: "Chaitra",
+    }
+    # Clicks date picker to open date picker dialog
+    clickElement(driver, locator = "//div[@role='dialog']//label[normalize-space()='As of Date']/following-sibling::button")
+
+    # Locator of current month and year
+    current_monthAndYear_element = "//div[@class='text-14 text-default font-medium']"
+    
+    # Locator of arrow button to change the month
+    previuosMonth_xpath = "//button[@class='group rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft disabled:cursor-not-allowed bg-transparent hover:bg-surface active:bg-surface-hover font-medium text-16 absolute left-1 text-icon-active rounded-3 flex items-center justify-center h-9 w-9 p-0']"
+    nextMonth_xpath = "//button[@class='group rounded-4 outline-none gap-x-2 focus:ring-2 focus:ring-offset-2 focus:ring-focus focus:ring-offset-soft disabled:cursor-not-allowed bg-transparent hover:bg-surface active:bg-surface-hover font-medium text-16 absolute right-1 text-icon-active rounded-3 flex items-center justify-center h-9 w-9 p-0']"
+    while True:
+        # Element to get the text of the current month and year
+        monthAndYear = str(getTextFromTextField(driver, current_monthAndYear_element))
+        # Assigns current month and year to variables
+        # Store month and year in string format
+        current_month, current_year = monthAndYear.split()
+        # If the current month and year match the desired month and year, exit the loop
+        if str(current_month) == str(month_mapping[int(month)]) and int(current_year) == int(year):
+            break
+        # Navigate to the correct year and month
+        if int(current_year) > int(year) or (int(current_year) == int(year) and month_mapping[int(month)] != current_month):
+            # Move to the previous month
+            clickElement(driver, previuosMonth_xpath)
+        elif int(current_year) < int(year) or (int(current_year) == int(year) and month_mapping[int(month)] != current_month):
+            # Move to the next month
+            clickElement(driver, nextMonth_xpath)
+    
+    # Element to select the day as passed in the argument
+    day_element = f"//span[@class='cursor-pointer rounded-3 flex items-center justify-center w-full aspect-square relative overflow-hidden p-0 font-normal text-center text-14'][normalize-space()='{day}']"
+    clickElement(driver, day_element)
+

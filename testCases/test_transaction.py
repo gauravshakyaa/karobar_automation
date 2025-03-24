@@ -6,9 +6,9 @@ from selenium.webdriver.support import expected_conditions as EC
 import pytest
 from pageObjects.LoginPage import LoginPage
 # from utilities.customLogger import LogGenerator
-from utilities.readProperties import ReadConfig
+from utils.readProperties import ReadConfig
 from testCases import conftest
-from selenium.webdriver.chrome.webdriver import WebDriver
+from selenium.webdriver.remote.webdriver import WebDriver
 import allure
 from allure_commons.types import AttachmentType
 
@@ -24,6 +24,7 @@ class Test_001_Sales:
         if text == 'Invalid phone number format':
             assert True
             self.driver.close()
+            
         else:
             allure.attach(self.driver.get_screenshot_as_png, name="testLoginScreen", attachment_type=AttachmentType.PNG)
             self.driver.close()

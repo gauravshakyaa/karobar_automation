@@ -1,0 +1,17 @@
+1736239304092	geckodriver	INFO	Listening on 127.0.0.1:25300
+1736239307167	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "25301" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\acer\\AppData\\Local\\Temp\\rust_mozprofilefLyeeH"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+Dynamically enable window occlusion 0
+1736239308339	Marionette	INFO	Marionette enabled
+1736239308586	Marionette	INFO	Listening on port 25342
+WebDriver BiDi listening on ws://127.0.0.1:25301
+Read port: 25342
+1736239308867	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: Calling WaitFlushedEvent::Run: is delayed: 2019
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://pilot.karobarapp.com."
+1736239331303	Marionette	INFO	Stopped listening on port 25342
+JavaScript warning: https://pilot.karobarapp.com/_next/static/chunks/pages/_app-de4bece04171bd18.js, line 27: Script terminated by timeout at:
+35046/periodicallyClear/<@https://pilot.karobarapp.com/_next/static/chunks/pages/_app-de4bece04171bd18.js:27:1544
+
+Dynamically enable window occlusion 1
