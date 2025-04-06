@@ -2,13 +2,12 @@ import logging
 import time
 
 import pytest
-from pageObjects.ExtractTextData import Dashboard
+from pageObjects.ExtractTextData import ExtractTextData
 from pageObjects.PaymentInOutPage import PaymentInOut
 from pageObjects.ManageAccount import ManageAccount
 from pageObjects.TransactionPage import TransactionPage
 from pageObjects.InventoryPage import InventoryPage
 from pageObjects.IncomeExpensePage import IncomeExpense
-
 from pageObjects.PartyPage import Party
 from selenium.webdriver.remote.webdriver import WebDriver
 from testCases import conftest
@@ -24,12 +23,12 @@ class Test_end_to_end:
         account = ManageAccount(driver)
         payments = PaymentInOut(driver)
         income_expense = IncomeExpense(driver)
-        dashboard = Dashboard(driver)
+        extract_txt_data = ExtractTextData(driver)
         welcome_text_locator = (By.XPATH, "//h2[contains(text(), 'Welcome')]")
         conftest.waitForElement(driver, locator=welcome_text_locator, timeout=10)
         # party.addBulkParty()
-        # assert dashboard.get_to_receive_amount_from_dashboard() == "3032.12", "To Receive amount is not as expected after adding bulk parties"
-        # assert dashboard.get_to_give_amount_from_dashboard() == "5553.48", "To Give amount is not as expected after adding bulk parties"
+        # assert extract_txt_data.get_to_receive_amount_from_dashboard() == "3032.12", "To Receive amount is not as expected after adding bulk parties"
+        # assert extract_txt_data.get_to_give_amount_from_dashboard() == "5553.48", "To Give amount is not as expected after adding bulk parties"
         # logging.info("Bulk Parties added successfully")
         # item.addBulkItems()
         # logging.info("Bulk Items added successfully")
@@ -47,7 +46,7 @@ class Test_end_to_end:
         # transaction.addBulkTransactions(transaction_type="p")
         # transaction.addBulkTransactions(transaction_type="pr")
         # transaction.addBulkTransactions(transaction_type="q")
-        income_expense.add_bulk_income_expense(transaction_type="expense")
+        # income_expense.add_bulk_income_expense(transaction_type="expense")
         # income_expense.add_bulk_income_expense(transaction_type="income")
         time.sleep(5)
         logging.info("End to End Test Completed")

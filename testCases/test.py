@@ -480,3 +480,53 @@ def stopwatch():
       self.hour = hour
       self.minute = minute
       self.second = second
+
+def oop_first_last_name():
+  class Person:
+    def __init__(self, name):
+      self.first_name = name.split(" ")[0]
+      self.last_name = name.split(" ")[1]
+      
+    def get_first_name(self) -> str:
+      return self.first_name
+    
+    def get_last_name(self) -> str:
+      return self.last_name
+
+import pandas as pd
+
+def read_excel_file():
+  # keys = {
+  #   "invoice_number": "Invoice No.",
+  #   "party_name": "Bill To:",
+  #   "Billing Details": "",
+  #   "total_amount": "Total Amount",
+  #   "used_amount": "Received Amount",
+  #   "payment_mode": "Payment Mode"
+  # }
+
+  keys = {
+        "Invoice No.": "invoice_number",
+        "Bill To:": "party_name",
+        "Billing Details": "billing_details", 
+        "Total Amount": "total_amount",
+        "Received Amount": "used_amount",
+        "Payment Mode": "payment_mode"
+  }
+  df = pd.read_excel("utils//GuidedKarobarData.xlsx", sheet_name="Sales Data")
+  df = df.replace({float('nan'): None})
+  excel_data = df.to_dict(orient="records")
+  print(excel_data[0])
+  mapped_data = [{keys.get(k.strip(), k.strip()): v for k, v in data.items()} for data in excel_data]
+  return mapped_data
+  
+
+print(read_excel_file())
+
+    
+
+# data = {2: 4, 4: 16, 6: 36, 8: 64, 10: 100}
+# swap_data = {k: v for v, k in data.items()}
+# even_squares = {v : k for k, v in data.items()}
+# nested = {i: {j: i*j for j in range(i, 6)} for i in range(1, 5)}
+# print(swap_data)

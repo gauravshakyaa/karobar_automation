@@ -26,6 +26,6 @@ class AuthAPI(APIClient):
         for result in results:
             print(result.get('name'), result.get('idx'))
 
-auth_api = AuthAPI("https://revamp-beta.karobarapp.com/api/v3")
-token = auth_api.get_token(phone="9860725577", otp="123456")
+auth_api = AuthAPI("h")
+token = auth_api.get_token(phone="", otp="")
 auth_api.get_business_list(token)
