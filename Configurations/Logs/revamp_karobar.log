@@ -1,7 +1,0 @@
-2025-04-02 19:08:15,030 - INFO - Sending keys by locator ('name', 'phoneNumber'), value: 9712345677
-2025-04-02 19:08:15,888 - INFO - Clicking an element with locator '('xpath', "//button[@type='submit']")'
-2025-04-02 19:08:16,237 - INFO - Sending keys by locator ('id', 'otp-verification'), value: 123456
-2025-04-02 19:08:19,646 - INFO - Running End to End Test
-2025-04-02 19:08:26,167 - INFO - End to End Test Completed
-2025-04-02 19:08:26,169 - INFO - All driver quited.
-2025-04-03 21:30:51,183 - ERROR - Invalid transaction type provided
