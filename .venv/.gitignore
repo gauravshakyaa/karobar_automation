@@ -1,0 +1,4 @@
+Configurations/
+*.log
+*.ini
+test.py

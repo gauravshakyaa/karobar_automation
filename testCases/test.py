@@ -32,6 +32,7 @@
 
 
 from datetime import date
+import re
 
 
 def Sudoku_add_and_copy():
@@ -496,37 +497,63 @@ def oop_first_last_name():
 import pandas as pd
 
 def read_excel_file():
-  # keys = {
-  #   "invoice_number": "Invoice No.",
-  #   "party_name": "Bill To:",
-  #   "Billing Details": "",
-  #   "total_amount": "Total Amount",
-  #   "used_amount": "Received Amount",
-  #   "payment_mode": "Payment Mode"
-  # }
-
-  keys = {
-        "Invoice No.": "invoice_number",
-        "Bill To:": "party_name",
-        "Billing Details": "billing_details", 
-        "Total Amount": "total_amount",
-        "Received Amount": "used_amount",
-        "Payment Mode": "payment_mode"
-  }
-  df = pd.read_excel("utils//GuidedKarobarData.xlsx", sheet_name="Sales Data")
-  df = df.replace({float('nan'): None})
-  excel_data = df.to_dict(orient="records")
-  print(excel_data[0])
-  mapped_data = [{keys.get(k.strip(), k.strip()): v for k, v in data.items()} for data in excel_data]
-  return mapped_data
+  def simple():
+    keys = {
+          "Invoice No.": "invoice_number",
+          "Bill To:": "party_name",
+          "Billing Details": "billing_details", 
+          "Total Amount": "total_amount",
+          "Received Amount": "used_amount",
+          "Payment Mode": "payment_mode"
+    }
+    df = pd.read_excel("utils//GuidedKarobarData.xlsx", sheet_name="Sales Data")
+    df = df.replace({float('nan'): None})
+    excel_data = df.to_dict(orient="records")
+    mapped_data = [{keys.get(k): v for k, v in data.items()} for data in excel_data]
+    return mapped_data
   
+  def complex_excel():
+    df = pd.read_excel("utils//GuidedKarobarData.xlsx", sheet_name="Sales Data")
+    df = df.replace({float('nan'): None})
+    excel_data = df.to_dict(orient="records")
+    new = []
+    structured_billing_items = []
+    for data in excel_data:
+      billing_details = new.append(data.get("Billing Details"))
+      item_pattern = r"Item\s*(\d+):\s*([\d.]*)\s*([\w]*)\s*@\s*Rs[.\s]*([\d.]*)(?:\s*with\s*([\d.]*)%\s*Discount)?"
+      matches = re.findall(item_pattern, billing_details)
+      for match in matches:
+        item = {
+            "item_name": f"Item {match[0]}",
+            "quantity": float(match[1]) if match[1] else None, 
+            "secondary_unit": match[2] if match[2] else None,  
+            "rate": float(match[3]) if match[3] else None,
+            "item_discount_percent": float(match[4]) if match[4] else None
+        }
+        structured_billing_items.append(item)
+      break
+    print(structured_billing_items)
+      
 
-print(read_excel_file())
+  complex_excel()
 
-    
 
-# data = {2: 4, 4: 16, 6: 36, 8: 64, 10: 100}
-# swap_data = {k: v for v, k in data.items()}
-# even_squares = {v : k for k, v in data.items()}
-# nested = {i: {j: i*j for j in range(i, 6)} for i in range(1, 5)}
-# print(swap_data)
+df = pd.read_excel("utils//GuidedKarobarData.xlsx", sheet_name="Sales Data")
+df = df.replace({float('nan'): None})
+excel_data = df.to_dict(orient="records")
+structured_billing_items = []
+
+for sale in excel_data:
+  print(sale)
+  billing_items = sale.get("Billing Details")
+  print(billing_items)
+  if not billing_items:
+    continue  # Skip if no billing details
+  # item_pattern = r"Item\s*(\d+):\s*([\d.]*)\s*([\w]*)\s*@\s*Rs[.\s]*([\d.]*)(?:\s*with\s*([\d.]*)%\s*Discount)?"
+  item_pattern = r"Item\s*(\d+):\s*([\d.]*)\s*"
+  matches = re.findall(item_pattern, billing_items)
+  for match in matches: 
+    # print(match)
+    pass
+  
+  break

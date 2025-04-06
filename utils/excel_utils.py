@@ -145,4 +145,5 @@ def get_transaction_details_json(transaction_type=None):
     return json.dumps(structured_sales)
 
 # print(map_excel_keys(KEY_MAPPINGS["party_key_mapping"], "Party Data"))
-print(map_excel_keys(KEY_MAPPINGS["payment_in_out_key_mapping"], "Payments In Data"))
+# print(map_excel_keys(KEY_MAPPINGS["payment_in_out_key_mapping"], "Payments In Data"))
+print(get_transaction_details_json(transaction_type='s'))
