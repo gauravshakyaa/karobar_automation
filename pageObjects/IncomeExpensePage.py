@@ -32,26 +32,28 @@ class IncomeExpense(PaymentInOut):
         if transaction_type == "expense":
             if "expense" not in self.driver.current_url:
                 self.driver.get(self.base_url + "/expense")
+                time.sleep(1)
             else:
                 logging.info("Already on Expense page. Continuing...")
         elif transaction_type == "income":
             if "income" not in self.driver.current_url:
                 self.driver.get(self.base_url + "/income")
+                time.sleep(1)
+            else:
                 logging.info("Already on Income page. Continuing...")
         else:
             logging.error("Invalid transaction type. Please provide either 'expense' or 'income' argument in a transaction_type parameter")
 
     def click_add_income_expense_button(self, transaction_type):
-        if conftest.isElementPresent(self.driver, self.dialog_expense_xpath, timeout=2) or conftest.isElementPresent(self.driver, self.dialog_income_xpath, timeout=2):
-            pass
-        else:
+        if conftest.isElementPresent(self.driver, self.dialog_expense_xpath, timeout=1) is False or conftest.isElementPresent(self.driver, self.dialog_income_xpath, timeout=1) is False:
             self.navigate_to_income_expense_page(transaction_type)
-            time.sleep(2)
             assert transaction_type in self.driver.current_url
             try:
                 conftest.clickElement(self.driver, self.button_addIncomeExpense_xpath)
             except Exception:
                 logging.error("Unable to click Add New Expense button")
+        else:
+            pass
     
     def add_income_expense(self, transaction_type, category, number, total_amount, payment_mode):
         self.click_add_income_expense_button(transaction_type)

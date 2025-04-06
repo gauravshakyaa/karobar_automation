@@ -1,0 +1,11 @@
+Configurations/
+*.log
+*.ini
+test.py
+__pycache__/
+.venv/
+env/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/

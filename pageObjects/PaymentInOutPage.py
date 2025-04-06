@@ -26,7 +26,7 @@ class PaymentInOut:
         self.driver = driver
         self.base_url = ReadConfig.getURL()
 
-    def navigate_to_payment_in_out_page(self, transaction_type):
+    def navigate_to_payment_in_out_page(self, transaction_type) -> None:
         if transaction_type == "in" or transaction_type == "payment in":
             if "payment-in" not in self.driver.current_url:
                 self.driver.get(self.base_url + "/payment-in")
@@ -40,7 +40,7 @@ class PaymentInOut:
         else:
             logging.error("Invalid transaction type. Please provide either 'in' or 'out' argument in a transaction_type parameter")
 
-    def open_addPaymentInOut_dialog(self, transaction_type):
+    def open_addPaymentInOut_dialog(self, transaction_type) -> None:
         self.navigate_to_payment_in_out_page(transaction_type=transaction_type)
         conftest.waitForElement(self.driver, self.searchInputField_selectParty_name, condition="all")
         if conftest.isElementPresent(self.driver, self.searchInputField_selectParty_name, timeout=2) is False:

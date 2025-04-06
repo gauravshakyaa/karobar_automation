@@ -4,7 +4,7 @@ from utils.readProperties import ReadConfig
 from testCases import conftest
 from selenium.webdriver.remote.webdriver import WebDriver
 
-class Dashboard:
+class ExtractTextData:
     text_toReceiveAmount_xpath = (By.XPATH, "//h2[normalize-space()='To Receive']//following-sibling::p")
     text_toGiveAmount_xpath = (By.XPATH, "//h2[normalize-space()='To Give']//following-sibling::p")
     text_salesAmount_xpath = (By.XPATH, "//h2[contains(., 'Sales')]//following-sibling::p")
@@ -15,7 +15,7 @@ class Dashboard:
         self.driver = driver
         self.current_url = ReadConfig.getURL()
     
-    def navigate_to_dashboard_page(self):
+    def navigate_to_dashboard_page(self) -> None:
         if self.driver.current_url != self.current_url:
             self.driver.get(ReadConfig.getURL())
         else:
@@ -45,4 +45,5 @@ class Dashboard:
         self.navigate_to_dashboard_page()
         amount_with_currency_and_comma =  conftest.getTextFromTextField(self.driver, self.text_expenseAmount_xpath)
         return amount_with_currency_and_comma.strip("Rs. ").replace(",", "")
+    
     

@@ -63,7 +63,7 @@ def read_excel(filepath="utils//GuidedKarobarData.xlsx", sheet_name=None):
     try: 
         df = pd.read_excel(filepath, sheet_name=sheet_name)
         df = df.replace({float('nan'): None})
-
+        
         return df.to_dict(orient='records')
     except Exception as e:
         logging.error("Error while reading excel file: " + str(e))
@@ -75,7 +75,7 @@ def map_excel_keys(key_mapping, sheet_name):
         mapped_dict = {key_mapping.get(k.strip(), k.strip()): v for k, v in data.items()}
         mapped_data.append(mapped_dict)
     return mapped_data
-
+ 
 def get_transaction_details_json(transaction_type=None):
     if transaction_type == "s":
         transaction_details = read_excel("utils//GuidedKarobarData.xlsx", sheet_name="Sales Data")
@@ -145,4 +145,5 @@ def get_transaction_details_json(transaction_type=None):
     return json.dumps(structured_sales)
 
 # print(map_excel_keys(KEY_MAPPINGS["party_key_mapping"], "Party Data"))
-print(map_excel_keys(KEY_MAPPINGS["payment_in_out_key_mapping"], "Payments In Data"))
+# print(map_excel_keys(KEY_MAPPINGS["payment_in_out_key_mapping"], "Payments In Data"))
+print(get_transaction_details_json(transaction_type='s'))

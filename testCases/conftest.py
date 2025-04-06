@@ -17,7 +17,6 @@ def pytest_addoption(parser):
     parser.addoption(
         "--headless", action="store_true", default=False, help="Run tests in headless mode"
     )
-    
 
 setup_logging()
 @pytest.fixture()
@@ -173,7 +172,6 @@ def scroll_until_element_visible(driver, element_locator, scrollable_element_loc
                 return True
         except Exception:
             pass  
-        
         previous_scroll_height = driver.execute_script("return arguments[0].scrollTop;", scrollable_element)
         driver.execute_script(f"arguments[0].scrollTop += {scroll_by};", scrollable_element)
         waitForElement(driver, element_locator, timeout=2, condition="clickable")
