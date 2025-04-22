@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 from testCases import conftest
+from selenium.webdriver.common.keys import Keys
 
 class LoginPage:
     # Locators for Login Page
@@ -14,6 +15,18 @@ class LoginPage:
 
     # Locators for choose business page
     text_selectProfile_xpath = (By.XPATH, "//h2[normalize-space()='Select Profile']")
+
+    # Locators for setup account page
+    radioGroup_businessProfile_css = (By.CSS_SELECTOR, "button[value='business']")
+    radioGroup_personalProfile_css = (By.CSS_SELECTOR, "button[value='personal']")
+    button_logout_xpath = (By.XPATH, "//button[normalize-space()='Logout']")
+    button_continue_selectBusinessType_css = (By.CSS_SELECTOR, "button[type='submit']")
+
+    inputField_name_css = (By.CSS_SELECTOR, "input[name='name']")
+    inputField_businessName_css = (By.CSS_SELECTOR, "input[name='businessName']")
+    dropdown_businessCategory_xpath = (By.XPATH, "//label[normalize-space()='Business Category']//following-sibling::button")
+    search_businessCategory_css = (By.CSS_SELECTOR, "input[placeholder$='Search Business Category']")
+    button_createAccount_css = (By.CSS_SELECTOR, "button[type='submit']")
 
     def __init__(self, driver):
         self.driver = driver
@@ -39,3 +52,16 @@ class LoginPage:
         elif index:
             locator += f"//button[{index}]"
             conftest.clickElement(self.driver, locator)
+    
+    def create_business(self, account_name="Automation", business_name="Automation", business_type="Business"):
+        if business_type == "Business":
+            pass
+        elif business_type == "Personal":
+            conftest.clickElement(self.driver, self.radioGroup_personalProfile_css)
+        conftest.clickElement(self.driver, self.button_continue_selectBusinessType_css)
+    
+        conftest.sendKeys(self.driver, self.inputField_name_css, value=account_name)
+        conftest.sendKeys(self.driver, self.inputField_businessName_css, value=business_name)
+        conftest.clickElement(self.driver, self.dropdown_businessCategory_xpath)
+        conftest.send_keyboard_keys(self.driver, self.search_businessCategory_css, Keys.ENTER)
+        conftest.clickElement(self.driver, self.button_createAccount_css)

@@ -63,8 +63,8 @@ def read_excel(filepath="utils//GuidedKarobarData.xlsx", sheet_name=None):
     try: 
         df = pd.read_excel(filepath, sheet_name=sheet_name)
         df = df.replace({float('nan'): None})
-        
         return df.to_dict(orient='records')
+    
     except Exception as e:
         logging.error("Error while reading excel file: " + str(e))
 
@@ -120,7 +120,6 @@ def get_transaction_details_json(transaction_type=None):
                 "rate": float(match[3]) if match[3] else None,
                 "item_discount_percent": float(match[4]) if match[4] else None
             }
-           
             structured_billing_items.append(item)
 
         structured_row = {
@@ -146,4 +145,58 @@ def get_transaction_details_json(transaction_type=None):
 
 # print(map_excel_keys(KEY_MAPPINGS["party_key_mapping"], "Party Data"))
 # print(map_excel_keys(KEY_MAPPINGS["payment_in_out_key_mapping"], "Payments In Data"))
-print(get_transaction_details_json(transaction_type='s'))
+# print(get_transaction_details_json(transaction_type='s'))
+
+# excel = pd.read_excel("utils//GuidedKarobarData.xlsx", sheet_name="Data Overview")
+# excel = excel.replace({float('nan'): None})
+# print(excel.to_dict(orient='split'))
+
+df = pd.read_excel("utils//GuidedKarobarData.xlsx", sheet_name="Data Overview", header=None, nrows=23)
+
+df = df.replace({float('nan'): None})
+
+
+sections = {}
+current_section = None
+current_headers = None
+data_rows = []
+
+def save_section():
+    """Save the current section to the dictionary, processing appropriately."""
+    if not current_section or not current_headers:
+        return
+    df_section = pd.DataFrame(data_rows)
+    df_section.columns = current_headers[:len(df_section.columns)]
+    sections[current_section] = df_section.dropna(how='all').to_dict(orient='records')
+
+for idx, row in df.iterrows():
+    values = row.tolist()
+
+    # Detect section header (any containing "Overview")
+    if any(isinstance(v, str) and "Overview" in v for v in values):
+        save_section()
+        current_section = next(v for v in values if isinstance(v, str) and "Overview" in v)
+        current_headers = None
+        data_rows = []
+        continue
+
+    # Identify headers for tables
+    if current_section and not current_headers and any(isinstance(v, str) for v in values):
+        current_headers = values
+        continue
+
+    # Append data rows under section
+    if current_section and current_headers:
+        data_rows.append(values)
+
+# Save last section
+save_section()
+
+# Handle Dashboard (convert to key-value dictionary)
+dashboard_dict = {}
+for row in df.itertuples(index=False):
+    if len(row) >= 3 and isinstance(row[1], str) and isinstance(row[2], (float, int)):
+        dashboard_dict[row[1]] = row[2]
+sections["Dashboard Data Overview"] = dashboard_dict
+
+print(sections)

@@ -15,6 +15,7 @@ class InventoryPage:
     radioButton_productItemType_css = (By.CSS_SELECTOR, "button[value='product']")
     radioButton_serviceItemType_css = (By.CSS_SELECTOR, "button[value='service']")
     inputField_openingStock_css = (By.CSS_SELECTOR, "input[name='openingStock']")
+
     # Unit related locator
     button_selectUnit_xpath = (By.XPATH, "//button[normalize-space()='Select Units']")
     dropdown_primaryUnit_xpath = (By.XPATH, "//div[@role='dialog']//label[text()='Primary Unit']")
@@ -48,12 +49,19 @@ class InventoryPage:
     button_saveAddStock_xpath = (By.XPATH, "//div[contains(text(),'Add Stock')]")
     button_saveReduceStock_xpath = (By.XPATH, "//div[contains(text(),'Reduce Stock')]")
     text_itemNameTitle_xpath = (By.XPATH, "//section[@class='md:p-6 p-4']//div[1]//div[1]//div[2]//h2")
+
     # Locators for item adjustment dialog
     inputField_adjustmentQuantity_xpath = (By.XPATH, "//div[@role='dialog']//input[@name='quantity']")
     select_adjustmentItemUnit_xpath = (By.XPATH, "//div[@role='dialog']//select")
     inputField_adjustmentRate_xpath = (By.XPATH, "//div[@role='dialog']//input[@name='rate']")
     inputField_adjustmentNote_xpath = (By.XPATH, "//div[@role='dialog']//input[@name='note']")
     button_addReduceStock_xpath = (By.XPATH, "//div[@role='dialog']//button[@type='submit']")
+
+    # Locatos for add new unit page
+    button_addNewUnit_xpath = (By.XPATH, "//button[normalize-space()='Add New Unit']")
+    inputField_unitName_name = (By.NAME, "name")
+    inputField_unitShortName_name = (By.NAME, "short")
+    button_saveNewUnit_css = (By.CSS_SELECTOR, "button[type='submit']")
 
     def __init__(self, driver: WebDriver):
         self.driver = driver
@@ -177,6 +185,13 @@ class InventoryPage:
         else:
             conftest.clickElement(self.driver, self.tabList_othersTab_xpath)
             conftest.sendKeys(self.driver, self.inputField_description_name, description)
+
+    def addNewUnit(self, unit_name = "GRAMS", unit_short_name="GM"):
+        self.driver.get(ReadConfig.getURL() + "/settings/feature-settings/inventory/units")
+        conftest.clickElement(self.driver, self.button_addNewUnit_xpath)
+        conftest.sendKeys(self.driver, self.inputField_unitName_name, unit_name)
+        conftest.sendKeys(self.driver, self.inputField_unitShortName_name, unit_short_name)
+        conftest.clickElement(self.driver, self.button_saveNewUnit_css)
 
     def clickSaveButton(self):
         conftest.clickElement(self.driver, self.button_save_css)

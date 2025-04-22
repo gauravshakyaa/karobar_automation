@@ -56,23 +56,27 @@ def nav_to_dashboard(setup):
     login_page.setPhoneNumber(ReadConfig.getPhoneNumber())
     login_page.clickContinueButton()
     login_page.setOTP(ReadConfig.getOTP())
-    waitForElement(driver, login_page.text_selectProfile_xpath, timeout=2)
+    waitForElement(driver, login_page.text_selectProfile_xpath, timeout=3)
     if "choose-account" in driver.current_url:
-        login_page.selectBusiness(business_name="pl")
-    else:
-        pass
+        logging.info("Select business page is displayed. Continuing...")
+        login_page.selectBusiness(business_name="offline data test")
+        logging.info("Business selected successfully.")
+    elif "account-setup" in driver.current_url:
+        logging.info("Setup account page is displayed. Continuing...")
+        login_page.create_business(account_name="Automation", business_name="Automation")
+        logging.info("Business created successfully.")
 
 def headless_chrome():
     print()
 
-def get_text_from_attribute(driver, locator, attribute):
+def get_text_from_attribute(driver, locator, attribute, log_exception=True):
     try:
         waitForElement(driver, locator, timeout=3)
         return driver.find_element(*locator).get_attribute(attribute)
-    except Exception:
-        logging.error(f"An error occured in get_text_from_attribute with locator {locator}")
+    except Exception as e:
+        handle_exception(exception=e, locator=locator, extra_message="while getting text from attribute.", log_exception=log_exception)
 
-def sendKeys(driver, locator, value, clear_field=True, condition="visible", timeout=3):
+def sendKeys(driver, locator, value, clear_field=True, condition="visible", timeout=3, log_exception=True):
     try: 
         logging.info(f"Sending keys by locator {locator}, value: {value}")
         waitForElement(driver, locator, timeout=timeout, condition=condition)
@@ -80,10 +84,10 @@ def sendKeys(driver, locator, value, clear_field=True, condition="visible", time
             driver.find_element(*locator).send_keys(Keys.CONTROL + 'a' + Keys.DELETE)
         driver.find_element(*locator).send_keys(value)
     except Exception as e:
-        handle_exception(exception=e, locator=locator, value=value, extra_message="while sending keys.")
+        handle_exception(exception=e, locator=locator, value=value, extra_message="while sending keys.", log_exception=log_exception)
 
     
-def clickElement(driver, locator, by=None, timeout=3, condition="visible"):
+def clickElement(driver, locator, by=None, timeout=3, condition="visible", log_exception=True):
     try:
         if by is None:
             logging.info(f"Clicking an element with locator '{locator}'")
@@ -94,8 +98,7 @@ def clickElement(driver, locator, by=None, timeout=3, condition="visible"):
             waitForElement(driver, locator, by=by, timeout=timeout, condition=condition)
             driver.find_element(by, locator).click() 
     except Exception as e:
-        handle_exception(exception=e, locator=locator, extra_message="while clicking an element.")
-        raise
+        handle_exception(exception=e, locator=locator, extra_message="while clicking an element.", log_exception=log_exception)
     
 def clearInputField(driver, locator):
     try:
@@ -103,6 +106,13 @@ def clearInputField(driver, locator):
         driver.find_element(*locator).send_keys(Keys.CONTROL + "a" + Keys.DELETE)
     except Exception as e:
         handle_exception(exception=e, locator=locator, extra_message="while clearing input field.")
+
+def send_keyboard_keys(driver, locator, keys):
+    try:
+        waitForElement(driver, locator, timeout=3)
+        driver.find_element(*locator).send_keys(keys)
+    except Exception as e:
+        handle_exception(exception=e, locator=locator, extra_message="while sending enter key.")
 
 def getTextFromTextField(driver, locator):
     try:
@@ -181,22 +191,23 @@ def scroll_until_element_visible(driver, element_locator, scrollable_element_loc
             break
     return False
 
-def handle_exception(exception, locator=None, value=None, extra_message=None):
-    error_message = ""
-    if locator and value:
-        error_message = f" Locator: {locator}, Value: {value}, {extra_message}"
-    if isinstance(exception, NoSuchElementException):
-        logging.error(f"Error: The specified element was not found on the page.{error_message}, locator: {locator}")
-    elif isinstance(exception, TimeoutException):
-        logging.error(f"Error: The operation timed out while waiting for the element.{error_message}, locator: {locator}")
-    elif isinstance(exception, ElementNotInteractableException):
-        logging.error(f"Error: The element is present but not interactable.{error_message}, locator: {locator}")
-    elif isinstance(exception, StaleElementReferenceException):
-        logging.error(f"Error: The element is no longer attached to the DOM.{error_message}, locator: {locator}")
-    elif isinstance(exception, WebDriverException):
-        logging.error(f"Error: A general WebDriver error occurred. Locator: {locator}, {error_message}")
-    else:
-        logging.error(f"Unexpected Error: {exception}{error_message}")
+def handle_exception(exception, locator=None, value=None, extra_message=None, log_exception=True):
+    if log_exception:
+        error_message = ""
+        if locator and value:
+            error_message = f" Locator: {locator}, Value: {value}, {extra_message}"
+        if isinstance(exception, NoSuchElementException):
+            logging.error(f"Error: The specified element was not found on the page.{error_message}, locator: {locator}")
+        elif isinstance(exception, TimeoutException):
+            logging.error(f"Error: The operation timed out while waiting for the element.{error_message}, locator: {locator}")
+        elif isinstance(exception, ElementNotInteractableException):
+            logging.error(f"Error: The element is present but not interactable.{error_message}, locator: {locator}")
+        elif isinstance(exception, StaleElementReferenceException):
+            logging.error(f"Error: The element is no longer attached to the DOM.{error_message}, locator: {locator}")
+        elif isinstance(exception, WebDriverException):
+            logging.error(f"Error: A general WebDriver error occurred. Locator: {locator}, {error_message}")
+        else:
+            logging.error(f"Unexpected Error: {exception}{error_message}")
 
 def clean_allure_results():
     results_dir = "AllureReport"

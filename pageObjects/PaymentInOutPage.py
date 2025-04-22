@@ -89,13 +89,14 @@ class PaymentInOut:
             return conftest.get_text_from_attribute(self.driver, locator=self.inputField_receiptNumber_xpath, attribute="value")
         except Exception:
             logging.warning("Error while getting receipt number from payment in/out dialog")
+
     def click_save_button(self):
         try:
             logging.info("Clicking save & add new button")
-            conftest.clickElement(self.driver, self.button_saveAddNew_xpath)
+            conftest.clickElement(self.driver, self.button_saveAddNew_xpath, condition="all")
         except Exception:
             logging.info("Clicking save button")
-            conftest.clickElement(self.driver, self.button_save_xpath)
+            conftest.clickElement(self.driver, self.button_save_xpath, condition="all")
     
     def add_payment_in_out(self, transaction_type, party_name, invoice_no, total_amount, payment_mode):
         try:

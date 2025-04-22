@@ -49,18 +49,19 @@ class IncomeExpense(PaymentInOut):
             self.navigate_to_income_expense_page(transaction_type)
             assert transaction_type in self.driver.current_url
             try:
-                conftest.clickElement(self.driver, self.button_addIncomeExpense_xpath)
+                conftest.clickElement(self.driver, self.button_addIncomeExpense_xpath, log_exception=False)
             except Exception:
                 logging.error("Unable to click Add New Expense button")
         else:
-            pass
+            logging.info("Add Income/Expense dialog is already open. Continuing...")
     
     def add_income_expense(self, transaction_type, category, number, total_amount, payment_mode):
         self.click_add_income_expense_button(transaction_type)
-        self.set_category(category)
         self.set_invoice_no(number)
+        self.set_category(category)
         self.set_total_amount(total_amount)
         self.set_payment_mode(payment_mode)
+        self.click_save_button()
 
     def add_bulk_income_expense(self, transaction_type):
         income_expense_mapping_data = excel_utils.KEY_MAPPINGS["income_expense_key_mapping"]
@@ -72,4 +73,4 @@ class IncomeExpense(PaymentInOut):
             logging.error("Invalid transaction type")
         for data in mapped_data:
             self.add_income_expense(transaction_type, category=data["category"], number=data["number"], total_amount=data["total_amount"], payment_mode=data["payment_mode"])
-            self.click_save_button()
+            
